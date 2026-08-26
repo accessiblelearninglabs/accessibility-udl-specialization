@@ -770,7 +770,8 @@ footer{border-top:1px solid var(--hair);padding:20px 0 40px;margin-top:34px;
    reads it, which keeps the list and the map in step. */
 (function(){
   var SLUGS = {"variability": "https://www.accessiblelearninglabs.com/designing-for-variability", "grounding": "https://www.accessiblelearninglabs.com/grounding", "institutions": "https://www.accessiblelearninglabs.com/institutions-governance-and-change", "rights": "https://www.accessiblelearninglabs.com/rights-duty-and-accommodation", "sectors": "https://www.accessiblelearninglabs.com/sectors-and-participation", "services": "https://www.accessiblelearninglabs.com/services", "standards": "https://www.accessiblelearninglabs.com/standards-and-technical-practice"}, LABELS = {"variability": "Designing for variability", "grounding": "Grounding", "institutions": "Institutions, governance and change", "rights": "Rights, duty and accommodation", "sectors": "Sectors and participation", "services": "Services", "standards": "Standards and technical practice"}, COLS = {"grounding": "#477ba8", "rights": "#567a9d", "variability": "#617993", "standards": "#69788b", "institutions": "#717781", "sectors": "#767677", "services": "#303e44"};
-  var q = (new URLSearchParams(location.search).get('group') ||
+  var qs = new URLSearchParams(location.search);
+  var q = (qs.get('group') || qs.get('area') ||
            location.hash.replace('#','') || 'grounding').toLowerCase().trim();
   var byslug = {};
   Object.keys(SLUGS).forEach(function(k){ byslug[SLUGS[k].split('/').pop()] = k; });
