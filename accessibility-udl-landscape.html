@@ -65,8 +65,9 @@ h1{font-size:clamp(1.85rem,4.2vw,2.7rem);letter-spacing:-.01em;max-width:22ch;}
 .seg button:last-child{border-right:0;}
 .seg button[aria-pressed="true"]{background:var(--ink-strong);color:#fff;font-weight:600;}
 .seg button:hover:not([aria-pressed="true"]){background:var(--sunk);color:var(--ink-strong);}
-.plain{min-height:44px;padding:0 4px;background:none;border:0;cursor:pointer;
-  font-size:.9rem;color:var(--muted);text-decoration:underline;text-underline-offset:3px;}
+.plain{display:inline-flex;align-items:center;min-height:46px;padding:0 6px;background:none;
+  border:0;cursor:pointer;font-size:.9rem;color:var(--muted);text-decoration:underline;
+  text-underline-offset:3px;}
 .plain:hover{color:var(--ink-strong);}
 
 .stage{display:grid;grid-template-columns:1fr 320px;gap:1px;background:var(--hair-soft);
@@ -922,7 +923,11 @@ function draw(){
       if (!m.length) return;
       var mx = 0, my = 1e9;
       m.forEach(function(x){ mx += x.sx; if (x.sy - x.sr < my) my = x.sy - x.sr; });
-      cx2.fillText(GL[gk].toUpperCase(), mx / m.length, my - 11);
+      var txt = GL[gk].toUpperCase();
+      var half = cx2.measureText(txt).width / 2 + 8;
+      cx2.fillText(txt,
+        Math.max(half, Math.min(W - half, mx / m.length)),
+        Math.max(15, my - 11));
     });
   }
 }
@@ -938,6 +943,35 @@ function tick(){
   draw();
   if (moving) requestAnimationFrame(tick);
 }
+/* Scales and centres the layout so every visible circle fits the canvas,
+   with room above each cluster for its label. */
+function fitView(){
+  var vis = NODES.filter(function(n){ return !off[n.group]; });
+  if (!vis.length) return;
+  var minX = 1e9, maxX = -1e9, minY = 1e9, maxY = -1e9;
+  vis.forEach(function(n){
+    var x = n.tx, y = n.ty, z = n.tz;
+    if (dim === 3){
+      var cy = Math.cos(cam.ry), sy = Math.sin(cam.ry);
+      var x1 = x * cy - z * sy, z1 = x * sy + z * cy;
+      var cxr = Math.cos(cam.rx), sxr = Math.sin(cam.rx);
+      x = x1; y = y * cxr - z1 * sxr;
+    }
+    var r = RAD[n.depth] + 4;
+    if (x - r < minX) minX = x - r;
+    if (x + r > maxX) maxX = x + r;
+    if (y - r < minY) minY = y - r;
+    if (y + r > maxY) maxY = y + r;
+  });
+  var padX = 74, padY = 46, topPad = 26;
+  var spanX = Math.max(1, maxX - minX), spanY = Math.max(1, maxY - minY + topPad);
+  var k = Math.min((W - padX * 2) / spanX, (H - padY * 2) / spanY);
+  if (dim === 3) k *= 0.92;
+  cam.k = Math.max(0.35, Math.min(1.5, k));
+  cam.x = -((minX + maxX) / 2) * cam.k;
+  cam.y = -((minY + maxY) / 2) * cam.k + (topPad / 2) * cam.k;
+}
+
 var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 function settle(){
   if (reduce){
@@ -1037,6 +1071,7 @@ var mg = document.getElementById('m-group'), ma = document.getElementById('m-aff
 pair(mg, ma, function(isGroup){
   mode = isGroup ? 'group' : 'affinity';
   if (isGroup) layoutGroup(); else layoutAffinity();
+  fitView();
   document.getElementById('cv-desc').textContent = isGroup
     ? 'A map of thirty-five resources positioned by group. The same content is available as a list further down this page.'
     : 'A map of thirty-five resources positioned by shared theme, so resources that draw on the same ideas sit close together regardless of group.';
@@ -1048,10 +1083,11 @@ pair(d2, d3, function(is2){
   document.getElementById('hint').textContent = is2
     ? 'Drag to move · scroll to zoom'
     : 'Drag to rotate · shift-drag to move · scroll to zoom';
-  draw();
+  fitView(); draw();
 });
 document.getElementById('reset').addEventListener('click', function(){
   cam = {x:0, y:0, k:1, ry:0.5, rx:0.22};
+  fitView();
   show(null);
 });
 
@@ -1074,9 +1110,10 @@ document.getElementById('reset').addEventListener('click', function(){
   el.querySelector('.rec-t').style.cursor = 'pointer';
 });
 
-window.addEventListener('resize', function(){ resize(); draw(); });
+window.addEventListener('resize', function(){ resize(); fitView(); draw(); });
 resize();
 layoutGroup();
+fitView();
 NODES.forEach(function(n){ n.x = n.tx * 0.2; n.y = n.ty * 0.2; n.z = n.tz; });
 settle();
 })();
