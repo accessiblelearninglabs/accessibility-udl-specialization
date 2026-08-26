@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Accessibility and Universal Design for Learning — a landscape of knowledge resources</title>
-<meta name="description" content="An interactive map of thirty-five knowledge resources and services on accessibility, disability and Universal Design for Learning, arranged in six groups with their shared themes and sources." />
+<title>Group map · Accessible Learning Labs</title>
+<meta name="description" content="A compact interactive map of the resources within one group of the accessibility and Universal Design for Learning landscape." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
@@ -13,9 +13,9 @@
   --paper:#ffffff; --sunk:#f7f8f9; --panel:#ffffff;
   --ink:#43525a; --ink-strong:#303e44; --muted:#576a73; --stone:#66747b;
   --hair:#d5dde1; --hair-soft:#eef1f2; --edge:#7b8990;
-  --focus:#303e44;
+  --maxw:1080px;
   --sans:"Asap",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --shell:74rem; --ease:cubic-bezier(.22,.61,.36,1);
+  --ease:cubic-bezier(.22,.61,.36,1);
 }
   [data-g="grounding"]{--g:#477ba8;}
   [data-g="rights"]{--g:#567a9d;}
@@ -26,68 +26,82 @@
   [data-g="services"]{--g:#303e44;}
 
 *{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
 html{-webkit-text-size-adjust:100%;}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
-  font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
-button,input,select,textarea,optgroup,legend{font:inherit;color:inherit;}
-h1,h2,h3{color:var(--ink-strong);line-height:1.25;font-weight:600;margin:0;}
-p{margin:0 0 .85em;}
+body{font-family:var(--sans);color:var(--ink);background:var(--paper);
+  font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+button,input,select,textarea,optgroup,legend,summary{font:inherit;color:inherit;}
+h2,h3{color:var(--ink-strong);line-height:1.3;font-weight:600;margin:0;}
+p{margin:0 0 .8em;}
 a{color:var(--ink-strong);text-underline-offset:3px;text-decoration-thickness:1px;}
 a:hover{text-decoration-thickness:2px;}
-:focus-visible{outline:3px solid var(--focus);outline-offset:2px;
+:focus-visible{outline:3px solid var(--ink-strong);outline-offset:2px;
   box-shadow:0 0 0 6px rgba(255,255,255,.95);border-radius:3px;}
-
-.skip{position:absolute;left:-9999px;top:0;background:var(--ink-strong);color:#fff;
-  padding:12px 18px;z-index:60;text-decoration:none;border-radius:0 0 4px 0;}
-.skip:focus{left:0;}
 .sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
   clip:rect(0 0 0 0);white-space:nowrap;border:0;}
 
-.wrap{max-width:var(--shell);margin:0 auto;padding:0 20px;}
-.masthead{padding:52px 0 12px;}
-.eyebrow{font-size:11px;letter-spacing:.16em;word-spacing:.14em;text-transform:uppercase;
-  font-weight:600;color:var(--muted);margin:0 0 14px;}
-h1{font-size:clamp(1.85rem,4.2vw,2.7rem);letter-spacing:-.01em;max-width:22ch;}
-.rule{height:3px;width:64px;background:#477ba8;margin:20px 0 22px;border-radius:2px;}
-.lede{font-size:1.09rem;color:var(--ink);max-width:64ch;}
-.orient{max-width:64ch;color:var(--muted);font-size:.97rem;
-  border-left:3px solid var(--hair);padding:2px 0 2px 16px;margin:22px 0 0;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px 8px;}
 
-.controls{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:flex-end;
-  padding:30px 0 14px;border-bottom:1px solid var(--hair-soft);}
-.cgroup{display:flex;flex-direction:column;gap:7px;}
-.clabel{font-size:10px;letter-spacing:.14em;word-spacing:.14em;text-transform:uppercase;
-  font-weight:600;color:var(--stone);}
-.seg{display:flex;border:1px solid var(--hair);border-radius:5px;overflow:hidden;background:var(--paper);}
-.seg button{min-height:44px;padding:0 16px;background:none;border:0;cursor:pointer;
-  font-size:.9rem;color:var(--muted);border-right:1px solid var(--hair);
-  transition:background .18s var(--ease),color .18s var(--ease);}
-.seg button:last-child{border-right:0;}
-.seg button[aria-pressed="true"]{background:var(--ink-strong);color:#fff;font-weight:600;}
-.seg button:hover:not([aria-pressed="true"]){background:var(--sunk);color:var(--ink-strong);}
-.plain{display:inline-flex;align-items:center;min-height:46px;padding:0 6px;background:none;
-  border:0;cursor:pointer;font-size:.9rem;color:var(--muted);text-decoration:underline;
-  text-underline-offset:3px;}
-.plain:hover{color:var(--ink-strong);}
+.note{margin:0 0 14px;padding:16px 18px;background:var(--sunk);
+  border:1px solid var(--hair-soft);border-radius:5px;font-size:14px;max-width:840px;}
+.note strong{color:var(--ink-strong);}
+.note p:last-child{margin:0;}
 
-.stage{display:grid;grid-template-columns:1fr 320px;gap:1px;background:var(--hair-soft);
-  border:1px solid var(--hair-soft);border-radius:8px;overflow:hidden;margin:22px 0 0;height:min(66vh,600px);min-height:430px;}
-.cwrap{position:relative;background:var(--paper);min-width:0;}
-canvas{display:block;width:100%;height:100%;touch-action:none;}
-.hint{position:absolute;left:14px;bottom:12px;font-size:.78rem;color:var(--stone);
-  background:rgba(255,255,255,.9);padding:3px 8px;border-radius:4px;pointer-events:none;}
-.side{background:var(--panel);overflow-y:auto;padding:20px 20px 26px;min-width:0;}
-.side-empty{color:var(--muted);font-size:.94rem;}
+.controls{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;margin:0 0 12px;}
+.spacer{flex:1 1 auto;}
+.areamark{display:flex;align-items:center;gap:9px;margin:0;font-size:11px;
+  letter-spacing:.14em;word-spacing:.14em;text-transform:uppercase;font-weight:600;
+  color:var(--ink-strong);}
+.tf{display:flex;flex-wrap:wrap;gap:6px;}
+.lg{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 14px;
+  border:1px solid var(--hair);border-radius:100px;background:var(--paper);cursor:pointer;
+  font-size:10.5px;letter-spacing:.12em;word-spacing:.14em;text-transform:uppercase;
+  font-weight:600;color:var(--stone);transition:border-color .18s var(--ease),color .18s var(--ease);}
+.lg:hover{border-color:var(--edge);color:var(--ink-strong);}
+.lg[aria-pressed="true"]{border-color:var(--ink-strong);color:var(--ink-strong);}
+.lg-all{padding:0 18px;}
+.lg-n{font-size:10px;color:var(--stone);font-variant-numeric:tabular-nums;
+  font-weight:400;letter-spacing:.04em;}
+.dot{width:10px;height:10px;border-radius:100px;background:var(--g,var(--stone));
+  flex-shrink:0;display:inline-block;}
+.areas{list-style:none;padding:0;margin:8px 0 0;display:flex;flex-direction:column;gap:2px;}
+.areas li{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;}
+.areas a{display:inline-flex;align-items:center;gap:9px;min-height:40px;font-size:13.5px;}
+.ga-n{font-size:12px;color:var(--stone);}
+.grp-l{font-size:13px;margin:6px 0 0;}
+.vtoggle{display:flex;border:1px solid var(--hair);border-radius:100px;overflow:hidden;}
+.vbtn{font-size:10.5px;letter-spacing:.12em;word-spacing:.14em;text-transform:uppercase;font-weight:600;
+  color:var(--stone);background:transparent;border:none;border-right:1px solid var(--hair);
+  min-height:44px;padding:0 14px;cursor:pointer;transition:background .2s var(--ease),color .2s var(--ease);}
+.vbtn:last-child{border-right:0;}
+.vbtn[aria-pressed="true"]{background:var(--ink-strong);color:#fff;}
+.vbtn:hover:not([aria-pressed="true"]){background:var(--sunk);color:var(--ink-strong);}
+.linkbtn{font-size:10.5px;letter-spacing:.12em;word-spacing:.14em;text-transform:uppercase;font-weight:600;
+  color:var(--stone);background:none;border:none;min-height:44px;padding:0 6px;cursor:pointer;
+  text-decoration:underline;text-underline-offset:3px;}
+.linkbtn:hover{color:var(--ink-strong);}
+
+.stage{position:relative;display:grid;grid-template-columns:1fr 300px;gap:1px;
+  background:var(--hair);border:1px solid var(--hair);border-radius:6px;overflow:hidden;}
+.canvas-wrap{position:relative;background:var(--paper);min-height:520px;height:600px;
+  max-height:660px;touch-action:none;}
+canvas{display:block;width:100%;height:100%;}
+.hint{position:absolute;left:14px;bottom:12px;font-size:12px;color:var(--stone);
+  background:rgba(255,255,255,.92);padding:3px 8px;border-radius:4px;pointer-events:none;}
+.panel{background:var(--panel);padding:20px 18px 24px;overflow-y:auto;
+  height:600px;max-height:660px;min-height:520px;}
+.empty{color:var(--muted);font-size:14px;}
+.empty strong{display:block;color:var(--ink-strong);margin-bottom:5px;}
 .p-g{font-size:10px;letter-spacing:.14em;word-spacing:.14em;text-transform:uppercase;
   font-weight:700;color:var(--g,var(--ink-strong));margin:0 0 8px;}
-.p-t{font-size:1.12rem;margin:0 0 5px;}
-.p-s{color:var(--muted);font-size:.93rem;font-style:italic;margin:0 0 12px;}
-.p-b{font-size:.95rem;margin:0 0 12px;}
+.p-t{font-size:16px;margin:0 0 5px;}
+.p-s{color:var(--muted);font-size:13px;font-style:italic;margin:0 0 11px;}
+.p-b{font-size:13.5px;margin:0 0 11px;}
 .p-l{font-size:10px;letter-spacing:.13em;word-spacing:.14em;text-transform:uppercase;
-  font-weight:600;color:var(--stone);margin:14px 0 4px;}
-.p-v{font-size:.9rem;color:var(--ink);margin:0;}
+  font-weight:600;color:var(--stone);margin:13px 0 3px;}
+.p-v{font-size:13px;color:var(--ink);margin:0;}
 .p-v a{color:var(--ink);}
-.p-close{margin-top:18px;}
+.p-close{margin-top:16px;font-size:13px;}
 
 .tt{position:absolute;pointer-events:none;opacity:0;transform:translateY(-3px);
   transition:opacity .14s var(--ease);background:var(--ink-strong);color:#fff;
@@ -105,165 +119,121 @@ canvas{display:block;width:100%;height:100%;touch-action:none;}
 .chip-go .cd{width:9px;height:9px;border-radius:100px;background:var(--sw);
   flex-shrink:0;display:inline-block;}
 .rec-t[role="button"]:hover{text-decoration:underline;text-underline-offset:3px;}
-.tf{display:flex;flex-wrap:wrap;gap:6px;}
-.lg{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 14px;
-  border:1px solid var(--hair);border-radius:100px;background:var(--paper);cursor:pointer;
-  font-size:10.5px;letter-spacing:.12em;word-spacing:.14em;text-transform:uppercase;
-  font-weight:600;color:var(--stone);transition:border-color .18s var(--ease),color .18s var(--ease);}
-.lg:hover{border-color:var(--edge);color:var(--ink-strong);}
-.lg[aria-pressed="true"]{border-color:var(--ink-strong);color:var(--ink-strong);}
-.lg-all{padding:0 18px;}
-.lg-n{font-size:10px;color:var(--stone);font-variant-numeric:tabular-nums;
-  font-weight:400;letter-spacing:.04em;}
-.legend{display:flex;flex-wrap:wrap;gap:12px 34px;padding:16px 0 0;}
-.lgrp{display:flex;flex-direction:column;gap:7px;}
+.legend{display:flex;flex-wrap:wrap;gap:10px 34px;padding:14px 0 0;}
+.lgrp{display:flex;flex-direction:column;gap:6px;}
 .lt{font-size:10px;letter-spacing:.14em;word-spacing:.14em;text-transform:uppercase;
   font-weight:600;color:var(--stone);}
-.row{display:flex;flex-wrap:wrap;gap:7px 18px;align-items:center;}
-.li{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;color:var(--muted);}
+.row{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center;}
+.li{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;color:var(--muted);}
 .sz{border-radius:100px;background:var(--edge);flex-shrink:0;display:inline-block;}
-.areas{list-style:none;padding:0;margin:8px 0 0;display:flex;flex-direction:column;gap:2px;}
-.areas li{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;}
-.areas a{display:inline-flex;align-items:center;gap:9px;min-height:40px;font-size:.95rem;}
-.ga-n{font-size:12px;color:var(--stone);}
-.grp-l{font-size:.9rem;margin:6px 0 0;}
-.dot{width:10px;height:10px;border-radius:100px;background:var(--g,var(--stone));
-  flex-shrink:0;display:inline-block;}
 
-.body{padding:56px 0 0;}
-.sec-mark{font-size:10px;letter-spacing:.16em;word-spacing:.14em;text-transform:uppercase;
-  font-weight:600;color:var(--stone);margin:0 0 10px;}
-h2{font-size:1.4rem;}
-.intro-2{max-width:64ch;color:var(--muted);font-size:.97rem;margin:10px 0 0;}
+.section{padding:18px 0 0;max-width:840px;}
+.section h2{font-size:16px;margin:0 0 3px;}
+.section > p{font-size:13.5px;color:var(--muted);margin:0 0 7px;}
+details.aslist{border:1px solid var(--hair);border-radius:5px;background:var(--paper);margin:6px 0 0;}
+details.aslist > summary{cursor:pointer;padding:0 16px;min-height:44px;display:flex;
+  align-items:center;font-size:13.5px;font-weight:600;color:var(--ink-strong);
+  border-radius:5px;list-style-position:inside;}
+details.aslist > summary:hover{background:var(--sunk);}
+details[open].aslist > summary{border-bottom:1px solid var(--hair-soft);border-radius:5px 5px 0 0;}
+.listbody{padding:6px 20px 20px;}
 
-.toc{columns:2;column-gap:34px;max-width:60ch;margin:20px 0 0;padding:0;list-style:none;}
-.toc li{break-inside:avoid;margin:0 0 7px;}
-.toc a{display:inline-flex;align-items:baseline;gap:9px;font-size:.94rem;}
-
-.grp{padding:44px 0 0;border-top:1px solid var(--hair-soft);margin-top:44px;}
-.grp:first-of-type{border-top:0;margin-top:0;}
-.grp-h{display:flex;align-items:center;gap:11px;font-size:1.3rem;}
-.grp-d{color:var(--muted);font-size:.96rem;max-width:62ch;margin:9px 0 0;}
-.rec{border-left:3px solid var(--g,var(--hair));padding:2px 0 2px 18px;margin:30px 0 0;
-  max-width:66ch;scroll-margin-top:20px;}
-.rec-t{font-size:1.06rem;margin:0 0 4px;}
-.rec-s{color:var(--muted);font-size:.92rem;font-style:italic;margin:0 0 10px;}
-.rec-meta{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 11px;}
-.chip{font-size:11px;letter-spacing:.05em;color:var(--muted);background:var(--sunk);
-  border:1px solid var(--hair-soft);border-radius:100px;padding:3px 10px;}
+.grp{padding:22px 0 0;}
+.grp-h{display:flex;align-items:center;gap:10px;font-size:14.5px;}
+.grp-d{color:var(--muted);font-size:13px;max-width:62ch;margin:6px 0 0;}
+.rec{border-left:3px solid var(--g,var(--hair));padding:2px 0 2px 15px;margin:20px 0 0;
+  max-width:66ch;scroll-margin-top:16px;}
+.rec-t{font-size:14.5px;margin:0 0 3px;}
+.rec-s{color:var(--muted);font-size:12.5px;font-style:italic;margin:0 0 9px;}
+.rec-meta{display:flex;flex-wrap:wrap;gap:5px;margin:0 0 9px;}
+.chip{font-size:10.5px;letter-spacing:.05em;color:var(--muted);background:var(--sunk);
+  border:1px solid var(--hair-soft);border-radius:100px;padding:2px 9px;}
 .chip-g{color:var(--g);border-color:var(--g);background:transparent;font-weight:600;}
-.rec-b{font-size:.96rem;margin:0 0 10px;}
-.rec-g{font-size:.89rem;color:var(--muted);margin:0 0 5px;}
+.rec-b{font-size:13.5px;margin:0 0 9px;}
+.rec-g{font-size:12.5px;color:var(--muted);margin:0 0 4px;}
 .lbl{font-size:10px;letter-spacing:.13em;word-spacing:.14em;text-transform:uppercase;
-  font-weight:600;color:var(--stone);margin-right:7px;}
+  font-weight:600;color:var(--stone);margin-right:6px;}
 
-.bib-h{font-size:1rem;margin:30px 0 10px;color:var(--muted);font-weight:600;}
+.bib-h{font-size:13px;margin:20px 0 8px;color:var(--muted);font-weight:600;}
 ol.bib{padding-left:2.1em;margin:0;max-width:70ch;}
-ol.bib li{margin:0 0 11px;font-size:.92rem;line-height:1.5;padding-left:.3em;}
+ol.bib li{margin:0 0 9px;font-size:12.5px;line-height:1.5;padding-left:.3em;}
 .ext{white-space:nowrap;}
 .exti{display:inline-block;width:.68em;height:.68em;margin-left:.3em;vertical-align:-.02em;
   background-color:currentColor;
   -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 3h8.5v8.5h-2V6.4L4.4 13 3 11.6 9.6 5H4.5z'/%3E%3C/svg%3E") no-repeat center/contain;
   mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 3h8.5v8.5h-2V6.4L4.4 13 3 11.6 9.6 5H4.5z'/%3E%3C/svg%3E") no-repeat center/contain;}
 
-footer{margin:64px 0 0;border-top:1px solid var(--hair);padding:26px 0 60px;
-  color:var(--muted);font-size:.88rem;}
-.meta{display:flex;flex-wrap:wrap;gap:6px 20px;margin:0;}
+footer{border-top:1px solid var(--hair);padding:20px 0 40px;margin-top:34px;
+  font-size:11px;letter-spacing:.13em;word-spacing:.14em;text-transform:uppercase;
+  color:var(--stone);font-weight:600;}
 
 .js-only{display:none;}
 .has-js .js-only{display:block;}
-.has-js .stage{display:grid;}
-.has-js .no-js-note{display:none;}
+.has-js .nojs{display:none;}
 
 @media (max-width:860px){
-  .stage{grid-template-columns:1fr;height:auto;}
-  .cwrap{height:min(56vh,420px);}
-  .side{max-height:340px;}
-  .toc{columns:1;}
+  .stage{grid-template-columns:1fr;}
+  .canvas-wrap{height:min(56vh,420px);min-height:320px;}
+  .panel{height:auto;min-height:0;max-height:320px;}
 }
 @media (max-width:420px){
-  body{font-size:16px;}
-  .wrap{padding:0 16px;}
+  .wrap{padding:0 16px 8px;}
 }
 @media (prefers-reduced-motion:reduce){
   *{animation-duration:.01ms !important;transition-duration:.01ms !important;}
 }
 @media (prefers-contrast:more){
-  :root{--hair:#5c6a71;--hair-soft:#9aa5ab;--muted:#3c4a52;--stone:#4a575e;}
-  .chip{border-color:var(--hair);}
+  :root{--hair:#5c6a71;--hair-soft:#9aa5ab;--muted:#3c4a52;--stone:#4a575e;--edge:#4a575e;}
 }
 @media print{
-  .controls,.stage,.legend,.hint,.skip{display:none !important;}
-  body{font-size:11pt;}
+  .controls,.stage,.legend,.hint{display:none !important;}
+  details.aslist{border:0;}
+  details.aslist > summary{display:none;}
+  .listbody{padding:0;}
   .rec{break-inside:avoid;}
   a[href^="http"]::after{content:" (" attr(href) ")";font-size:9pt;color:#555;}
 }
 @media (forced-colors:active){
-  .dot,.exti{forced-color-adjust:none;background:CanvasText;}
-  .seg button[aria-pressed="true"]{background:Highlight;color:HighlightText;}
+  .dot,.sz,.exti{forced-color-adjust:none;background:CanvasText;}
+  .vbtn[aria-pressed="true"]{background:Highlight;color:HighlightText;}
 }
 </style>
 </head>
 <body>
-<a class="skip" href="#contents">Skip to the resource list</a>
 
 <div class="wrap">
 
-<header class="masthead">
-  <p class="eyebrow">Accessible Learning Labs</p>
-  <h1>Accessibility and Universal Design for Learning</h1>
-  <div class="rule"></div>
-  <p class="lede">Thirty-five knowledge resources and services, arranged in seven groups. The map shows how they relate: which draw on the same theory, which answer the same question from different directions, and which sit next to one another because a reader who needs one usually needs the other.</p>
-  <p class="orient">Every resource names what it is grounded in and cites the sources it rests on. The full list below carries the same content in reading order, without the map. Determinations in individual accommodation cases rest with accessibility advisors, accommodation offices, and legal counsel; these resources are offered in support of that work, never in place of it.</p>
-</header>
-
-<div class="js-only">
-  <div class="controls" role="region" aria-label="Map controls">
-      <div class="tf" id="filters" role="group" aria-label="Show one group, or all">
-<button type="button" class="lg lg-all" data-g="all" aria-pressed="true">All</button>
-        <button type="button" class="lg" data-g="variability" aria-pressed="false"><span class="dot" data-g="variability"></span><span class="lg-t">Designing for variability</span><span class="lg-n">4</span></button>
-        <button type="button" class="lg" data-g="grounding" aria-pressed="false"><span class="dot" data-g="grounding"></span><span class="lg-t">Grounding</span><span class="lg-n">8</span></button>
-        <button type="button" class="lg" data-g="institutions" aria-pressed="false"><span class="dot" data-g="institutions"></span><span class="lg-t">Institutions, governance and change</span><span class="lg-n">4</span></button>
-        <button type="button" class="lg" data-g="rights" aria-pressed="false"><span class="dot" data-g="rights"></span><span class="lg-t">Rights, duty and accommodation</span><span class="lg-n">8</span></button>
-        <button type="button" class="lg" data-g="sectors" aria-pressed="false"><span class="dot" data-g="sectors"></span><span class="lg-t">Sectors and participation</span><span class="lg-n">3</span></button>
-        <button type="button" class="lg" data-g="services" aria-pressed="false"><span class="dot" data-g="services"></span><span class="lg-t">Services</span><span class="lg-n">3</span></button>
-        <button type="button" class="lg" data-g="standards" aria-pressed="false"><span class="dot" data-g="standards"></span><span class="lg-t">Standards and technical practice</span><span class="lg-n">5</span></button>
-      </div>
-    <div class="cgroup">
-      <span class="clabel" id="l-arr">Arrangement</span>
-      <div class="seg" role="group" aria-labelledby="l-arr">
-        <button type="button" id="m-group" aria-pressed="true">By group</button>
-        <button type="button" id="m-aff" aria-pressed="false">By theme</button>
-      </div>
-    </div>
-    <div class="cgroup">
-      <span class="clabel" id="l-dim">View</span>
-      <div class="seg" role="group" aria-labelledby="l-dim">
-        <button type="button" id="d-2" aria-pressed="true">2D</button>
-        <button type="button" id="d-3" aria-pressed="false">3D</button>
-      </div>
-    </div>
-    <div class="cgroup">
-      <span class="clabel">&nbsp;</span>
-      <button type="button" class="plain" id="reset">Reset view</button>
-    </div>
-    <div class="cgroup">
-      <span class="clabel">&nbsp;</span>
-      <a class="plain" href="#contents">Read as a list</a>
-    </div>
+  <div class="note">
+    <p><strong>How to read this.</strong> <strong>By group</strong> arranges the resources in this group with the most established nearest the centre. <strong>By theme</strong> repositions the same circles by the ideas they share. Select any circle to read it.</p>
+    <p>Circle size shows how established the contribution is in the field, and distance from the centre says the same thing again: the anchor of each group sits nearest the middle, newer or more contested work further out. Colour shows the group. Every resource names its home branch — Accessibility or Universal Design for Learning — when selected.</p>
   </div>
 
-  <div class="stage">
-    <div class="cwrap">
-      <canvas id="cv" role="img" aria-labelledby="cv-desc"></canvas>
-      <p class="sr" id="cv-desc">A map of thirty-five resources positioned by group. The same content is available as a list further down this page.</p>
-      <div class="tt" id="tt" aria-hidden="true"><div class="k" id="tt-k"></div><div class="n" id="tt-n"></div></div>
+  <div class="js-only">
+    <div class="controls" role="region" aria-label="Map controls">
+      <p class="areamark" id="areamark"><span class="dot" id="areadot"></span><span id="areaname"></span></p>
+      <span class="spacer"></span>
+      <button class="linkbtn" id="reset" type="button">Reset view</button>
+      <div class="vtoggle" role="group" aria-label="Arrange resources">
+        <button class="vbtn" id="m-group" type="button" aria-pressed="true">By group</button>
+        <button class="vbtn" id="m-aff" type="button" aria-pressed="false">By theme</button>
+      </div>
+      <div class="vtoggle" role="group" aria-label="Map view">
+        <button class="vbtn" id="d-2" type="button" aria-pressed="true">2D</button>
+        <button class="vbtn" id="d-3" type="button" aria-pressed="false">3D</button>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="canvas-wrap">
+        <canvas id="cv" role="img" aria-labelledby="cv-desc"></canvas>
+        <p class="sr" id="cv-desc">A map of thirty-five resources positioned by group. The same content is available as a list below.</p>
+        <div class="tt" id="tt" aria-hidden="true"><div class="k" id="tt-k"></div><div class="n" id="tt-n"></div></div>
         <p class="hint" id="hint">Drag to move · scroll to zoom</p>
+      </div>
+      <aside class="panel" id="side" tabindex="-1" aria-live="polite">
+        <div class="empty"><strong>Select a resource</strong>Tap any circle to open it here. Drag to move the map, scroll to zoom.</div>
+      </aside>
     </div>
-    <div class="side" id="side" tabindex="-1" aria-live="polite">
-      <p class="side-empty">Select any circle to read what it holds. Circle size shows how established the contribution is in the field; colour shows its group.</p>
-    </div>
-  </div>
 
     <div class="legend">
       <div class="lgrp">
@@ -274,32 +244,16 @@ footer{margin:64px 0 0;border-top:1px solid var(--hair);padding:26px 0 60px;
           <span class="li"><span class="sz" style="width:11px;height:11px"></span>Newer or contested</span>
         </div>
       </div>
-      <div class="lgrp">
-        <span class="lt">Distance from the centre · the anchor of each group sits nearest the middle</span>
-        <div class="row">
-          <span class="li">Newer or more contested work sits further out along each spoke.</span>
-        </div>
-      </div>
+
     </div>
-</div>
+  </div>
 
-<main class="body" id="contents">
-  <p class="sec-mark">The resources</p>
-  <h2>Every resource, in full</h2>
-  <p class="intro-2">Grouped as they are on the map, and in the same order. Each entry names its home branch, what it is grounded in, the themes it shares with others, and the sources it rests on, numbered to the list at the end.</p>
-
-  <nav aria-label="Groups">
-    <ul class="toc">
-<li><a href="#g-variability"><span class="dot" data-g="variability"></span>Designing for variability</a></li>
-      <li><a href="#g-grounding"><span class="dot" data-g="grounding"></span>Grounding</a></li>
-      <li><a href="#g-institutions"><span class="dot" data-g="institutions"></span>Institutions, governance and change</a></li>
-      <li><a href="#g-rights"><span class="dot" data-g="rights"></span>Rights, duty and accommodation</a></li>
-      <li><a href="#g-sectors"><span class="dot" data-g="sectors"></span>Sectors and participation</a></li>
-      <li><a href="#g-services"><span class="dot" data-g="services"></span>Services</a></li>
-      <li><a href="#g-standards"><span class="dot" data-g="standards"></span>Standards and technical practice</a></li>
-    </ul>
-  </nav>
-
+  <div class="section">
+    <h2>Read it as a list</h2>
+    <p>The resources in this group in reading order, without the map. Each names what it is grounded in, the themes it shares with others, and the sources it rests on.</p>
+    <details class="aslist" id="aslist">
+      <summary>Every resource in this group, in full</summary>
+      <div class="listbody">
 <section class="grp" id="g-variability" aria-labelledby="h-variability"><h2 id="h-variability" class="grp-h"><span class="dot" data-g="variability"></span>Designing for variability</h2><p class="grp-d">Designing for the predictable range of learners. Distinct from disability, and kept distinct here: variability is a design premise, disability is a relationship between a person and an environment.</p><p class="grp-l"><a href="https://www.accessiblelearninglabs.com/designing-for-variability">Visit the Designing for variability page</a></p><article class="rec" id="n-ud1" data-id="ud1" data-group="variability" data-depth="3" data-home="udl" data-status="built" data-connects="ud2" data-tags="variability scale" data-srcs="1 2">
 <h3 class="rec-t">Designing for Learner Variability at Scale</h3>
 <p class="rec-s">The thesis the other UDL work inherits</p>
@@ -650,10 +604,13 @@ footer{margin:64px 0 0;border-top:1px solid var(--hair);padding:26px 0 60px;
 <p class="rec-g"><span class="lbl">Draws on</span> <a href="#n-ud1">Designing for Learner Variability at Scale</a>, <a href="#n-ac16">Institutional Accessibility Planning as a Change Program</a></p>
 <p class="rec-g"><span class="lbl">Sources</span> <a href="#s55">55</a>, <a href="#s2">2</a></p>
 </article></section>
+      </div>
+    </details>
+  </div>
 
-  <section class="grp" id="grouppages" aria-labelledby="h-grouppages">
-    <h2 id="h-grouppages">The seven groups</h2>
-    <p class="grp-d">Each group has its own page. The resources below link to the group they belong to.</p>
+  <div class="section">
+    <h2>The other groups</h2>
+    <p>This map shows one group. Each of the seven has its own page.</p>
     <ul class="areas">
 <li><a href="https://www.accessiblelearninglabs.com/designing-for-variability"><span class="dot" data-g="variability"></span>Designing for variability</a> <span class="ga-n">4 resources</span></li>
         <li><a href="https://www.accessiblelearninglabs.com/grounding"><span class="dot" data-g="grounding"></span>Grounding</a> <span class="ga-n">8 resources</span></li>
@@ -663,11 +620,14 @@ footer{margin:64px 0 0;border-top:1px solid var(--hair);padding:26px 0 60px;
         <li><a href="https://www.accessiblelearninglabs.com/services"><span class="dot" data-g="services"></span>Services</a> <span class="ga-n">3 resources</span></li>
         <li><a href="https://www.accessiblelearninglabs.com/standards-and-technical-practice"><span class="dot" data-g="standards"></span>Standards and technical practice</a> <span class="ga-n">5 resources</span></li>
     </ul>
-  </section>
+  </div>
 
-  <section class="grp" id="sources" aria-labelledby="h-sources">
-    <h2 id="h-sources">Sources</h2>
-    <p class="grp-d">Every source cited above, numbered in the order it first appears and grouped by field. Peer-reviewed papers, standards and institutional publications link directly; books and reports are cited in full so they can be found in any library catalogue.</p>
+  <div class="section">
+    <h2>Sources</h2>
+    <p>The theory, standards and law these resources rest on, listed once here and cited by number above. Peer-reviewed and institutional sources link directly; books and reports are cited in full so they can be found in any library catalogue.</p>
+    <details class="aslist" id="asbib">
+      <summary>Every source, in full, in citation order</summary>
+      <div class="listbody">
 <h3 class="bib-h">Accessibility law</h3><ol class="bib">
 <li id="s29" value="29">Accessible Canada Act, S.C. 2019, c. 10. <a class="ext" href="https://laws-lois.justice.gc.ca/eng/acts/a-0.6/">Open source<span class="exti" aria-hidden="true"></span></a></li>
 <li id="s30" value="30">Accessible British Columbia Act, S.B.C. 2021, c. 19. Province of British Columbia.</li>
@@ -795,19 +755,47 @@ footer{margin:64px 0 0;border-top:1px solid var(--hair);padding:26px 0 60px;
 <h3 class="bib-h">Universal design</h3><ol class="bib">
 <li id="s35" value="35">Connell, B. R., Jones, M., Mace, R., Mueller, J., Mullick, A., Ostroff, E., Sanford, J., Steinfeld, E., Story, M., &amp; Vanderheiden, G. (1997). The Principles of Universal Design, Version 2.0. Center for Universal Design, North Carolina State University.</li>
 </ol>
-  </section>
-</main>
+      </div>
+    </details>
+  </div>
 
-<footer>
-  <p class="meta">
-    <span>Accessible Learning Labs</span>
-    <span>Accessibility · Universal Design for Learning</span>
-    <span>Reviewed <time datetime="2026-08">August 2026</time></span>
-  </p>
-</footer>
+  <footer id="areafoot">Accessible Learning Labs</footer>
 
 </div>
 
+<script>
+/* One group at a time. The group comes from the query string, so a single file
+   serves all seven:  area-map.html?group=grounding
+   Everything outside the group is removed from the document before the map
+   reads it, which keeps the list and the map in step. */
+(function(){
+  var SLUGS = {"variability": "https://www.accessiblelearninglabs.com/designing-for-variability", "grounding": "https://www.accessiblelearninglabs.com/grounding", "institutions": "https://www.accessiblelearninglabs.com/institutions-governance-and-change", "rights": "https://www.accessiblelearninglabs.com/rights-duty-and-accommodation", "sectors": "https://www.accessiblelearninglabs.com/sectors-and-participation", "services": "https://www.accessiblelearninglabs.com/services", "standards": "https://www.accessiblelearninglabs.com/standards-and-technical-practice"}, LABELS = {"variability": "Designing for variability", "grounding": "Grounding", "institutions": "Institutions, governance and change", "rights": "Rights, duty and accommodation", "sectors": "Sectors and participation", "services": "Services", "standards": "Standards and technical practice"}, COLS = {"grounding": "#477ba8", "rights": "#567a9d", "variability": "#617993", "standards": "#69788b", "institutions": "#717781", "sectors": "#767677", "services": "#303e44"};
+  var q = (new URLSearchParams(location.search).get('group') ||
+           location.hash.replace('#','') || 'grounding').toLowerCase().trim();
+  var byslug = {};
+  Object.keys(SLUGS).forEach(function(k){ byslug[SLUGS[k].split('/').pop()] = k; });
+  var g = LABELS[q] ? q : (byslug[q] || 'grounding');
+
+  document.documentElement.setAttribute('data-area', g);
+  [].forEach.call(document.querySelectorAll('.grp[id^="g-"]'), function(sec){
+    if (sec.id !== 'g-' + g) sec.parentNode.removeChild(sec);
+  });
+  [].forEach.call(document.querySelectorAll('.areas li'), function(li){
+    var a = li.querySelector('a[href]');
+    if (a && a.getAttribute('href') === SLUGS[g]) li.parentNode.removeChild(li);
+  });
+  var dot = document.getElementById('areadot');
+  if (dot) dot.style.setProperty('--g', COLS[g]);
+  var nm = document.getElementById('areaname');
+  if (nm) nm.textContent = LABELS[g];
+  var ft = document.getElementById('areafoot');
+  if (ft) ft.textContent = 'Accessible Learning Labs · ' + LABELS[g];
+  var ttl = document.querySelector('title');
+  if (ttl) ttl.textContent = LABELS[g] + ' · Accessible Learning Labs';
+  var lst = document.querySelector('#aslist summary');
+  if (lst) lst.textContent = 'Every resource in ' + LABELS[g] + ', in full';
+})();
+</script>
 <script>
 (function(){
 document.body.classList.add('has-js');
@@ -1355,6 +1343,27 @@ NODES.forEach(function(n){ n.x = n.tx * 0.2; n.y = n.ty * 0.2; n.z = n.tz; });
 settle();
 })();
 
+</script>
+<script>
+/* Reports this document's height to the parent page so the iframe can
+   grow to fit. Harmless when the file is opened on its own. */
+(function(){
+  if (window.parent === window) return;
+  var last = 0;
+  function post(){
+    var h = Math.ceil(document.documentElement.scrollHeight);
+    if (h && Math.abs(h - last) > 2){
+      last = h;
+      window.parent.postMessage({ type:'ldmap-height', height:h }, '*');
+    }
+  }
+  window.addEventListener('load', post);
+  window.addEventListener('resize', post);
+  document.addEventListener('toggle', function(){ setTimeout(post, 60); }, true);
+  document.addEventListener('click', function(){ setTimeout(post, 120); }, true);
+  if (window.ResizeObserver){ new ResizeObserver(post).observe(document.documentElement); }
+  post();
+})();
 </script>
 </body>
 </html>
