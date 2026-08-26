@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accessibility and Universal Design for Learning — accessible version</title>
+  <meta name="description" content="Thirty-five knowledge resources and services on accessibility, disability and Universal Design for Learning, set out in reading order with their grounding, their sources, and their relationships." />
+  <link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #ffffff;
+      --surface: #f5f6f7;
+      --ink: #303e44;
+      --ink-mid: #4f6068;
+      --ink-muted: #576a73;
+      --accent: #3c6b93;
+      --accent-light: #eef3f8;
+      --border: #d5dde1;
+      --font: 'Asap', system-ui, sans-serif;
+      --max: 740px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font); background: var(--bg); color: var(--ink);
+      font-size: 16px; line-height: 1.7; -webkit-text-size-adjust: 100%; }
+    a { color: var(--accent); text-underline-offset: 3px; }
+    a:hover { text-decoration-thickness: 2px; }
+    a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px;
+      box-shadow: 0 0 0 6px rgba(255,255,255,.95); border-radius: 2px; }
+
+    .skip-link { position: absolute; top: -100px; left: 1rem; background: var(--accent);
+      color: #fff; padding: 0.65rem 1rem; border-radius: 4px; text-decoration: none;
+      font-size: 0.85rem; z-index: 999; }
+    .skip-link:focus { top: 1rem; }
+
+    header { background: var(--bg); border-bottom: 1px solid var(--border); padding: 0 2rem; }
+    .header-inner { max-width: var(--max); margin: 0 auto; padding: 2.25rem 0 2rem; }
+    .site-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em;
+      word-spacing: .14em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
+    header h1 { font-size: 1.9rem; font-weight: 700; line-height: 1.2; color: var(--ink); }
+    .header-sub { font-size: 0.95rem; color: var(--ink-mid); margin-top: 0.6rem; line-height: 1.6; }
+    .version-note { background: var(--accent-light); border-left: 3px solid var(--accent);
+      margin-top: 1.25rem; padding: 0.9rem 1.1rem; font-size: 0.9rem; color: var(--ink); border-radius: 0 4px 4px 0; }
+
+    main { max-width: var(--max); margin: 0 auto; padding: 0 2rem 4rem; }
+
+    nav#toc { margin: 2.25rem 0 0; padding: 1.4rem 1.5rem; background: var(--surface);
+      border: 1px solid var(--border); border-radius: 5px; }
+    nav#toc h2 { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em;
+      word-spacing: .14em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 0.7rem; }
+    nav#toc ol { padding-left: 1.3rem; }
+    nav#toc ul { padding-left: 1.3rem; list-style: disc; margin: 0.35rem 0 0.5rem; }
+    nav#toc li { margin-bottom: 0.32rem; font-size: 0.95rem; }
+
+    .section-block { margin-top: 3.25rem; }
+    .section-marker { display: block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.13em;
+      word-spacing: .14em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 0.45rem; }
+    .section-block h2 { font-size: 1.45rem; font-weight: 700; line-height: 1.25;
+      padding-bottom: 0.6rem; border-bottom: 2px solid var(--border); margin-bottom: 1rem; }
+    .section-block > p { margin-bottom: 0.9rem; color: var(--ink-mid); }
+    .section-block h3 { font-size: 1.15rem; font-weight: 600; margin: 2.4rem 0 0.5rem;
+      padding-top: 1.1rem; border-top: 1px solid var(--border); }
+    .section-block h3:first-of-type { border-top: 0; padding-top: 0; margin-top: 1.6rem; }
+
+    table.summary-table { width: 100%; border-collapse: collapse; margin: 1.1rem 0 0.5rem; font-size: 0.92rem; }
+    table.summary-table caption { text-align: left; font-size: 0.85rem; color: var(--ink-muted);
+      margin-bottom: 0.5rem; }
+    table.summary-table th, table.summary-table td { text-align: left; padding: 0.5rem 0.7rem;
+      border-bottom: 1px solid var(--border); vertical-align: top; }
+    table.summary-table thead th { font-size: 0.75rem; letter-spacing: 0.08em; word-spacing: .14em;
+      text-transform: uppercase; color: var(--ink-muted); font-weight: 600; }
+    table.summary-table tbody th { font-weight: 500; }
+    table.summary-table tbody tr:last-child th, table.summary-table tbody tr:last-child td {
+      font-weight: 600; border-bottom: 0; }
+
+    .entry { margin: 1.5rem 0 0; padding: 0 0 0 1.1rem; border-left: 3px solid var(--border); }
+    .entry h4 { font-size: 1.02rem; font-weight: 600; line-height: 1.35; }
+    .entry-sub { font-size: 0.9rem; color: var(--ink-muted); font-style: italic; margin: 0.15rem 0 0.5rem; }
+    .entry-status { display: inline-block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.07em;
+      word-spacing: .14em; text-transform: uppercase; color: var(--ink-muted); background: var(--surface);
+      border: 1px solid var(--border); border-radius: 100px; padding: 0.1rem 0.6rem; margin-bottom: 0.6rem; }
+    .entry > p { font-size: 0.96rem; margin-bottom: 0.6rem; }
+    .entry .meta { font-size: 0.89rem; color: var(--ink-mid); margin-bottom: 0.35rem; }
+    .sublist-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; word-spacing: .14em;
+      text-transform: uppercase; color: var(--ink-muted); margin: 0.85rem 0 0.3rem; }
+    ul.sublist { list-style: none; padding: 0; }
+    ul.sublist li { font-size: 0.89rem; line-height: 1.55; margin-bottom: 0.4rem;
+      padding-left: 1rem; text-indent: -1rem; color: var(--ink-mid); }
+    .basis { color: var(--ink-muted); }
+
+    ol.refs { list-style: none; padding: 0; counter-reset: none; }
+    ol.refs li { font-size: 0.89rem; line-height: 1.6; margin-bottom: 0.95rem;
+      padding-left: 2.6rem; text-indent: -2.6rem; color: var(--ink-mid); }
+    ol.refs .cat { display: block; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em;
+      word-spacing: .14em; text-transform: uppercase; color: var(--ink-muted);
+      text-indent: 0; margin-left: 2.6rem; }
+    ol.refs .num { font-weight: 600; color: var(--ink); }
+    ol.refs a { word-break: break-word; }
+
+    .back-to-top { display: inline-block; margin-top: 2rem; font-size: 0.9rem; }
+    .page-credit { margin-top: 2.5rem; padding-top: 1.4rem; border-top: 1px solid var(--border);
+      font-size: 0.88rem; color: var(--ink-muted); }
+    footer { border-top: 1px solid var(--border); padding: 1.6rem 2rem 3rem; }
+    footer p { max-width: var(--max); margin: 0 auto; font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.12em; word-spacing: .14em; text-transform: uppercase; color: var(--ink-muted); }
+
+    @media (max-width: 640px) {
+      header, main { padding-left: 1.15rem; padding-right: 1.15rem; }
+      header h1 { font-size: 1.55rem; }
+      nav#toc { padding: 1.1rem 1.15rem; }
+    }
+    @media (prefers-contrast: more) {
+      :root { --border: #5c6a71; --ink-mid: #35434b; --ink-muted: #3c4a52; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+    @media print {
+      .skip-link, nav#toc { display: none; }
+      body { font-size: 11pt; }
+      .entry { break-inside: avoid; }
+      a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 9pt; color: #555; }
+    }
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header>
+  <div class="header-inner">
+    <p class="site-label">Accessible Learning Labs</p>
+    <h1>Accessibility and Universal Design for Learning</h1>
+    <p class="header-sub">Thirty-five knowledge resources and services, set out in reading order. Each states what it contributes, what grounds it, the resources most like it, and the scholarship, law and standards it rests on. Determinations in individual accommodation cases rest with accessibility advisors, accommodation offices, and legal counsel; these resources are offered in support of that work, never in place of it.</p>
+    <p class="version-note"><strong>Screen reader and keyboard optimised version.</strong> All content is presented in reading order, with no diagram, tabs, or scripting. An <a href="index.html">interactive map version</a> presents the same content as a navigable diagram.</p>
+  </div>
+</header>
+
+<main id="main-content">
+
+  <nav id="toc" aria-label="Contents">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#how-to-read">How this landscape is organized</a></li>
+      <li><a href="#groups">The six groups</a></li>
+      <li><a href="#resources">Every resource, in full</a>
+        <ul>
+          <li><a href="#group-services">Services</a></li>
+          <li><a href="#group-grounding">Grounding</a></li>
+          <li><a href="#group-rights">Rights, duty and accommodation</a></li>
+          <li><a href="#group-variability">Designing for variability</a></li>
+          <li><a href="#group-standards">Standards and technical practice</a></li>
+          <li><a href="#group-institutions">Institutions, governance and change</a></li>
+          <li><a href="#group-sectors">Sectors and participation</a></li>
+        </ul>
+      </li>
+      <li><a href="#references">References and resources</a></li>
+    </ol>
+  </nav>
+
+  <section class="section-block" id="how-to-read">
+    <span class="section-marker">Section 1 of four</span>
+    <h2>How this landscape is organized</h2>
+    <p>This is the accessibility work of a learning design practice, gathered in one place. It draws on two branches: Accessibility, which concerns access at the level of an individual person and the obligation an institution holds toward them, and Universal Design for Learning, which concerns designing for the predictable range of learners before any individual request is made. The two are related but not the same, and the arrangement here keeps them distinct while showing where they meet.</p>
+    <p>Resources are arranged in six groups by what they are for, rather than by which branch they grow on. A group therefore holds resources from both branches where the question they answer is shared. Each resource names its home branch so the distinction is never lost.</p>
+    <p>Every resource states the bodies of knowledge it rests on and cites its sources by number to the reference list in Section 4. Where a resource is still in development, it is marked as such: the grounding and sources are settled, and the written resource is not yet published.</p>
+    <p>Two kinds of relationship are given for each resource. <strong>Most related</strong> is calculated from themes and sources held in common, and surfaces resources that answer similar questions from different groups. <strong>Connected resources</strong> are the direct relationships recorded on the map — the resources a reader is likely to need alongside this one.</p>
+  </section>
+
+  <section class="section-block" id="groups">
+    <span class="section-marker">Section 2 of four</span>
+    <h2>The six groups</h2>
+    <p>Six groups, and the three services they ground. The table gives the size of each set and how many resources are published; the rest are in development.</p>
+    <table class="summary-table">
+      <caption>Resources in each group, and how many are published</caption>
+      <thead>
+        <tr><th scope="col">Group</th><th scope="col">Resources in this set</th><th scope="col">Published</th></tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row"><a href="#group-services">Services</a></th><td>3</td><td>0</td></tr>
+        <tr><th scope="row"><a href="#group-grounding">Grounding</a></th><td>8</td><td>0</td></tr>
+        <tr><th scope="row"><a href="#group-rights">Rights, duty and accommodation</a></th><td>8</td><td>2</td></tr>
+        <tr><th scope="row"><a href="#group-variability">Designing for variability</a></th><td>4</td><td>1</td></tr>
+        <tr><th scope="row"><a href="#group-standards">Standards and technical practice</a></th><td>5</td><td>0</td></tr>
+        <tr><th scope="row"><a href="#group-institutions">Institutions, governance and change</a></th><td>4</td><td>1</td></tr>
+        <tr><th scope="row"><a href="#group-sectors">Sectors and participation</a></th><td>3</td><td>0</td></tr>
+        <tr><th scope="row">All groups</th><td>35</td><td>4</td></tr>
+      </tbody>
+    </table>
+    <h3 id="about-services">Services</h3>
+      <p>The three engagements the knowledge resources ground. Each names the resource that sets out its method in full.</p>
+      <p class="meta">3 resources · 3 from Accessibility · <a href="#group-services">Read them in full below</a></p>
+    <h3 id="about-grounding">Grounding</h3>
+      <p>How disability is understood, and what follows from the understanding. These resources supply the frame every later decision is made inside.</p>
+      <p class="meta">8 resources · 7 from Accessibility and 1 from Universal Design for Learning · <a href="#group-grounding">Read them in full below</a></p>
+    <h3 id="about-rights">Rights, duty and accommodation</h3>
+      <p>What is owed to a person, and what proactive design does and does not discharge. The legal and ethical architecture within which access decisions are made and defended.</p>
+      <p class="meta">8 resources · 6 from Accessibility and 2 from Universal Design for Learning · <a href="#group-rights">Read them in full below</a></p>
+    <h3 id="about-variability">Designing for variability</h3>
+      <p>Designing for the predictable range of learners. Distinct from disability, and kept distinct here: variability is a design premise, disability is a relationship between a person and an environment.</p>
+      <p class="meta">4 resources · 4 from Universal Design for Learning · <a href="#group-variability">Read them in full below</a></p>
+    <h3 id="about-standards">Standards and technical practice</h3>
+      <p>Conformance, assistive technology, and the gap between the two. What a standard requires, and why meeting it does not always mean a person can use the thing.</p>
+      <p class="meta">5 resources · 3 from Accessibility and 2 from Universal Design for Learning · <a href="#group-standards">Read them in full below</a></p>
+    <h3 id="about-institutions">Institutions, governance and change</h3>
+      <p>Where accessibility is decided before anything is designed — procurement, planning, faculty development — and what makes a published commitment turn into changed practice.</p>
+      <p class="meta">4 resources · 3 from Accessibility and 1 from Universal Design for Learning · <a href="#group-institutions">Read them in full below</a></p>
+    <h3 id="about-sectors">Sectors and participation</h3>
+      <p>Clinical, health and research settings, where access questions carry additional duties, and the question of who is able to take part at all.</p>
+      <p class="meta">3 resources · 3 from Accessibility · <a href="#group-sectors">Read them in full below</a></p>
+  </section>
+
+  <section class="section-block" id="resources">
+    <span class="section-marker">Section 3 of four</span>
+    <h2>Every resource, in full</h2>
+    <p>Grouped as above, and given within each group in the order they appear on the map. Sources are written out in full here as well as numbered, so that following a reference is never necessary to understand an entry.</p>
+    <h3 id="group-services">Services</h3>
+      <p>The three engagements the knowledge resources ground. Each names the resource that sets out its method in full.</p>
+      <article class="entry" id="node-ac1">
+        <h4>Accessibility Review</h4>
+        <p class="entry-sub">Service · Accessible Learning Labs</p>
+        <p class="entry-status">Offered as a service</p>
+        <p>A rigorous review of learning environments that holds four interconnected bodies of knowledge in view at once, producing findings a surface-level compliance check cannot. It is offered as a specific, scoped service.</p>
+        <p class="meta"><strong>Home branch.</strong> Accessibility · Well established</p>
+        <p class="meta"><strong>Grounding.</strong> WCAG; UDL; disability studies; systems knowledge</p>
+        <p class="meta"><strong>Themes.</strong> Access, Evaluation</p>
+        <p class="sublist-label">Sources</p><ul class="sublist">
+        <li><a href="#ref-1">Reference 1</a>: W3C (2023). Web Content Accessibility Guidelines (WCAG) 2.2. W3C Recommendation.</li>
+        <li><a href="#ref-2">Reference 2</a>: CAST (2024). Universal Design for Learning Guidelines, version 3.0.</li>
+        </ul>
+        <p class="sublist-label">Most related, by shared theme and source</p><ul class="sublist">
+        <li><a href="#node-ud10">Evaluating Whether Design Reduced Barriers</a> <span class="basis">— Access, Evaluation · 1 shared source</span></li>
+        <li><a href="#node-ud6">Making Accessibility More Than Compliance</a> <span class="basis">— Access · 2 shared sources</span></li>
+        <li><a href="#node-ac2">Inclusive Course &amp; Curriculum Design</a> <span class="basis">— Access · 1 shared source</span></li>
+        <li><a href="#node-ac20">Disability Categories and the Barriers People Meet</a> <span class="basis">— Access · 1 shared source</span></li>
+        <li><a href="#node-ac4">Why Universal Design Never Eliminates Individual Accommodation</a> <span class="basis">— Access · 1 shared source</span></li>
+        </ul>
+        <p class="sublist-label">Connected resources</p><ul class="sublist">
+        <li><a href="#node-ud6">Making Accessibility More Than Compliance</a> <span class="basis">— Standards and technical practice</span></li>
+        <li><a href="#node-ac2">Inclusive Course &amp; Curriculum Design</a> <span class="basis">— Services</span></li>
+        <li><a href="#node-ac10">Accessibility Triage for Existing Course Inventories</a> <span class="basis">— Standards and technical practice</span></li>
+        </ul>
+        </article>
+      <article class="entry" id="node-ac2">
+        <h4>Inclusive Course &amp; Curriculum Design</h4>
+        <p class="entry-sub">Service · Accessible Learning Labs</p>
+        <p class="entry-status">Offered as a service</p>
+        <p>Inclusive design of courses and curricula for faculty, designers, and curriculum committees — integrating design frameworks, pedagogy, and the systems knowledge that makes change endure. It is offered as a specific service.</p>
+        <p class="meta"><strong>Home branch.</strong> Accessibility · Well established</p>
+        <p class="meta"><strong>Grounding.</strong> UDL; backward design; assessment equity; systems knowledge</p>
+        <p class="meta"><strong>Themes.</strong> Access, Alignment</p>
+        <p class="sublist-label">Sources</p><ul class="sublist">
+        <li><a href="#ref-2">Reference 2</a>: CAST (2024). Universal Design for Learning Guidelines, version 3.0.</li>
+        <li><a href="#ref-3">Reference 3</a>: Wiggins, G., &amp; McTighe, J. (2005). Understanding by Design (Expanded 2nd ed.). ASCD.</li>
+        </ul>
+        <p class="sublist-label">Most related, by shared theme and source</p><ul class="sublist">
+        <li><a href="#node-ac1">Accessibility Review</a> <span class="basis">— Access · 1 shared source</span></li>
+        <li><a href="#node-ac4">Why Universal Design Never Eliminates Individual Accommodation</a> <span class="basis">— Access · 1 shared source</span></li>
+        <li><a href="#node-ac6">Essential Requirements and the Limits of Flexibility</a> <span class="basis">— Alignment · 1 shared source</span></li>
+        <li><a href="#node-ud2">From Accommodation to Proactive Inclusive Design</a> <span class="basis">— Access · 1 shared source</span></li>
+        <li><a href="#node-ud7">Eliminating Construct-Irrelevant Barriers in Assessment</a> <span class="basis">— Access · 1 shared source</span></li>
+        </ul>
+        <p class="sublist-label">Connected resources</p><ul class="sublist">
+        <li><a href="#node-ac1">Accessibility Review</a> <span class="basis">— Services</span></li>
+        <li><a href="#node-ud6">Making Accessibility More Than Compliance</a> <span class="basis">— Standards and technical practice</span></li>
+        <li><a href="#node-ac6">Essential Requirements and the Limits of Flexibility</a> <span class="basis">— Rights, duty and accommodation</span></li>
+        </ul>
+        </article>
+      <article class="entry" id="node-ac3">
+        <h4>Inclusive Facilitation &amp; Capacity Building</h4>
+        <p class="entry-sub">Service · Accessible Learning Labs</p>
+        <p class="entry-status">Offered as a service</p>
+        <p>Facilitation understood as a professional stance shaped by how power, identity, and legitimate knowledge are held — and the building of others' capacity to facilitate inclusively. It is offered as a specific service.</p>
+        <p class="meta"><strong>Home branch.</strong> Accessibility · Well established</p>
+        <p class="meta"><strong>Grounding.</strong> Power-aware facilitation; adult learning; equity</p>
+        <p class="meta"><strong>Themes.</strong> Community, Capacity, Access</p>
+        <p class="sublist-label">Sources</p><ul class="sublist">
+        <li><a href="#ref-4">Reference 4</a>: Knowles, M. S., Holton, E. F., &amp; Swanson, R. A. (2015). The Adult Learner (8th ed.). Routledge.</li>
+        <li><a href="#ref-5">Reference 5</a>: Wenger, E. (1998). Communities of Practice: Learning, Meaning, and Identity. Cambridge University Press.</li>
+        </ul>
+        <p class="sublist-label">Most related, by shared theme and source</p><ul class="sublist">
+        <li><a href="#node-ac15">Faculty Development That Changes Accessible Practice</a> <span class="basis">— Access, Capacity · 1 shared source</span></li>
+        <li><a href="#node-ac23">Disability Etiquette and Communication in Learning Environments</a> <span class="basis">— Capacity, Community</span></li>
+        <li><a href="#node-ac1">Accessibility Review</a> <span class="basis">— Access</span></li>
+        <li><a href="#node-ac2">Inclusive Course &amp; Curriculum Design</a> <span class="basis">— Access</span></li>
+        <li><a href="#node-ac7">Disability Studies for Learning Designers</a> <span class="basis">— Access</span></li>
+        </ul>
+        <p class="sublist-label">Connected resources</p><ul class="sublist">
+        <li><a href="#node-ac1">Accessibility Review</a> <span class="basis">— Services</span></li>
+        <li><a href="#node-ac15">Faculty Development That Changes Accessible Practice</a> <span class="basis">— Institutions, governance and change</span></li>
+        </ul>
+        </article>
+    <h3 id="group-grounding">Grounding</h3>
+      <p>How disability is understood, and what follows from the understanding. These resources supply the frame every later decision is made inside.</p>
+      <article class="entry" id="node-ac7">
+        <h4>Disability Studies for Learning Designers</h4>
+        <p class="entry-sub">The grounding that changes what a designer sees</p>
+        <p class="entry-status dev">In development</p>
+        <p>Social, medical, and interactional models of disability; ableism as institutional structure rather than individual attitude; disability as identity, culture, and political community. It is the grounding that allows a barrier to be named as a design failure rather than a learner’s deficit, and it is what distinguishes accessibility practice from compliance administration.</p>
+        <p class="meta"><strong>Home branch.</strong> Accessibility · Well established</p>
+        <p class="meta"><strong>Grounding.</strong> Social model (Oliver); academic ableism (Dolmage); Titchkosky; Kafer</p>
+        <p class="meta"><strong>Themes.</strong> Disability studies, Equity, Access</p>
+        <p class="sublist-label">Sources</p><ul class="sublist">
+        <li><a href="#ref-6">Reference 6</a>: Oliver, M. (1990). The Politics of Disablement. Macmillan — the foundational statement of the social model of disability.</li>
+        <li><a href="#ref-7">Reference 7</a>: Dolmage, J. T. (2017). Academic Ableism: Disability and Higher Education. University of Michigan Press.</li>
+        <li><a href="#ref-8">Reference 8</a>: Titchkosky, T. (2011). The Question of Access: Disability, Space, Meaning. University of Toronto Press.</li>
+        <li><a href="#ref-9">Reference 9</a>: Kafer, A. (2013). Feminist, Queer, Crip. Indiana University Press.</li>
+        </ul>
+        <p class="sublist-label">Most related, by shared theme and source</p><ul class="sublist">
+        <li><a href="#node-ac19">Models of Disability as Design Decisions</a> <span class="basis">— Access, Disability studies, Equity · 1 shared source</span></li>
+        <li><a href="#node-ac8">Designing Out the Disclosure Requirement</a> <span class="basis">— Access, Disability studies, Equity · 1 shared source</span></li>
+        <li><a href="#node-ac20">Disability Categories and the Barriers People Meet</a> <span class="basis">— Access, Disability studies · 1 shared source</span></li>
+        <li><a href="#node-ac9">Partnering with Disabled People in Learning Design</a> <span class="basis">— Disability studies, Equity</span></li>
+        <li><a href="#node-ac21">Assistive Technology and Adaptive Strategies</a> <span class="basis">— Access, Disability studies</span></li>
+        </ul>
+        <p class="sublist-label">Connected resources</p><ul class="sublist">
+        <li><a href="#node-ac4">Why Universal Design Never Eliminates Individual Accommodation</a> <span class="basis">— Rights, duty and accommodation</span></li>
+        <li><a href="#node-ac9">Partnering with Disabled People in Learning Design</a> <span class="basis">— Grounding</span></li>
+        <li><a href="#node-ud8">Equity-Centered Learning Design</a> <span class="basis">— Grounding</span></li>
+        </ul>
+        </article>
+      <article class="entry" id="node-ac9">
+        <h4>Partnering with Disabled People in Learning Design</h4>
+        <p class="entry-sub">Co-design without extraction</p>
+        <p class="entry-status dev">In development</p>
+        <p>Structuring lived-experience partnership so that it is compensated, early enough to shape decisions rather than ratify them, and accessible in its own conduct. It attends to the pattern in which technical expertise quietly eclipses lived experience, and favours partnership with disability-led organizations already doing this work over convening participants anew.</p>
+        <p class="meta"><strong>Home branch.</strong> Accessibility · Well established</p>
+        <p class="meta"><strong>Grounding.</strong> Nothing about us without us (Charlton); inclusive design; TCPS 2 research ethics</p>
+        <p class="meta"><strong>Themes.</strong> Disability studies, Community, Equity</p>
+        <p class="sublist-label">Sources</p><ul class="sublist">
+        <li><a href="#ref-10">Reference 10</a>: Charlton, J. I. (1998). Nothing About Us Without Us: Disability Oppression and Empowerment. University of California Press.</li>
+        <li><a href="#ref-11">Reference 11</a>: Inclusive Design Research Centre. The Inclusive Design Guide. OCAD University — the source of the one-size-fits-one principle and the inclusive design framework.</li>
+        <li><a href="#ref-12">Reference 12</a>: Canadian Institutes of Health Research, Natural Sciences and Engineering Research Council, &amp; Social Sciences and Humanities Research Council (2022). Tri-Council Policy Statement: Ethical Conduct for Research Involving Humans — TCPS 2 (2022).</li>
+        </ul>
+        <p class="sublist-label">Most related, by shared theme and source</p><ul class="sublist">
+        <li><a href="#node-ac23">Disability Etiquette and Communication in Learning Environments</a> <span class="basis">— Community, Disability studies · 1 shared source</span></li>
+        <li><a href="#node-ac7">Disability Studies for Learning Designers</a> <span class="basis">— Disability studies, Equity</span></li>
+        <li><a href="#node-ac19">Models of Disability as Design Decisions</a> <span class="basis">— Disability studies, Equity</span></li>
+        <li><a href="#node-ac22">Disability Data and the Limits of Prevalence Figures</a> <span class="basis">— Disability studies, Equity</span></li>
+        <li><a href="#node-ac8">Designing Out the Disclosure Requirement</a> <span class="basis">— Disability studies, Equity</span></li>
+        </ul>
+        <p class="sublist-label">Connected resources</p><ul class="sublist">
+        <li><a href="#node-ac7">Disability Studies for Learning Designers</a> <span class="basis">— Grounding</span></li>
+        <li><a href="#node-ac18">Accessible Research Participation and Knowledge Products</a> <span class="basis">— Sectors and participation</span></li>
+        </ul>
+        </article>
+      <article class="entry" id="node-ac19">
+        <h4>Models of Disability as Design Decisions</h4>
+        <p class="entry-sub">The frame chosen before any design decision is made</p>
+        <p class="entry-status dev">In development</p>
+        <p>Medical, social, biopsychosocial, economic, functional solutions, social identity or cultural affiliation, and charity — seven models in active circulation, each of which settles in advance what counts as the problem and who is obliged to act on it. This resource sets them beside one another with their strengths and their costs, and treats the choice of model as a design decision rather than a philosophical preference, because the model implicit in a project brief is usually the model that shapes what gets built.</p>
+        <p class="meta"><strong>Home branch.</strong> Accessibility · Well established</p>
+        <p class="meta"><strong>Grounding.</strong> ICF (WHO, 2001); social model (Oliver); Retief &amp; Letšosa; Shakespeare</p>
+        <p class="meta"><strong>Themes.</strong> Disability studies, Access, Equity</p>
+        <p class="sublist-label">Sources</p><ul class="sublist">
+        <li><a href="#ref-13">Reference 13</a>: World Health Organization (2001). International Classification of Functioning, Disability and Health (ICF). WHO — the source of the biopsychosocial model of disability.</li>
+        <li><a href="#ref-6">Reference 6</a>: Oliver, M. (1990). The Politics of Disablement. Macmillan — the foundational statement of the social model of disability.</li>
+        <li><a href="#ref-14">Reference 14</a>: Retief, M., &amp; Letšosa, R. (2018). “Models of Disability: A Brief Overview.” HTS Teologiese Studies / Theological Studies, 74(1).</li>
+        <li><a href="#ref-15">Reference 15</a>: Shakespeare, T. (2013). Disability Rights and Wrongs Revisited (2nd ed.). Routledge — a critical reassessment of the strong social model.</li>
+        </ul>
+        <p class="sublist-label">Most related, by shared theme and source</p><ul class="sublist">
+        <li><a href="#node-ac7">Disability Studies for Learning Designers</a> <span class="basis">— Access, Disability studies, Equity · 1 shared source</span></li>
+        <li><a href="#node-ac20">Disability Categories and the Barriers People Meet</a> <span class="basis">— Access, Disability studies · 2 shared sources</span></li>
+        <li><a href="#node-ac8">Designing Out the Disclosure Requirement</a> <span class="basis">— Access, Disability studies, Equity</span></li>
+        <li><a href="#node-ac22">Disability Data and the Limits of Prevalence Figures</a> <span class="basis">— Disability studies, Equity · 1 shared source</span></li>
+        <li><a href="#node-ac9">Partnering with Disabled People in Learning Design</a> <span class="basis">— Disability studies, Equity</span></li>
+        </ul>
+        <p class="sublist-label">Connected resources</p><ul class="sublist">
+        <li><a href="#node-ac7">Disability Studies for Learning Designers</a> <span class="basis">— Grounding</span></li>
+        <li><a href="#node-ac4">Why Universal Design Never Eliminates Individual Accommodation</a> <span class="basis">— Rights, duty and accommodation</span></li>
+        <li><a href="#node-ud2">From Accommodation to Proactive Inclusive Design</a> <span class="basis">— Rights, duty and accommodation</span></li>
+        </ul>
+        </article>
+      <article class="entry" id="node-ac20">
+        <h4>Disability Categories and the Barriers People Meet</h4>
+        <p class="entry-sub">The reference layer, written barrier-first</p>
+        <p class="entry-status dev">In development</p>
+        <p>Visual, auditory, deafblind, speech, mobility and body structure, cognitive and learning, seizure, and psychological disabilities, each set against the barriers people actually encounter in digital and physical environments. It is written barrier-first rather than diagnosis-first, so that a designer reaches for the environmental change rather than the label — and it is the reference layer that the more argumentative resources on this branch quietly assume a reader already holds.</p>
+        <p class="meta"><strong>Home branch.</strong> Accessibility · Well established</p>
+        <p class="meta"><strong>Grounding.</strong> ICF (WHO, 2001); WCAG 2.2; disability studies</p>
+        <p class="meta"><strong>Themes.</strong> Disability studies, Access, Variability</p>
+        <p class="sublist-label">Sources</p><ul class="sublist">
+        <li><a href="#ref-13">Reference 13</a>: World Health Organization (2001). International Classification of Functioning, Disability and Health (ICF). WHO — the source of the biopsychosocial model of disability.</li>
+        <li><a href="#ref-1">Reference 1</a>: W3C (2023). Web Content Accessibility Guidelines (WCAG) 2.2. W3C Recommendation.</li>
+        <li><a href="#ref-6">Reference 6</a>: Oliver, M. (1990). The Politics of Disablement. Macmillan — the foundational statement of the social model of disability.</li>
+        </ul>
+        <p class="sublist-label">Most related, by shared theme and source</p><ul class="sublist">
+        <li><a href="#node-ac19">Models of Disability as Design Decisions</a> <span class="basis">— Access, Disability studies · 2 shared sources</span></li>
+        <li><a href="#node-ac7">Disability Studies for Learning Designers</a> <span class="basis">— Access, Disability studies · 1 shared source</span></li>
+        <li><a href="#node-ac11">Designing for the Assistive Technology People Actually Use</a> <span class="basis">— Access, Disability studies · 1 shared source</span></li>
+        <li><a href="#node-ac21">Assistive Technology and Adaptive Strategies</a> <span class="basis">— Access, Disability studies</span></li>
+        <li><a href="#node-ac4">Why Universal Design Never Eliminates Individual Accommodation</a> <span class="basis">— Access, Variability</span></li>
+        </ul>
+        <p class="sublist-label">Connected resources</p><ul class="sublist">
+        <li><a href="#node-ac11">Designing for the Assistive Technology People Actually Use</a> <span class="basis">— Standards and technical practice</span></li>
+        <li><a href="#node-ac19">Models of Disability as Design Decisions</a> <span class="basis">— Grounding</span></li>
+        <li><a href="#node-ac13">Designing for Episodic and Fluctuating Conditions</a> <span class="basis">— Rights, duty and accommodation</span></li>
+        </ul>
+        </article>
+      <article class="entry" id="node-ac21">
+        <h4>Assistive Technology and Adaptive Strategies</h4>
+        <p class="entry-sub">What exists, and what it does for a person</p>
+        <p class="entry-status dev">In development</p>
+        <p>Screen readers, magnification, speech input, alternative pointing, augmentative and alternative communication, hearing technologies, and the low-technology and adaptive strategies used at least as often — described by what they accomplish for a person rather than by product name, and paired with the frameworks that structure a selection decision. It is the survey that has to precede the harder question of why conformant content still fails against the technology people actually use.</p>
+        <p class="meta"><strong>Home branch.</strong> Accessibility · Well established</p>
+        <p class="meta"><strong>Grounding.</strong> HAAT model (Cook &amp; Polgar); SETT framework (Zabala); WHO assistive technology guidance</p>
+        <p class="meta"><strong>Themes.</strong> Disability studies, Access, Standards</p>
+        <p class="sublist-label">Sources</p><ul class="sublist">
+        <li><a href="#ref-16">Reference 16</a>: Cook, A. M., &amp; Polgar, J. M. (2015). Assistive Technologies: Principles and Practice (4th ed.). Elsevier — the source of the Human Activity Assistive Technology (HAAT) model.</li>
+        <li><a href="#ref-17">Reference 17</a>: Zabala, J. S. (2005). Ready, SETT, Go! Getting Started with the SETT Framework — the Student, Environments, Tasks, Tools framework for assistive technology decision-making.</li>
+        <li><a href="#ref-18">Reference 18</a>: World Health Organization &amp; UNICEF (2022). Global Report on Assistive Technology. World Health Organization.</li>
+        </ul>
+        <p class="sublist-label">Most related, by shared theme and source</p><ul class="sublist">
+        <li><a href="#node-ac11">Designing for the Assistive Technology People Actually Use</a> <span class="basis">— Access, Disability studies, Standards · 2 shared sources</span></li>
+        <li><a href="#node-ac7">Disability Studies for Learning Designers</a> <span class="basis">— Access, Disability studies</span></li>
+        <li><a href="#node-ac19">Models of Disability as Design Decisions</a> <span class="basis">— Access, Disability studies</span></li>
+        <li><a href="#node-ac20">Disability Categories and the Barriers People Meet</a> <span class="basis">— Access, Disability studies</span></li>
+        <li><a href="#node-ac8">Designing Out the Disclosure Requirement</a> <span class="basis">— Access, Disability studies</span></li>
+        </ul>
+        <p class="sublist-label">Connected resources</p><ul class="sublist">
+        <li><a href="#node-ac11">Designing for the Assistive Technology People Actually Use</a> <span class="basis">— Standards and technical practice</span></li>
+        <li><a href="#node-ac20">Disability Categories and the Barriers People Meet</a> <span class="basis">— Grounding</span></li>
+        <li><a href="#node-ac12">Accessible Procurement and Vendor Accountability</a> <span class="basis">— Institutions, governance and change</span></li>
+        </ul>
+        </article>
+      <article class="entry" id="node-ac22">
+        <h4>Disability Data and the Limits of Prevalence Figures</h4>
+        <p class="entry-sub">Why the numbers disagree, and how to use one honestly</p>
+        <p class="entry-status dev">In development</p>
+        <p>Measurement by diagnosis, by function, or by self-identification produces materially different populations, which is why global and national prevalence figures diverge so widely and why the choice of instrument is never neutral. This resource covers the major global and Canadian sources and their known undercounts, and how to carry a number into a business case or a funding application without asking it to bear more weight than it can.</p>
+        <p class="meta"><strong>Home branch.</strong> Accessibility · Well established</p>
+        <p class="meta"><strong>Grounding.</strong> WHO World Report on Disability; WHO Global Report on Health Equity for Persons with Disabilities; Canadian Survey on Disability; ICF</p>
+        <p class="meta"><strong>Themes.</strong> Research, Disability studies, Equity</p>
+        <p class="sublist-label">Sources</p><ul class="sublist">
+        <li><a href="#ref-19">Reference 19</a>: World Health Organization &amp; World Bank (2011). World Report on Disability. World Health Organization.</li>
+        <li><a href="#ref-20">Reference 20</a>: World Health Organization (2022). Global Report on Health Equity for Persons with Disabilities. World Health Organization.</li>
+        <li><a href="#ref-21">Reference 21</a>: Statistics Canada. Canadian Survey on Disability — the national source for disability prevalence in Canada.</li>
+        <li><a href="#ref-13">Reference 13</a>: World Health Organization (2001). International Classification of Functioning, Disability and Health (ICF). WHO — the source of the biopsychosocial model of disability.</li>
+        </ul>
+        <p class="sublist-label">Most related, by shared theme and source</p><ul class="sublist">
+        <li><a href="#node-ac19">Models of Disability as Design Decisions</a> <span class="basis">— Disability studies, Equity · 1 shared source</span></li>
+        <li><a href="#node-ac7">Disability Studies for Learning Designers</a> <span class="basis">— Disability studies, Equity</span></li>
+        <li><a href="#node-ac9">Partnering with Disabled People in Learning Design</a> <span class="basis">— Disability studies, Equity</span></li>
+        <li><a href="#node-ac8">Designing Out the Disclosure Requirement</a> <span class="basis">— Disability studies, Equity</span></li>
+        <li><a href="#node-ac18">Accessible Research Participation and Knowledge Products</a> <span class="basis">— Equity, Research</span></li>
+        </ul>
+        <p class="sublist-label">Connected resources</p><ul class="sublist">
+        <li><a href="#node-ac17">Accessible Health and Patient Education</a> <span class="basis">— Sectors and participation</span></li>
+        <li><a href="#node-ac16">Institutional Accessibility Planning as a Change Program</a> <span class="basis">— Institutions, governance and change</span></li>
+        </ul>
+        </article>
+      <article class="entry" id="node-ac23">
+        <h4>Disability Etiquette and Communication in Learning Environments</h4>
+        <p class="entry-sub">Professional practice, not a list of prohibitions</p>
+        <p class="entry-status dev">In development</p>
+        <p>Person-first and identity-first language and why the choice belongs to the person rather than the institution; addressing someone directly rather than their interpreter or support worker; offering assistance without presuming it is wanted or acting before it is accepted. It is written for facilitators and instructors as professional communication practice, on the understanding that the failures that matter in a learning room are rarely failures of intention and almost always failures of default behaviour under time pressure.</p>
+        <p class="meta"><strong>Home branch.</strong> Accessibility · Well established</p>
+        <p class="meta"><strong>Grounding.</strong> Disability etiquette guidance (United Spinal Association); CRPD; disability studies</p>
+        <p class="meta"><strong>Themes.</strong> Community, Disability studies, Capacity</p>
+        <p class="sublist-label">Sources</p><ul class="sublist">
+        <li><a href="#ref-22">Reference 22</a>: United Spinal Association. Disability Etiquette: Tips on Interacting with People with Disabilities.</li>
+        <li><a href="#ref-23">Reference 23</a>: United Nations (2006). Convention on the Rights of Persons with Disabilities (CRPD).</li>
+        <li><a href="#ref-10">Reference 10</a>: Charlton, J. I. (1998). Nothing About Us Without Us: Disability Oppression and Empowerment. University of California Press.</li>
+        </ul>
+        <p class="sublist-label">Most related, by shared theme and source</p><ul class="sublist">
+        <li><a href="#node-ac9">Partnering with Disabled People in Learning Design</a> <span class="basis">— Community, Disability studies · 1 shared source</span></li>
+        <li><a href="#node-ac3">Inclusive Facilitation &amp; Capacity Building</a> <span class="basis">— Capacity, Community</span></li>
+        <li><a href="#node-ac7">Disability Studies for Learning Designers</a> <span class="basis">— Disability studies</span></li>
+        <li><a href="#node-ac19">Models of Disability as Design Decisions</a> <span class="basis">— Disability studies</span></li>
+        <li><a href="#node-ac20">Disability Categories and the Barriers People Meet</a> <span class="basis">— Disability studies</span></li>
+        </ul>
+        <p class="sublist-label">Connected resources</p><ul class="sublist">
+        <li><a href="#node-ac3">Inclusive Facilitation &amp; Capacity Building</a> <span class="basis">— Services</span></li>
+        <li><a href="#node-ac9">Partnering with Disabled People in Learning Design</a> <span class="basis">— Grounding</span></li>
+        <li><a href="#node-ac7">Disability Studies for Learning Designers</a> <span class="basis">— Grounding</span></li>
+        </ul>
+        </article>
+      <article class="entry" id="node-ud8">
+        <h4>Equity-Centered Learning Design</h4>
+        <p class="entry-sub">The social and cultural layer over everything</p>
+        <p class="entry-status dev">In development</p>
+        <p>Attending to power, culture, and whose knowledge is treated as legitimate across the whole design, rather than as a separate module. It connects directly to equity evaluation and to equity-centred knowledge mobilization.</p>
+        <p class="meta"><strong>Home branch.</strong> Universal Design for Learning · Well established</p>
+        <p class="meta"><strong>Grounding.</strong> Equity-centred and culturally responsive design</p>
+        <p class="meta"><strong>Themes.</strong> Equity</p>
+        <p class="sublist-label">Sources</p><ul class="sublist">
+        <li><a href="#ref-24">Reference 24</a>: Ladson-Billings, G. (1995). “Toward a Theory of Culturally Relevant Pedagogy.” American Educational Research Journal, 32(3), 465–491.</li>
+        </ul>
+        <p class="sublist-label">Most related, by shared theme and source</p><ul class="sublist">
+        <li><a href="#node-ac7">Disability Studies for Learning Designers</a> <span class="basis">— Equity</span></li>
+        <li><a href="#node-ac9">Partnering with Disabled People in Learning Design</a> <span class="basis">— Equity</span></li>
+        <li><a href="#node-ac19">Models of Disability as Design Decisions</a> <span class="basis">— Equity</span></li>
+        <li><a href="#node-ac22">Disability Data and the Limits of Prevalence Figures</a> <span class="basis">— Equity</span></li>
+        <li><a href="#node-ac8">Designing Out the Disclosure Requirement</a> <span class="basis">— Equity</span></li>
+        </ul>
+        <p class="sublist-label">Connected resources</p><ul class="sublist">
+        <li><a href="#node-ud1">Designing for Learner Variability at Scale</a> <span class="basis">— Designing for variability</span></li>
+        </ul>
+        </article>
+    <h3 id="group-rights">Rights, duty and accommodation</h3>
+      <p>What is owed to a person, and what proactive design does and does not discharge. The legal and ethical architecture within which access decisions are made and defended.</p>
+      <article class="entry" id="node-ac4">
+        <h4>Why Universal Design Never Eliminates Individual Accommodation</h4>
+        <p class="entry-sub">The anchor · why both are permanent, and both are skilled</p>
+        <p class="entry-status dev">In development</p>
+        <p>Individual accommodation is not a residue left behind by imperfect design. Human variability has no outer edge, some barriers are the very thing an assessment is meant to measure, and the duty is owed to a person rather than discharged by a process — which is why proactive design and individual accommodation remain complementary, and why the accommodation encounter is skilled professional practice rather than an administrative step.</p>
+        <p class="meta"><strong>Home branch.</strong> Accessibility · Long-settled practice</p>
+        <p class="meta"><strong>Grounding.</strong> Inclusive design and one-size-fits-one; the duty to accommodate; construct validity</p>
+        <p class="meta"><strong>Themes.</strong> Accommodation, Access, Variability</p>
+        <p class="sublist-label">Sources</p><ul class="sublist">
+        <li><a href="#ref-11">Reference 11</a>: Inclusive Design Research Centre. The Inclusive Design Guide. OCAD University — the source of the one-size-fits-one principle and the inclusive design framework.</li>
+        <li><a href="#ref-25">Reference 25</a>: Connell, B. R., Jones, M., Mace, R., Mueller, J., Mullick, A., Ostroff, E., Sanford, J., Steinfeld, E., Story, M., &amp; Vanderheiden, G. (1997). The Principles of Universal Design, Version 2.0. Center for Universal Design, North Carolina State University.</li>
+        <li><a href="#ref-26">Reference 26</a>: British Columbia (Public Service Employee Relations Commission) v. BCGSEU, [1999] 3 S.C.R. 3, 1999 CanLII 652 (SCC) — the “Meiorin” decision, establishing the unified bona fide requirement test and accommodation to the point of undue hardship.</li>
+        <li><a href="#ref-27">Reference 27</a>: Messick, S. (1995). “Validity of Psychological Assessment: Validation of Inferences from Persons’ Responses and Performances as Scientific Inquiry into Score Meaning.” American Psychologist, 50(9), 741–749.</li>
+        <li><a href="#ref-2">Reference 2</a>: CAST (2024). Universal Design for Learning Guidelines, version 3.0.</li>
+        </ul>
+        <p class="sublist-label">Most related, by shared theme and source</p><ul class="sublist">
+        <li><a href="#node-ac14">Access in Clinical and Placement Education</a> <span class="basis">— Access, Accommodation · 2 shared sources</span></li>
+        <li><a href="#node-ac5">The Duty to Accommodate in Learning Design</a> <span class="basis">— Access, Accommodation · 1 shared source</span></li>
+        <li><a href="#node-ud2">From Accommodation to Proactive Inclusive Design</a> <span class="basis">— Access, Variability · 1 shared source</span></li>
+        <li><a href="#node-ud5">Onboarding Across Wide Experience Ranges</a> <span class="basis">— Access, Variability · 1 shared source</span></li>
+        <li><a href="#node-ac25">Accessible Physical and Hybrid Learning Environments</a> <span class="basis">— Access, Variability · 1 shared source</span></li>
+        </ul>
+        <p class="sublist-label">Connected resources</p><ul class="sublist">
+        <li><a href="#node-ud2">From Accommodation to Proactive Inclusive Design</a> <span class="basis">— Rights, duty and accommodation</span></li>
+        <li><a href="#node-ud6">Making Accessibility More Than Compliance</a> <span class="basis">— Standards and technical practice</span></li>
+        <li><a href="#node-ac5">The Duty to Accommodate in Learning Design</a> <span class="basis">— Rights, duty and accommodation</span></li>
+        <li><a href="#node-ac6">Essential Requirements and the Limits of Flexibility</a> <span class="basis">— Rights, duty and accommodation</span></li>
+        <li><a href="#node-ac8">Designing Out the Disclosure Requirement</a> <span class="basis">— Rights, duty and accommodation</span></li>
+        </ul>
+        </article>
+      <article class="entry" id="node-ac5">
+        <h4>The Duty to Accommodate in Learning Design</h4>
+        <p class="entry-sub">The legal frame, written for those who build and teach</p>
+        <p class="entry-status dev">In development</p>
+        <p>The architecture within which access decisions are made and defended: the procedural and substantive duty, the unified bona fide requirement test, and accommodation to the point of undue hardship, set in the Canadian frame with the cross-border standards that vendor and partnership work require. It is offered as synthesis for designers, faculty, and institutions; determinations in individual cases rest with accessibility advisors and accommodation offices, and with legal counsel where a matter becomes contested.</p>
+        <p class="meta"><strong>Home branch.</strong> Accessibility · Well established</p>
+        <p class="meta"><strong>Grounding.</strong> Meiorin and the BFOR test; Accessible Canada Act; BC Human Rights Code; Accessible British Columbia Act; ADA and Sections 504/508</p>
+        <p class="meta"><strong>Themes.</strong> Accommodation, Policy, Access</p>
+        <p class="sublist-label">Sources</p><ul class="sublist">
+        <li><a href="#ref-26">Reference 26</a>: British Columbia (Public Service Employee Relations Commission) v. BCGSEU, [1999] 3 S.C.R. 3, 1999 CanLII 652 (SCC) — the “Meiorin” decision, establishing the unified bona fide requirement test and accommodation to the point of undue hardship.</li>
+        <li><a href="#ref-28">Reference 28</a>: Accessible Canada Act, S.C. 2019, c. 10.</li>
+        <li><a href="#ref-29">Reference 29</a>: Human Rights Code, R.S.B.C. 1996, c. 210. Province of British Columbia.</li>
+        <li><a href="#ref-30">Reference 30</a>: Accessible British Columbia Act, S.B.C. 2021, c. 19. Province of British Columbia.</li>
+        <li><a href="#ref-31">Reference 31</a>: Americans with Disabilities Act of 1990, as amended, 42 U.S.C. § 12101 et seq.; Rehabilitation Act of 1973, Sections 504 and 508, as amended.</li>
+        </ul>
+        <p class="sublist-label">Most related, by shared theme and source</p><ul class="sublist">
+        <li><a href="#node-ac4">Why Universal Design Never Eliminates Individual Accommodation</a> <span class="basis">— Access, Accommodation · 1 shared source</span></li>
+        <li><a href="#node-ac14">Access in Clinical and Placement Education</a> <span class="basis">— Access, Accommodation · 1 shared source</span></li>
+        <li><a href="#node-ac13">Designing for Episodic and Fluctuating Conditions</a> <span class="basis">— Access, Accommodation</span></li>
+        <li><a href="#node-ac24">International and Regional Disability Rights Instruments</a> <span class="basis">— Access, Policy</span></li>
+        <li><a href="#node-ac12">Accessible Procurement and Vendor Accountability</a> <span class="basis">— Access, Policy</span></li>
+        </ul>
+        <p class="sublist-label">Connected resources</p><ul class="sublist">
+        <li><a href="#node-ac4">Why Universal Design Never Eliminates Individual Accommodation</a> <span class="basis">— Rights, duty and accommodation</span></li>
+        <li><a href="#node-ac6">Essential Requirements and the Limits of Flexibility</a> <span class="basis">— Rights, duty and accommodation</span></li>
+        <li><a href="#node-ac16">Institutional Accessibility Planning as a Change Program</a> <span class="basis">— Institutions, governance and change</span></li>
+        </ul>
+        </article>
+      <article class="entry" id="node-ac6">
+        <h4>Essential Requirements and the Limits of Flexibility</h4>
+        <p class="entry-sub">What a standard genuinely requires, articulated in advance</p>
+        <p class="entry-status dev">In development</p>
+        <p>The most demanding judgment in the field: when flexibility preserves what is being measured, and when it alters it. This resource supports programs in articulating their essential requirements before any dispute arises — separating what a standard genuinely requires from what it has inherited by convention — so that the reasoning is available to everyone who later needs it.</p>
+        <p class="meta"><strong>Home branch.</strong> Accessibility · Well established</p>
+        <p class="meta"><strong>Grounding.</strong> Construct validity; constructive alignment; bona fide academic and technical standards</p>
+        <p class="meta"><strong>Themes.</strong> Accommodation, Assessment, Alignment</p>
+        <p class="sublist-label">Sources</p><ul class="sublist">
+        <li><a href="#ref-27">Reference 27</a>: Messick, S. (1995). “Validity of Psychological Assessment: Validation of Inferences from Persons’ Responses and Performances as Scientific Inquiry into Score Meaning.” American Psychologist, 50(9), 741–749.</li>
+        <li><a href="#ref-3">Reference 3</a>: Wiggins, G., &amp; McTighe, J. (2005). Understanding by Design (Expanded 2nd ed.). ASCD.</li>
+        <li><a href="#ref-26">Reference 26</a>: British Columbia (Public Service Employee Relations Commission) v. BCGSEU, [1999] 3 S.C.R. 3, 1999 CanLII 652 (SCC) — the “Meiorin” decision, establishing the unified bona fide requirement test and accommodation to the point of undue hardship.</li>
+        </ul>
+        <p class="sublist-label">Most related, by shared theme and source</p><ul class="sublist">
+        <li><a href="#node-ac14">Access in Clinical and Placement Education</a> <span class="basis">— Accommodation, Assessment · 2 shared sources</span></li>
+        <li><a href="#node-ac4">Why Universal Design Never Eliminates Individual Accommodation</a> <span class="basis">— Accommodation · 2 shared sources</span></li>
+        <li><a href="#node-ac2">Inclusive Course &amp; Curriculum Design</a> <span class="basis">— Alignment · 1 shared source</span></li>
+        <li><a href="#node-ac5">The Duty to Accommodate in Learning Design</a> <span class="basis">— Accommodation · 1 shared source</span></li>
+        <li><a href="#node-ud7">Eliminating Construct-Irrelevant Barriers in Assessment</a> <span class="basis">— Assessment · 1 shared source</span></li>
+        </ul>
+        <p class="sublist-label">Connected resources</p><ul class="sublist">
+        <li><a href="#node-ac4">Why Universal Design Never Eliminates Individual Accommodation</a> <span class="basis">— Rights, duty and accommodation</span></li>
+        <li><a href="#node-ud7">Eliminating Construct-Irrelevant Barriers in Assessment</a> <span class="basis">— Rights, duty and accommodation</span></li>
+        <li><a href="#node-ac14">Access in Clinical and Placement Education</a> <span class="basis">— Sectors and participation</span></li>
+        </ul>
+        </article>
+      <article class="entry" id="node-ac8">
+        <h4>Designing Out the Disclosure Requirement</h4>
+        <p class="entry-sub">Disclosure burden as a design variable</p>
+        <p class="entry-status dev">In development</p>
+        <p>Access that is gated behind disclosure asks a person to name a private matter to someone holding authority over them, and the documented costs of that request are real: anticipated stigma, delay, and for some, a decision not to ask at all. This resource treats disclosure burden as something design can measure and reduce — why a flexible deadline requiring an email is a disclosure event and a built-in buffer is not — while leaving the accommodation record itself where it belongs, with the office that holds it.</p>
+        <p class="meta"><strong>Home branch.</strong> Accessibility · Well established</p>
+        <p class="meta"><strong>Grounding.</strong> Stigma and concealment (Goffman); academic ableism; BC information-governance requirements</p>
+        <p class="meta"><strong>Themes.</strong> Disability studies, Access, Equity</p>
+        <p class="sublist-label">Sources</p><ul class="sublist">
+        <li><a href="#ref-32">Reference 32</a>: Goffman, E. (1963). Stigma: Notes on the Management of Spoiled Identity. Prentice-Hall.</li>
+        <li><a href="#ref-7">Reference 7</a>: Dolmage, J. T. (2017). Academic Ableism: Disability and Higher Education. University of Michigan Press.</li>
+        <li><a href="#ref-33">Reference 33</a>: Freedom of Information and Protection of Privacy Act, R.S.B.C. 1996, c. 165. Province of British Columbia.</li>
+        </ul>
+        <p class="sublist-label">Most related, by shared theme and source</p><ul class="sublist">
+        <li><a href="#node-ac7">Disability Studies for Learning Designers</a> <span class="basis">— Access, Disability studies, Equity · 1 shared source</span></li>
+        <li><a href="#node-ac19">Models of Disability as Design Decisions</a> <span class="basis">— Access, Disability studies, Equity</span></li>
+        <li><a href="#node-ac9">Partnering with Disabled People in Learning Design</a> <span class="basis">— Disability studies, Equity</span></li>
+        <li><a href="#node-ac20">Disability Categories and the Barriers People Meet</a> <span class="basis">— Access, Disability studies</span></li>
+        <li><a href="#node-ac21">Assistive Technology and Adaptive Strategies</a> <span class="basis">— Access, Disability studies</span></li>
+        </ul>
+        <p class="sublist-label">Connected resources</p><ul class="sublist">
+        <li><a href="#node-ac4">Why Universal Design Never Eliminates Individual Accommodation</a> <span class="basis">— Rights, duty and accommodation</span></li>
+        <li><a href="#node-ac7">Disability Studies for Learning Designers</a> <span class="basis">— Grounding</span></li>
+        <li><a href="#node-ac13">Designing for Episodic and Fluctuating Conditions</a> <span class="basis">— Rights, duty and accommodation</span></li>
+        </ul>
+        </article>
+      <article class="entry" id="node-ac13">
+        <h4>Designing for Episodic and Fluctuating Conditions</h4>
+        <p class="entry-sub">Program architecture for conditions that vary</p>
+        <p class="entry-status dev">In development</p>
+        <p>Attendance policy, deadline architecture, cohort progression, and leave-and-return pathways — the structural layer of a problem that individual accommodation handles with difficulty because most systems assume stable limitations. It is program and policy design, offered in the knowledge that disabled people and experienced advisors hold far more understanding of these conditions than the design literature yet reflects.</p>
+        <p class="meta"><strong>Home branch.</strong> Accessibility · Well established</p>
+        <p class="meta"><strong>Grounding.</strong> Episodic disability framework (O’Brien et al.); disability studies</p>
+        <p class="meta"><strong>Themes.</strong> Accommodation, Wellbeing, Access</p>
+        <p class="sublist-label">Sources</p><ul class="sublist">
+        <li><a href="#ref-34">Reference 34</a>: O’Brien, K. K., Bayoumi, A. M., Strike, C., Young, N. L., &amp; Davis, A. M. (2008). “Exploring Disability from the Perspective of Adults Living with HIV/AIDS: Development of a Conceptual Framework.” Health and Quality of Life Outcomes, 6:76.</li>
+        <li><a href="#ref-9">Reference 9</a>: Kafer, A. (2013). Feminist, Queer, Crip. Indiana University Press.</li>
+        </ul>
+        <p class="sublist-label">Most related, by shared theme and source</p><ul class="sublist">
+        <li><a href="#node-ac4">Why Universal Design Never Eliminates Individual Accommodation</a> <span class="basis">— Access, Accommodation</span></li>
+        <li><a href="#node-ac5">The Duty to Accommodate in Learning Design</a> <span class="basis">— Access, Accommodation</span></li>
+        <li><a href="#node-ac14">Access in Clinical and Placement Education</a> <span class="basis">— Access, Accommodation</span></li>
+        <li><a href="#node-ac17">Accessible Health and Patient Education</a> <span class="basis">— Access, Wellbeing</span></li>
+        <li><a href="#node-ac7">Disability Studies for Learning Designers</a> <span class="basis">— Access · 1 shared source</span></li>
+        </ul>
+        <p class="sublist-label">Connected resources</p><ul class="sublist">
+        <li><a href="#node-ac8">Designing Out the Disclosure Requirement</a> <span class="basis">— Rights, duty and accommodation</span></li>
+        <li><a href="#node-ac6">Essential Requirements and the Limits of Flexibility</a> <span class="basis">— Rights, duty and accommodation</span></li>
+        </ul>
+        </article>
+      <article class="entry" id="node-ac24">
+        <h4>International and Regional Disability Rights Instruments</h4>
+        <p class="entry-sub">The layer above domestic duty</p>
+        <p class="entry-status dev">In development</p>
+        <p>The Universal Declaration of Human Rights, the Convention on the Rights of Persons with Disabilities and its General Comments, and the Marrakesh Treaty, together with the regional instruments — the Charter of Fundamental Rights of the European Union, the African Charter on Human and Peoples’ Rights, and the Inter-American Convention. It explains why accessibility obligations converge across jurisdictions rather than arising independently in each, and supplies the vocabulary required to work with partners outside Canada.</p>
+        <p class="meta"><strong>Home branch.</strong> Accessibility · Well established</p>
+        <p class="meta"><strong>Grounding.</strong> UDHR (1948); CRPD (2006); Marrakesh Treaty (2013); regional human rights instruments</p>
+        <p class="meta"><strong>Themes.</strong> Policy, Standards, Access</p>
+        <p class="sublist-label">Sources</p><ul class="sublist">
+        <li><a href="#ref-35">Reference 35</a>: United Nations (1948). Universal Declaration of Human Rights.</li>
+        <li><a href="#ref-23">Reference 23</a>: United Nations (2006). Convention on the Rights of Persons with Disabilities (CRPD).</li>
+        <li><a href="#ref-36">Reference 36</a>: World Intellectual Property Organization (2013). Marrakesh Treaty to Facilitate Access to Published Works for Persons Who Are Blind, Visually Impaired or Otherwise Print Disabled.</li>
+        <li><a href="#ref-37">Reference 37</a>: European Union (2012). Charter of Fundamental Rights of the European Union, 2012/C 326/02.</li>
+        </ul>
+        <p class="sublist-label">Most related, by shared theme and source</p><ul class="sublist">
+        <li><a href="#node-ac12">Accessible Procurement and Vendor Accountability</a> <span class="basis">— Access, Policy, Standards</span></li>
+        <li><a href="#node-ac21">Assistive Technology and Adaptive Strategies</a> <span class="basis">— Access, Standards</span></li>
+        <li><a href="#node-ac5">The Duty to Accommodate in Learning Design</a> <span class="basis">— Access, Policy</span></li>
+        <li><a href="#node-ac10">Accessibility Triage for Existing Course Inventories</a> <span class="basis">— Access, Standards</span></li>
+        <li><a href="#node-ac11">Designing for the Assistive Technology People Actually Use</a> <span class="basis">— Access, Standards</span></li>
+        </ul>
+        <p class="sublist-label">Connected resources</p><ul class="sublist">
+        <li><a href="#node-ac5">The Duty to Accommodate in Learning Design</a> <span class="basis">— Rights, duty and accommodation</span></li>
+        <li><a href="#node-ac16">Institutional Accessibility Planning as a Change Program</a> <span class="basis">— Institutions, governance and change</span></li>
+        <li><a href="#node-ac9">Partnering with Disabled People in Learning Design</a> <span class="basis">— Grounding</span></li>
+        </ul>
+        </article>
+      <article class="entry" id="node-ud2">
+        <h4>From Accommodation to Proactive Inclusive Design</h4>
+        <p class="entry-sub">The field's defining reframe</p>
+        <p class="entry-status">Published resource</p>
+        <p>Shifting from retrofitting access for individuals after the fact to designing inclusively from the start, so fewer barriers are ever built in. It states the paradigm shift the field rests on, plainly.</p>
+        <p class="meta"><strong>Home branch.</strong> Universal Design for Learning · Well established</p>
+        <p class="meta"><strong>Grounding.</strong> Universal Design for Learning; inclusive design principles</p>
+        <p class="meta"><strong>Themes.</strong> Access, Variability</p>
+        <p class="sublist-label">Sources</p><ul class="sublist">
+        <li><a href="#ref-38">Reference 38</a>: Meyer, A., Rose, D. H., &amp; Gordon, D. (2014). Universal Design for Learning: Theory and Practice. CAST Professional Publishing.</li>
+        <li><a href="#ref-2">Reference 2</a>: CAST (2024). Universal Design for Learning Guidelines, version 3.0.</li>
+        </ul>
+        <p class="sublist-label">Most related, by shared theme and source</p><ul class="sublist">
+        <li><a href="#node-ac4">Why Universal Design Never Eliminates Individual Accommodation</a> <span class="basis">— Access, Variability · 1 shared source</span></li>
+        <li><a href="#node-ud5">Onboarding Across Wide Experience Ranges</a> <span class="basis">— Access, Variability · 1 shared source</span></li>
+        <li><a href="#node-ac20">Disability Categories and the Barriers People Meet</a> <span class="basis">— Access, Variability</span></li>
+        <li><a href="#node-ac25">Accessible Physical and Hybrid Learning Environments</a> <span class="basis">— Access, Variability</span></li>
+        <li><a href="#node-ac1">Accessibility Review</a> <span class="basis">— Access · 1 shared source</span></li>
+        </ul>
+        <p class="sublist-label">Connected resources</p><ul class="sublist">
+        <li><a href="#node-ud1">Designing for Learner Variability at Scale</a> <span class="basis">— Designing for variability</span></li>
+        <li><a href="#node-ac1">Accessibility Review</a> <span class="basis">— Services</span></li>
+        <li><a href="#node-ac4">Why Universal Design Never Eliminates Individual Accommodation</a> <span class="basis">— Rights, duty and accommodation</span></li>
+        </ul>
+        </article>
+      <article class="entry" id="node-ud7">
+        <h4>Eliminating Construct-Irrelevant Barriers in Assessment</h4>
+        <p class="entry-sub">Measuring capability, not obstacles</p>
+        <p class="entry-status">Published resource</p>
+        <p>Removing features of an assessment that get in the way of demonstrating mastery without being part of what is measured, so results reflect capability rather than incidental barriers. It works alongside assessment designed as experience.</p>
+        <p class="meta"><strong>Home branch.</strong> Universal Design for Learning · Well established</p>
+        <p class="meta"><strong>Grounding.</strong> Construct validity; UDL action &amp; expression</p>
+        <p class="meta"><strong>Themes.</strong> Assessment, Access</p>
+        <p class="sublist-label">Sources</p><ul class="sublist">
+        <li><a href="#ref-27">Reference 27</a>: Messick, S. (1995). “Validity of Psychological Assessment: Validation of Inferences from Persons’ Responses and Performances as Scientific Inquiry into Score Meaning.” American Psychologist, 50(9), 741–749.</li>
+        <li><a href="#ref-2">Reference 2</a>: CAST (2024). Universal Design for Learning Guidelines, version 3.0.</li>
+        </ul>
+        <p class="sublist-label">Most related, by shared theme and source</p><ul class="sublist">
+        <li><a href="#node-ac14">Access in Clinical and Placement Education</a> <span class="basis">— Access, Assessment · 1 shared source</span></li>
+        <li><a href="#node-ac4">Why Universal Design Never Eliminates Individual Accommodation</a> <span class="basis">— Access · 2 shared sources</span></li>
+        <li><a href="#node-ac1">Accessibility Review</a> <span class="basis">— Access · 1 shared source</span></li>
+        <li><a href="#node-ac2">Inclusive Course &amp; Curriculum Design</a> <span class="basis">— Access · 1 shared source</span></li>
+        <li><a href="#node-ac6">Essential Requirements and the Limits of Flexibility</a> <span class="basis">— Assessment · 1 shared source</span></li>
+        </ul>
+        <p class="sublist-label">Connected resources</p><ul class="sublist">
+        <li><a href="#node-ud1">Designing for Learner Variability at Scale</a> <span class="basis">— Designing for variability</span></li>
+        <li><a href="#node-ac1">Accessibility Review</a> <span class="basis">— Services</span></li>
+        <li><a href="#node-ac6">Essential Requirements and the Limits of Flexibility</a> <span class="basis">— Rights, duty and accommodation</span></li>
+        </ul>
+        </article>
+    <h3 id="group-variability">Designing for variability</h3>
+      <p>Designing for the predictable range of learners. Distinct from disability, and kept distinct here: variability is a design premise, disability is a relationship between a person and an environment.</p>
+      <article class="entry" id="node-ud1">
+        <h4>Designing for Learner Variability at Scale</h4>
+        <p class="entry-sub">The thesis the other UDL work inherits</p>
+        <p class="entry-status">Published resource</p>
+        <p>Designing from the outset for the full, predictable range of human variability, so the environment fits diverse learners rather than a mythical average one. It is the worldview that grounds every other contribution on this branch.</p>
+        <p class="meta"><strong>Home branch.</strong> Universal Design for Learning · Well established</p>
+        <p class="meta"><strong>Grounding.</strong> Universal Design for Learning (CAST; Rose &amp; Meyer)</p>
+        <p class="meta"><strong>Themes.</strong> Variability, Scale</p>
+        <p class="sublist-label">Sources</p><ul class="sublist">
+        <li><a href="#ref-39">Reference 39</a>: Rose, D. H., &amp; Meyer, A. (2002). Teaching Every Student in the Digital Age: Universal Design for Learning. ASCD.</li>
+        <li><a href="#ref-2">Reference 2</a>: CAST (2024). Universal Design for Learning Guidelines, version 3.0.</li>
+        </ul>
+        <p class="sublist-label">Most related, by shared theme and source</p><ul class="sublist">
+        <li><a href="#node-ac4">Why Universal Design Never Eliminates Individual Accommodation</a> <span class="basis">— Variability · 1 shared source</span></li>
+        <li><a href="#node-ud2">From Accommodation to Proactive Inclusive Design</a> <span class="basis">— Variability · 1 shared source</span></li>
+        <li><a href="#node-ud3">Engaging Voluntary &amp; Cautious Adult Learners</a> <span class="basis">— Variability · 1 shared source</span></li>
+        <li><a href="#node-ud5">Onboarding Across Wide Experience Ranges</a> <span class="basis">— Variability · 1 shared source</span></li>
+        <li><a href="#node-ud9">Scaling Personalization Without Scaling Cost</a> <span class="basis">— Scale · 1 shared source</span></li>
+        </ul>
+        <p class="sublist-label">Connected resources</p><ul class="sublist">
+        <li><a href="#node-ud2">From Accommodation to Proactive Inclusive Design</a> <span class="basis">— Rights, duty and accommodation</span></li>
+        </ul>
+        </article>
+      <article class="entry" id="node-ud3">
+        <h4>Engaging Voluntary &amp; Cautious Adult Learners</h4>
+        <p class="entry-sub">The engagement principle in practice</p>
+        <p class="entry-status dev">In development</p>
+        <p>Designing multiple pathways into motivation for learners who arrive with very different reasons for being there, including those who would rather not be. Where engagement is not solved, little downstream can land.</p>
+        <p class="meta"><strong>Home branch.</strong> Universal Design for Learning · Newer or contested</p>
+        <p class="meta"><strong>Grounding.</strong> UDL engagement principle; adult learning</p>
+        <p class="meta"><strong>Themes.</strong> Motivation, Variability</p>
+        <p class="sublist-label">Sources</p><ul class="sublist">
+        <li><a href="#ref-2">Reference 2</a>: CAST (2024). Universal Design for Learning Guidelines, version 3.0.</li>
+        <li><a href="#ref-40">Reference 40</a>: Ryan, R. M., &amp; Deci, E. L. (2000). “Self-Determination Theory and the Facilitation of Intrinsic Motivation, Social Development, and Well-Being.” American Psychologist, 55(1), 68–78.</li>
+        </ul>
+        <p class="sublist-label">Most related, by shared theme and source</p><ul class="sublist">
+        <li><a href="#node-ac4">Why Universal Design Never Eliminates Individual Accommodation</a> <span class="basis">— Variability · 1 shared source</span></li>
+        <li><a href="#node-ud2">From Accommodation to Proactive Inclusive Design</a> <span class="basis">— Variability · 1 shared source</span></li>
+        <li><a href="#node-ud1">Designing for Learner Variability at Scale</a> <span class="basis">— Variability · 1 shared source</span></li>
+        <li><a href="#node-ud5">Onboarding Across Wide Experience Ranges</a> <span class="basis">— Variability · 1 shared source</span></li>
+        <li><a href="#node-ac20">Disability Categories and the Barriers People Meet</a> <span class="basis">— Variability</span></li>
+        </ul>
+        <p class="sublist-label">Connected resources</p><ul class="sublist">
+        <li><a href="#node-ud1">Designing for Learner Variability at Scale</a> <span class="basis">— Designing for variability</span></li>
+        </ul>
+        </article>
+      <article class="entry" id="node-ud5">
+        <h4>Onboarding Across Wide Experience Ranges</h4>
+        <p class="entry-sub">Multiple entry points and pathways</p>
+        <p class="entry-status dev">In development</p>
+        <p>Designing entry so newcomers and experienced practitioners can each begin where they are, without boring the one or losing the other. It is a representation-principle problem common to every sector.</p>
+        <p class="meta"><strong>Home branch.</strong> Universal Design for Learning · Newer or contested</p>
+        <p class="meta"><strong>Grounding.</strong> UDL representation principle</p>
+        <p class="meta"><strong>Themes.</strong> Variability, Access</p>
+        <p class="sublist-label">Sources</p><ul class="sublist">
+        <li><a href="#ref-2">Reference 2</a>: CAST (2024). Universal Design for Learning Guidelines, version 3.0.</li>
+        </ul>
+        <p class="sublist-label">Most related, by shared theme and source</p><ul class="sublist">
+        <li><a href="#node-ac4">Why Universal Design Never Eliminates Individual Accommodation</a> <span class="basis">— Access, Variability · 1 shared source</span></li>
+        <li><a href="#node-ud2">From Accommodation to Proactive Inclusive Design</a> <span class="basis">— Access, Variability · 1 shared source</span></li>
+        <li><a href="#node-ac20">Disability Categories and the Barriers People Meet</a> <span class="basis">— Access, Variability</span></li>
+        <li><a href="#node-ac25">Accessible Physical and Hybrid Learning Environments</a> <span class="basis">— Access, Variability</span></li>
+        <li><a href="#node-ac1">Accessibility Review</a> <span class="basis">— Access · 1 shared source</span></li>
+        </ul>
+        <p class="sublist-label">Connected resources</p><ul class="sublist">
+        <li><a href="#node-ud1">Designing for Learner Variability at Scale</a> <span class="basis">— Designing for variability</span></li>
+        </ul>
+        </article>
+      <article class="entry" id="node-ud9">
+        <h4>Scaling Personalization Without Scaling Cost</h4>
+        <p class="entry-sub">The production economics of flexibility</p>
+        <p class="entry-status dev">In development</p>
+        <p>Making multiple means of engagement, representation, and expression economically feasible at scale, increasingly with AI-assisted production. It is the meta-capability that makes the rest affordable to deliver.</p>
+        <p class="meta"><strong>Home branch.</strong> Universal Design for Learning · Newer or contested</p>
+        <p class="meta"><strong>Grounding.</strong> Learning technology; AI-assisted design</p>
+        <p class="meta"><strong>Themes.</strong> Scale, Iteration</p>
+        <p class="sublist-label">Sources</p><ul class="sublist">
+        <li><a href="#ref-2">Reference 2</a>: CAST (2024). Universal Design for Learning Guidelines, version 3.0.</li>
+        <li><a href="#ref-41">Reference 41</a>: Mayer, R. E. (2009). Multimedia Learning (2nd ed.). Cambridge University Press.</li>
+        </ul>
+        <p class="sublist-label">Most related, by shared theme and source</p><ul class="sublist">
+        <li><a href="#node-ud1">Designing for Learner Variability at Scale</a> <span class="basis">— Scale · 1 shared source</span></li>
+        <li><a href="#node-ac10">Accessibility Triage for Existing Course Inventories</a> <span class="basis">— Scale</span></li>
+        <li><a href="#node-ac1">Accessibility Review</a> <span class="basis">— 1 shared source</span></li>
+        <li><a href="#node-ac2">Inclusive Course &amp; Curriculum Design</a> <span class="basis">— 1 shared source</span></li>
+        <li><a href="#node-ac4">Why Universal Design Never Eliminates Individual Accommodation</a> <span class="basis">— 1 shared source</span></li>
+        </ul>
+        <p class="sublist-label">Connected resources</p><ul class="sublist">
+        <li><a href="#node-ud1">Designing for Learner Variability at Scale</a> <span class="basis">— Designing for variability</span></li>
+        </ul>
+        </article>
+    <h3 id="group-standards">Standards and technical practice</h3>
+      <p>Conformance, assistive technology, and the gap between the two. What a standard requires, and why meeting it does not always mean a person can use the thing.</p>
+      <article class="entry" id="node-ac10">
+        <h4>Accessibility Triage for Existing Course Inventories</h4>
+        <p class="entry-sub">A defensible order of work when everything cannot be fixed at once</p>
+        <p class="entry-status dev">In development</p>
+        <p>Most institutions hold thousands of documents, modules, videos, and pages built before anyone was checking, with no realistic path to full conformance. This resource offers a tiered protocol — what is remediated now, what is rebuilt at next revision, what is retired, and which standard applies to each tier — using high-volume required and compliance training as the worked example.</p>
+        <p class="meta"><strong>Home branch.</strong> Accessibility · Well established</p>
+        <p class="meta"><strong>Grounding.</strong> WCAG 2.2; EN 301 549; remediation prioritisation</p>
+        <p class="meta"><strong>Themes.</strong> Standards, Access, Scale</p>
+        <p class="sublist-label">Sources</p><ul class="sublist">
+        <li><a href="#ref-1">Reference 1</a>: W3C (2023). Web Content Accessibility Guidelines (WCAG) 2.2. W3C Recommendation.</li>
+        <li><a href="#ref-42">Reference 42</a>: ETSI/CEN/CENELEC (2021). EN 301 549 V3.2.1: Accessibility Requirements for ICT Products and Services. Harmonised European Standard.</li>
+        </ul>
+        <p class="sublist-label">Most related, by shared theme and source</p><ul class="sublist">
+        <li><a href="#node-ac12">Accessible Procurement and Vendor Accountability</a> <span class="basis">— Access, Standards · 2 shared sources</span></li>
+        <li><a href="#node-ac11">Designing for the Assistive Technology People Actually Use</a> <span class="basis">— Access, Standards · 1 shared source</span></li>
+        <li><a href="#node-ac21">Assistive Technology and Adaptive Strategies</a> <span class="basis">— Access, Standards</span></li>
+        <li><a href="#node-ac24">International and Regional Disability Rights Instruments</a> <span class="basis">— Access, Standards</span></li>
+        <li><a href="#node-ac25">Accessible Physical and Hybrid Learning Environments</a> <span class="basis">— Access, Standards</span></li>
+        </ul>
+        <p class="sublist-label">Connected resources</p><ul class="sublist">
+        <li><a href="#node-ac12">Accessible Procurement and Vendor Accountability</a> <span class="basis">— Institutions, governance and change</span></li>
+        <li><a href="#node-ac11">Designing for the Assistive Technology People Actually Use</a> <span class="basis">— Standards and technical practice</span></li>
+        <li><a href="#node-ac1">Accessibility Review</a> <span class="basis">— Services</span></li>
+        </ul>
+        </article>
+      <article class="entry" id="node-ac11">
+        <h4>Designing for the Assistive Technology People Actually Use</h4>
+        <p class="entry-sub">Why conformant content can still fail in practice</p>
+        <p class="entry-status dev">In development</p>
+        <p>Conformance and assistive-technology fluency are not the same thing, and the difference shows quickly in real use. This resource covers testing with actual assistive technology rather than automated checking alone, and the reasons technically conformant material can still obstruct — while leaving assessment, tool matching, and training to the assistive technology specialists and advisors whose professional work that is.</p>
+        <p class="meta"><strong>Home branch.</strong> Accessibility · Well established</p>
+        <p class="meta"><strong>Grounding.</strong> SETT framework (Zabala); HAAT model (Cook &amp; Polgar); WCAG 2.2</p>
+        <p class="meta"><strong>Themes.</strong> Standards, Access, Disability studies</p>
+        <p class="sublist-label">Sources</p><ul class="sublist">
+        <li><a href="#ref-17">Reference 17</a>: Zabala, J. S. (2005). Ready, SETT, Go! Getting Started with the SETT Framework — the Student, Environments, Tasks, Tools framework for assistive technology decision-making.</li>
+        <li><a href="#ref-16">Reference 16</a>: Cook, A. M., &amp; Polgar, J. M. (2015). Assistive Technologies: Principles and Practice (4th ed.). Elsevier — the source of the Human Activity Assistive Technology (HAAT) model.</li>
+        <li><a href="#ref-1">Reference 1</a>: W3C (2023). Web Content Accessibility Guidelines (WCAG) 2.2. W3C Recommendation.</li>
+        </ul>
+        <p class="sublist-label">Most related, by shared theme and source</p><ul class="sublist">
+        <li><a href="#node-ac21">Assistive Technology and Adaptive Strategies</a> <span class="basis">— Access, Disability studies, Standards · 2 shared sources</span></li>
+        <li><a href="#node-ac20">Disability Categories and the Barriers People Meet</a> <span class="basis">— Access, Disability studies · 1 shared source</span></li>
+        <li><a href="#node-ac10">Accessibility Triage for Existing Course Inventories</a> <span class="basis">— Access, Standards · 1 shared source</span></li>
+        <li><a href="#node-ac12">Accessible Procurement and Vendor Accountability</a> <span class="basis">— Access, Standards · 1 shared source</span></li>
+        <li><a href="#node-ac7">Disability Studies for Learning Designers</a> <span class="basis">— Access, Disability studies</span></li>
+        </ul>
+        <p class="sublist-label">Connected resources</p><ul class="sublist">
+        <li><a href="#node-ac10">Accessibility Triage for Existing Course Inventories</a> <span class="basis">— Standards and technical practice</span></li>
+        <li><a href="#node-ac12">Accessible Procurement and Vendor Accountability</a> <span class="basis">— Institutions, governance and change</span></li>
+        <li><a href="#node-ac1">Accessibility Review</a> <span class="basis">— Services</span></li>
+        </ul>
+        </article>
+      <article class="entry" id="node-ac25">
+        <h4>Accessible Physical and Hybrid Learning Environments</h4>
+        <p class="entry-sub">The part of universal design most often handed to facilities</p>
+        <p class="entry-status dev">In development</p>
+        <p>The seven principles of universal design as they were originally written — for buildings, spaces, and products — and what they require of a classroom, a laboratory, a placement site, and the hybrid arrangements that now carry a large share of teaching. It is the part of universal design that learning designers most often hand to facilities management, and the part that determines whether a person can be present in the room at all.</p>
+        <p class="meta"><strong>Home branch.</strong> Accessibility · Well established</p>
+        <p class="meta"><strong>Grounding.</strong> Principles of Universal Design (Connell et al., 1997); CSA B651; Accessible Canada Act</p>
+        <p class="meta"><strong>Themes.</strong> Access, Variability, Standards</p>
+        <p class="sublist-label">Sources</p><ul class="sublist">
+        <li><a href="#ref-25">Reference 25</a>: Connell, B. R., Jones, M., Mace, R., Mueller, J., Mullick, A., Ostroff, E., Sanford, J., Steinfeld, E., Story, M., &amp; Vanderheiden, G. (1997). The Principles of Universal Design, Version 2.0. Center for Universal Design, North Carolina State University.</li>
+        <li><a href="#ref-43">Reference 43</a>: CSA Group. CSA B651: Accessible Design for the Built Environment. Canadian Standards Association.</li>
+        <li><a href="#ref-28">Reference 28</a>: Accessible Canada Act, S.C. 2019, c. 10.</li>
+        </ul>
+        <p class="sublist-label">Most related, by shared theme and source</p><ul class="sublist">
+        <li><a href="#node-ac4">Why Universal Design Never Eliminates Individual Accommodation</a> <span class="basis">— Access, Variability · 1 shared source</span></li>
+        <li><a href="#node-ac20">Disability Categories and the Barriers People Meet</a> <span class="basis">— Access, Variability</span></li>
+        <li><a href="#node-ac21">Assistive Technology and Adaptive Strategies</a> <span class="basis">— Access, Standards</span></li>
+        <li><a href="#node-ac24">International and Regional Disability Rights Instruments</a> <span class="basis">— Access, Standards</span></li>
+        <li><a href="#node-ud2">From Accommodation to Proactive Inclusive Design</a> <span class="basis">— Access, Variability</span></li>
+        </ul>
+        <p class="sublist-label">Connected resources</p><ul class="sublist">
+        <li><a href="#node-ac4">Why Universal Design Never Eliminates Individual Accommodation</a> <span class="basis">— Rights, duty and accommodation</span></li>
+        <li><a href="#node-ac14">Access in Clinical and Placement Education</a> <span class="basis">— Sectors and participation</span></li>
+        <li><a href="#node-ud6">Making Accessibility More Than Compliance</a> <span class="basis">— Standards and technical practice</span></li>
+        </ul>
+        </article>
+      <article class="entry" id="node-ud6">
+        <h4>Making Accessibility More Than Compliance</h4>
+        <p class="entry-sub">Access as design quality, not a checklist</p>
+        <p class="entry-status dev">In development</p>
+        <p>Treating accessibility as a dimension of good design rather than a minimum legal standard met at the end. It is the conceptual bridge from inclusive learning design to the accessibility, disability and accommodation branch, and to the service line offered alongside it.</p>
+        <p class="meta"><strong>Home branch.</strong> Universal Design for Learning · Newer or contested</p>
+        <p class="meta"><strong>Grounding.</strong> WCAG; UDL; inclusive design</p>
+        <p class="meta"><strong>Themes.</strong> Access</p>
+        <p class="sublist-label">Sources</p><ul class="sublist">
+        <li><a href="#ref-1">Reference 1</a>: W3C (2023). Web Content Accessibility Guidelines (WCAG) 2.2. W3C Recommendation.</li>
+        <li><a href="#ref-2">Reference 2</a>: CAST (2024). Universal Design for Learning Guidelines, version 3.0.</li>
+        </ul>
+        <p class="sublist-label">Most related, by shared theme and source</p><ul class="sublist">
+        <li><a href="#node-ac1">Accessibility Review</a> <span class="basis">— Access · 2 shared sources</span></li>
+        <li><a href="#node-ac2">Inclusive Course &amp; Curriculum Design</a> <span class="basis">— Access · 1 shared source</span></li>
+        <li><a href="#node-ac20">Disability Categories and the Barriers People Meet</a> <span class="basis">— Access · 1 shared source</span></li>
+        <li><a href="#node-ac4">Why Universal Design Never Eliminates Individual Accommodation</a> <span class="basis">— Access · 1 shared source</span></li>
+        <li><a href="#node-ud2">From Accommodation to Proactive Inclusive Design</a> <span class="basis">— Access · 1 shared source</span></li>
+        </ul>
+        <p class="sublist-label">Connected resources</p><ul class="sublist">
+        <li><a href="#node-ud1">Designing for Learner Variability at Scale</a> <span class="basis">— Designing for variability</span></li>
+        <li><a href="#node-ac1">Accessibility Review</a> <span class="basis">— Services</span></li>
+        <li><a href="#node-ac2">Inclusive Course &amp; Curriculum Design</a> <span class="basis">— Services</span></li>
+        <li><a href="#node-ac4">Why Universal Design Never Eliminates Individual Accommodation</a> <span class="basis">— Rights, duty and accommodation</span></li>
+        </ul>
+        </article>
+      <article class="entry" id="node-ud10">
+        <h4>Evaluating Whether Design Reduced Barriers</h4>
+        <p class="entry-sub">Closing the UDL cycle with evidence</p>
+        <p class="entry-status dev">In development</p>
+        <p>Measuring whether an inclusive design actually lowered barriers, rather than assuming that it did — ending on rigor rather than aspiration. It belongs to the shared evaluation family that runs across the practice.</p>
+        <p class="meta"><strong>Home branch.</strong> Universal Design for Learning · Well established</p>
+        <p class="meta"><strong>Grounding.</strong> Evaluation design; Universal Design for Learning</p>
+        <p class="meta"><strong>Themes.</strong> Evaluation, Access</p>
+        <p class="sublist-label">Sources</p><ul class="sublist">
+        <li><a href="#ref-44">Reference 44</a>: Kirkpatrick, D. L., &amp; Kirkpatrick, J. D. (2006). Evaluating Training Programs: The Four Levels (3rd ed.). Berrett-Koehler.</li>
+        <li><a href="#ref-2">Reference 2</a>: CAST (2024). Universal Design for Learning Guidelines, version 3.0.</li>
+        </ul>
+        <p class="sublist-label">Most related, by shared theme and source</p><ul class="sublist">
+        <li><a href="#node-ac1">Accessibility Review</a> <span class="basis">— Access, Evaluation · 1 shared source</span></li>
+        <li><a href="#node-ac2">Inclusive Course &amp; Curriculum Design</a> <span class="basis">— Access · 1 shared source</span></li>
+        <li><a href="#node-ac4">Why Universal Design Never Eliminates Individual Accommodation</a> <span class="basis">— Access · 1 shared source</span></li>
+        <li><a href="#node-ud2">From Accommodation to Proactive Inclusive Design</a> <span class="basis">— Access · 1 shared source</span></li>
+        <li><a href="#node-ud7">Eliminating Construct-Irrelevant Barriers in Assessment</a> <span class="basis">— Access · 1 shared source</span></li>
+        </ul>
+        <p class="sublist-label">Connected resources</p><ul class="sublist">
+        <li><a href="#node-ud1">Designing for Learner Variability at Scale</a> <span class="basis">— Designing for variability</span></li>
+        <li><a href="#node-ac16">Institutional Accessibility Planning as a Change Program</a> <span class="basis">— Institutions, governance and change</span></li>
+        </ul>
+        </article>
+    <h3 id="group-institutions">Institutions, governance and change</h3>
+      <p>Where accessibility is decided before anything is designed — procurement, planning, faculty development — and what makes a published commitment turn into changed practice.</p>
+      <article class="entry" id="node-ac12">
+        <h4>Accessible Procurement and Vendor Accountability</h4>
+        <p class="entry-sub">The decisions made before anything is built</p>
+        <p class="entry-status dev">In development</p>
+        <p>An inaccessible platform, once purchased, sets the ceiling on everything designed inside it. This resource covers reading an accessibility conformance report critically rather than accepting it at face value, using recognised standards as procurement criteria, writing remediation commitments into agreements, and piloting with disabled users before signature.</p>
+        <p class="meta"><strong>Home branch.</strong> Accessibility · Well established</p>
+        <p class="meta"><strong>Grounding.</strong> EN 301 549; WCAG 2.2; VPAT and accessibility conformance reports</p>
+        <p class="meta"><strong>Themes.</strong> Standards, Policy, Access</p>
+        <p class="sublist-label">Sources</p><ul class="sublist">
+        <li><a href="#ref-42">Reference 42</a>: ETSI/CEN/CENELEC (2021). EN 301 549 V3.2.1: Accessibility Requirements for ICT Products and Services. Harmonised European Standard.</li>
+        <li><a href="#ref-45">Reference 45</a>: Information Technology Industry Council. Voluntary Product Accessibility Template (VPAT) and Accessibility Conformance Reports.</li>
+        <li><a href="#ref-1">Reference 1</a>: W3C (2023). Web Content Accessibility Guidelines (WCAG) 2.2. W3C Recommendation.</li>
+        </ul>
+        <p class="sublist-label">Most related, by shared theme and source</p><ul class="sublist">
+        <li><a href="#node-ac24">International and Regional Disability Rights Instruments</a> <span class="basis">— Access, Policy, Standards</span></li>
+        <li><a href="#node-ac10">Accessibility Triage for Existing Course Inventories</a> <span class="basis">— Access, Standards · 2 shared sources</span></li>
+        <li><a href="#node-ac11">Designing for the Assistive Technology People Actually Use</a> <span class="basis">— Access, Standards · 1 shared source</span></li>
+        <li><a href="#node-ac21">Assistive Technology and Adaptive Strategies</a> <span class="basis">— Access, Standards</span></li>
+        <li><a href="#node-ac5">The Duty to Accommodate in Learning Design</a> <span class="basis">— Access, Policy</span></li>
+        </ul>
+        <p class="sublist-label">Connected resources</p><ul class="sublist">
+        <li><a href="#node-ac10">Accessibility Triage for Existing Course Inventories</a> <span class="basis">— Standards and technical practice</span></li>
+        <li><a href="#node-ac11">Designing for the Assistive Technology People Actually Use</a> <span class="basis">— Standards and technical practice</span></li>
+        <li><a href="#node-ac16">Institutional Accessibility Planning as a Change Program</a> <span class="basis">— Institutions, governance and change</span></li>
+        </ul>
+        </article>
+      <article class="entry" id="node-ac15">
+        <h4>Faculty Development That Changes Accessible Practice</h4>
+        <p class="entry-sub">From awareness to what instructors actually do</p>
+        <p class="entry-status dev">In development</p>
+        <p>Institutions have offered accessibility and inclusive design workshops for years, often with limited change in daily teaching practice. This resource diagnoses whether the gap is capability, opportunity, or motivation, then designs accordingly — point-of-need supports, discipline-specific exemplars, and department-embedded work — with any content on legal obligation delivered alongside the accommodation office rather than independently of it.</p>
+        <p class="meta"><strong>Home branch.</strong> Accessibility · Well established</p>
+        <p class="meta"><strong>Grounding.</strong> COM-B and the Behaviour Change Wheel (Michie et al.); adult learning; UDL</p>
+        <p class="meta"><strong>Themes.</strong> Capacity, Change, Access</p>
+        <p class="sublist-label">Sources</p><ul class="sublist">
+        <li><a href="#ref-46">Reference 46</a>: Michie, S., van Stralen, M. M., &amp; West, R. (2011). “The Behaviour Change Wheel: A New Method for Characterising and Designing Behaviour Change Interventions.” Implementation Science, 6:42.</li>
+        <li><a href="#ref-4">Reference 4</a>: Knowles, M. S., Holton, E. F., &amp; Swanson, R. A. (2015). The Adult Learner (8th ed.). Routledge.</li>
+        <li><a href="#ref-2">Reference 2</a>: CAST (2024). Universal Design for Learning Guidelines, version 3.0.</li>
+        </ul>
+        <p class="sublist-label">Most related, by shared theme and source</p><ul class="sublist">
+        <li><a href="#node-ac3">Inclusive Facilitation &amp; Capacity Building</a> <span class="basis">— Access, Capacity · 1 shared source</span></li>
+        <li><a href="#node-ac1">Accessibility Review</a> <span class="basis">— Access · 1 shared source</span></li>
+        <li><a href="#node-ac2">Inclusive Course &amp; Curriculum Design</a> <span class="basis">— Access · 1 shared source</span></li>
+        <li><a href="#node-ac4">Why Universal Design Never Eliminates Individual Accommodation</a> <span class="basis">— Access · 1 shared source</span></li>
+        <li><a href="#node-ud2">From Accommodation to Proactive Inclusive Design</a> <span class="basis">— Access · 1 shared source</span></li>
+        </ul>
+        <p class="sublist-label">Connected resources</p><ul class="sublist">
+        <li><a href="#node-ud4">Closing the Knowing–Doing Gap</a> <span class="basis">— Institutions, governance and change</span></li>
+        <li><a href="#node-ac3">Inclusive Facilitation &amp; Capacity Building</a> <span class="basis">— Services</span></li>
+        <li><a href="#node-ac16">Institutional Accessibility Planning as a Change Program</a> <span class="basis">— Institutions, governance and change</span></li>
+        </ul>
+        </article>
+      <article class="entry" id="node-ac16">
+        <h4>Institutional Accessibility Planning as a Change Program</h4>
+        <p class="entry-sub">From a published plan to demonstrable change</p>
+        <p class="entry-status dev">In development</p>
+        <p>Statutory obligation produces an accessibility plan, a committee, and a feedback mechanism; it does not by itself produce sequencing, ownership, or capability. This resource brings systems design and change management to accessibility governance, and is written for a contributing role on an institutional plan rather than for authorship of an institution’s accessibility position.</p>
+        <p class="meta"><strong>Home branch.</strong> Accessibility · Well established</p>
+        <p class="meta"><strong>Grounding.</strong> Accessible Canada Act; Accessible British Columbia Act; change management; systems thinking</p>
+        <p class="meta"><strong>Themes.</strong> Policy, Systems, Change</p>
+        <p class="sublist-label">Sources</p><ul class="sublist">
+        <li><a href="#ref-28">Reference 28</a>: Accessible Canada Act, S.C. 2019, c. 10.</li>
+        <li><a href="#ref-30">Reference 30</a>: Accessible British Columbia Act, S.B.C. 2021, c. 19. Province of British Columbia.</li>
+        <li><a href="#ref-47">Reference 47</a>: Kotter, J. P. (1996). Leading Change. Harvard Business School Press.</li>
+        <li><a href="#ref-48">Reference 48</a>: Senge, P. M. (1990). The Fifth Discipline: The Art and Practice of the Learning Organization. Doubleday.</li>
+        </ul>
+        <p class="sublist-label">Most related, by shared theme and source</p><ul class="sublist">
+        <li><a href="#node-ac5">The Duty to Accommodate in Learning Design</a> <span class="basis">— Policy · 2 shared sources</span></li>
+        <li><a href="#node-ac24">International and Regional Disability Rights Instruments</a> <span class="basis">— Policy</span></li>
+        <li><a href="#node-ac12">Accessible Procurement and Vendor Accountability</a> <span class="basis">— Policy</span></li>
+        <li><a href="#node-ac15">Faculty Development That Changes Accessible Practice</a> <span class="basis">— Change</span></li>
+        <li><a href="#node-ac25">Accessible Physical and Hybrid Learning Environments</a> <span class="basis">— 1 shared source</span></li>
+        </ul>
+        <p class="sublist-label">Connected resources</p><ul class="sublist">
+        <li><a href="#node-ac5">The Duty to Accommodate in Learning Design</a> <span class="basis">— Rights, duty and accommodation</span></li>
+        <li><a href="#node-ud10">Evaluating Whether Design Reduced Barriers</a> <span class="basis">— Standards and technical practice</span></li>
+        </ul>
+        </article>
+      <article class="entry" id="node-ud4">
+        <h4>Closing the Knowing–Doing Gap</h4>
+        <p class="entry-sub">From understanding to changed practice</p>
+        <p class="entry-status">Published resource</p>
+        <p>Designing for the distance between what learners understand and what they actually do — the transfer problem seen through an inclusive lens. It shares its machinery with reflection at the experience level and with change at the systems level.</p>
+        <p class="meta"><strong>Home branch.</strong> Universal Design for Learning · Well established</p>
+        <p class="meta"><strong>Grounding.</strong> Transfer research; Universal Design for Learning</p>
+        <p class="meta"><strong>Themes.</strong> Transfer</p>
+        <p class="sublist-label">Sources</p><ul class="sublist">
+        <li><a href="#ref-49">Reference 49</a>: Pfeffer, J., &amp; Sutton, R. I. (2000). The Knowing-Doing Gap: How Smart Companies Turn Knowledge into Action. Harvard Business School Press.</li>
+        <li><a href="#ref-50">Reference 50</a>: Bransford, J. D., Brown, A. L., &amp; Cocking, R. R. (Eds.). (2000). How People Learn: Brain, Mind, Experience, and School (Expanded ed.). National Academy Press.</li>
+        </ul>
+        <p class="sublist-label">Connected resources</p><ul class="sublist">
+        <li><a href="#node-ud1">Designing for Learner Variability at Scale</a> <span class="basis">— Designing for variability</span></li>
+        </ul>
+        </article>
+    <h3 id="group-sectors">Sectors and participation</h3>
+      <p>Clinical, health and research settings, where access questions carry additional duties, and the question of who is able to take part at all.</p>
+      <article class="entry" id="node-ac14">
+        <h4>Access in Clinical and Placement Education</h4>
+        <p class="entry-sub">Holding patient safety and access seriously at once</p>
+        <p class="entry-status dev">In development</p>
+        <p>Placement, simulation, precepting, and competency assessment are where essential requirements are most contested and where safety arguments can close conversations that deserve to stay open. This resource works through the design and assessment architecture that allows a program to protect genuine safety requirements while examining the ones it has never had reason to question.</p>
+        <p class="meta"><strong>Home branch.</strong> Accessibility · Well established</p>
+        <p class="meta"><strong>Grounding.</strong> Technical standards in health professions education (Meeks &amp; Jain); construct validity; duty to accommodate</p>
+        <p class="meta"><strong>Themes.</strong> Accommodation, Assessment, Access</p>
+        <p class="sublist-label">Sources</p><ul class="sublist">
+        <li><a href="#ref-51">Reference 51</a>: Meeks, L. M., &amp; Jain, N. R. (2018). Accessibility, Inclusion, and Action in Medical Education: Lived Experiences of Learners and Physicians with Disabilities. Association of American Medical Colleges.</li>
+        <li><a href="#ref-27">Reference 27</a>: Messick, S. (1995). “Validity of Psychological Assessment: Validation of Inferences from Persons’ Responses and Performances as Scientific Inquiry into Score Meaning.” American Psychologist, 50(9), 741–749.</li>
+        <li><a href="#ref-26">Reference 26</a>: British Columbia (Public Service Employee Relations Commission) v. BCGSEU, [1999] 3 S.C.R. 3, 1999 CanLII 652 (SCC) — the “Meiorin” decision, establishing the unified bona fide requirement test and accommodation to the point of undue hardship.</li>
+        </ul>
+        <p class="sublist-label">Most related, by shared theme and source</p><ul class="sublist">
+        <li><a href="#node-ac4">Why Universal Design Never Eliminates Individual Accommodation</a> <span class="basis">— Access, Accommodation · 2 shared sources</span></li>
+        <li><a href="#node-ac6">Essential Requirements and the Limits of Flexibility</a> <span class="basis">— Accommodation, Assessment · 2 shared sources</span></li>
+        <li><a href="#node-ac5">The Duty to Accommodate in Learning Design</a> <span class="basis">— Access, Accommodation · 1 shared source</span></li>
+        <li><a href="#node-ud7">Eliminating Construct-Irrelevant Barriers in Assessment</a> <span class="basis">— Access, Assessment · 1 shared source</span></li>
+        <li><a href="#node-ac13">Designing for Episodic and Fluctuating Conditions</a> <span class="basis">— Access, Accommodation</span></li>
+        </ul>
+        <p class="sublist-label">Connected resources</p><ul class="sublist">
+        <li><a href="#node-ac6">Essential Requirements and the Limits of Flexibility</a> <span class="basis">— Rights, duty and accommodation</span></li>
+        <li><a href="#node-ac17">Accessible Health and Patient Education</a> <span class="basis">— Sectors and participation</span></li>
+        </ul>
+        </article>
+      <article class="entry" id="node-ac17">
+        <h4>Accessible Health and Patient Education</h4>
+        <p class="entry-sub">Access beyond the learner, to the person receiving care</p>
+        <p class="entry-status dev">In development</p>
+        <p>Health literacy, plain language, communication access, and accessible patient education and informed consent, set against the documented health disparities disabled people experience. It is the point at which accessible learning design reaches materials intended for patients and the public rather than for students and staff.</p>
+        <p class="meta"><strong>Home branch.</strong> Accessibility · Well established</p>
+        <p class="meta"><strong>Grounding.</strong> Health literacy (Nutbeam); disability health disparities (Krahn et al.); social determinants of health</p>
+        <p class="meta"><strong>Themes.</strong> Access, Wellbeing, Equity</p>
+        <p class="sublist-label">Sources</p><ul class="sublist">
+        <li><a href="#ref-52">Reference 52</a>: Nutbeam, D. (2000). “Health Literacy as a Public Health Goal: A Challenge for Contemporary Health Education and Communication Strategies into the 21st Century.” Health Promotion International, 15(3), 259–267.</li>
+        <li><a href="#ref-53">Reference 53</a>: Krahn, G. L., Walker, D. K., &amp; Correa-De-Araujo, R. (2015). “Persons with Disabilities as an Unrecognized Health Disparity Population.” American Journal of Public Health, 105(S2), S198–S206.</li>
+        <li><a href="#ref-54">Reference 54</a>: WHO Commission on Social Determinants of Health (2008). Closing the Gap in a Generation: Health Equity Through Action on the Social Determinants of Health. World Health Organization.</li>
+        <li><a href="#ref-39">Reference 39</a>: Rose, D. H., &amp; Meyer, A. (2002). Teaching Every Student in the Digital Age: Universal Design for Learning. ASCD.</li>
+        </ul>
+        <p class="sublist-label">Most related, by shared theme and source</p><ul class="sublist">
+        <li><a href="#node-ac7">Disability Studies for Learning Designers</a> <span class="basis">— Access, Equity</span></li>
+        <li><a href="#node-ac19">Models of Disability as Design Decisions</a> <span class="basis">— Access, Equity</span></li>
+        <li><a href="#node-ac8">Designing Out the Disclosure Requirement</a> <span class="basis">— Access, Equity</span></li>
+        <li><a href="#node-ac13">Designing for Episodic and Fluctuating Conditions</a> <span class="basis">— Access, Wellbeing</span></li>
+        <li><a href="#node-ac18">Accessible Research Participation and Knowledge Products</a> <span class="basis">— Access, Equity</span></li>
+        </ul>
+        <p class="sublist-label">Connected resources</p><ul class="sublist">
+        <li><a href="#node-ac14">Access in Clinical and Placement Education</a> <span class="basis">— Sectors and participation</span></li>
+        <li><a href="#node-ud1">Designing for Learner Variability at Scale</a> <span class="basis">— Designing for variability</span></li>
+        </ul>
+        </article>
+      <article class="entry" id="node-ac18">
+        <h4>Accessible Research Participation and Knowledge Products</h4>
+        <p class="entry-sub">Who can take part, and who can read the findings</p>
+        <p class="entry-status dev">In development</p>
+        <p>Consent materials, participant-facing instruments, plain-language summaries, and accessible dissemination — increasingly expected by research ethics boards and funders, and rarely designed for. It sits at the junction of knowledge mobilization and accessibility, where a study’s reach is set as much by its materials as by its recruitment.</p>
+        <p class="meta"><strong>Home branch.</strong> Accessibility · Well established</p>
+        <p class="meta"><strong>Grounding.</strong> TCPS 2 (2022); knowledge mobilization; WCAG 2.2</p>
+        <p class="meta"><strong>Themes.</strong> Research, Access, Equity</p>
+        <p class="sublist-label">Sources</p><ul class="sublist">
+        <li><a href="#ref-12">Reference 12</a>: Canadian Institutes of Health Research, Natural Sciences and Engineering Research Council, &amp; Social Sciences and Humanities Research Council (2022). Tri-Council Policy Statement: Ethical Conduct for Research Involving Humans — TCPS 2 (2022).</li>
+        <li><a href="#ref-55">Reference 55</a>: Graham, I. D., Logan, J., Harrison, M. B., Straus, S. E., Tetroe, J., Caswell, W., &amp; Robinson, N. (2006). “Lost in Knowledge Translation: Time for a Map?” Journal of Continuing Education in the Health Professions, 26(1), 13–24.</li>
+        <li><a href="#ref-1">Reference 1</a>: W3C (2023). Web Content Accessibility Guidelines (WCAG) 2.2. W3C Recommendation.</li>
+        </ul>
+        <p class="sublist-label">Most related, by shared theme and source</p><ul class="sublist">
+        <li><a href="#node-ac7">Disability Studies for Learning Designers</a> <span class="basis">— Access, Equity</span></li>
+        <li><a href="#node-ac19">Models of Disability as Design Decisions</a> <span class="basis">— Access, Equity</span></li>
+        <li><a href="#node-ac22">Disability Data and the Limits of Prevalence Figures</a> <span class="basis">— Equity, Research</span></li>
+        <li><a href="#node-ac8">Designing Out the Disclosure Requirement</a> <span class="basis">— Access, Equity</span></li>
+        <li><a href="#node-ac17">Accessible Health and Patient Education</a> <span class="basis">— Access, Equity</span></li>
+        </ul>
+        <p class="sublist-label">Connected resources</p><ul class="sublist">
+        <li><a href="#node-ac9">Partnering with Disabled People in Learning Design</a> <span class="basis">— Grounding</span></li>
+        </ul>
+        </article>
+  </section>
+
+  <section class="section-block" id="references">
+    <span class="section-marker">Section 4 of four</span>
+    <h2>References and resources</h2>
+    <p>The theory, law, and standards these resources are rooted in, listed once and cited by number above. Peer-reviewed, statutory, and institutional sources link directly. Books, reports, and legislation are cited in full so they can be found in any library catalogue or official register.</p>
+    <ol class="refs">
+      <li id="ref-1"><span class="cat">Accessibility standards</span><span class="num">1.</span> W3C (2023). Web Content Accessibility Guidelines (WCAG) 2.2. W3C Recommendation.<br /><a href="https://www.w3.org/TR/WCAG22/">https://www.w3.org/TR/WCAG22/</a></li>
+      <li id="ref-2"><span class="cat">Universal Design for Learning</span><span class="num">2.</span> CAST (2024). Universal Design for Learning Guidelines, version 3.0.<br /><a href="https://udlguidelines.cast.org">https://udlguidelines.cast.org</a></li>
+      <li id="ref-3"><span class="cat">Instructional design</span><span class="num">3.</span> Wiggins, G., &amp; McTighe, J. (2005). Understanding by Design (Expanded 2nd ed.). ASCD.</li>
+      <li id="ref-4"><span class="cat">Adult learning</span><span class="num">4.</span> Knowles, M. S., Holton, E. F., &amp; Swanson, R. A. (2015). The Adult Learner (8th ed.). Routledge.</li>
+      <li id="ref-5"><span class="cat">Social learning</span><span class="num">5.</span> Wenger, E. (1998). Communities of Practice: Learning, Meaning, and Identity. Cambridge University Press.</li>
+      <li id="ref-6"><span class="cat">Disability studies</span><span class="num">6.</span> Oliver, M. (1990). The Politics of Disablement. Macmillan — the foundational statement of the social model of disability.</li>
+      <li id="ref-7"><span class="cat">Disability studies</span><span class="num">7.</span> Dolmage, J. T. (2017). Academic Ableism: Disability and Higher Education. University of Michigan Press.</li>
+      <li id="ref-8"><span class="cat">Disability studies</span><span class="num">8.</span> Titchkosky, T. (2011). The Question of Access: Disability, Space, Meaning. University of Toronto Press.</li>
+      <li id="ref-9"><span class="cat">Disability studies</span><span class="num">9.</span> Kafer, A. (2013). Feminist, Queer, Crip. Indiana University Press.</li>
+      <li id="ref-10"><span class="cat">Disability justice</span><span class="num">10.</span> Charlton, J. I. (1998). Nothing About Us Without Us: Disability Oppression and Empowerment. University of California Press.</li>
+      <li id="ref-11"><span class="cat">Inclusive design</span><span class="num">11.</span> Inclusive Design Research Centre. The Inclusive Design Guide. OCAD University — the source of the one-size-fits-one principle and the inclusive design framework.<br /><a href="https://guide.inclusivedesign.ca/">https://guide.inclusivedesign.ca/</a></li>
+      <li id="ref-12"><span class="cat">Research ethics</span><span class="num">12.</span> Canadian Institutes of Health Research, Natural Sciences and Engineering Research Council, &amp; Social Sciences and Humanities Research Council (2022). Tri-Council Policy Statement: Ethical Conduct for Research Involving Humans — TCPS 2 (2022).<br /><a href="https://ethics.gc.ca/eng/policy-politique_tcps2-eptc2_2022.html">https://ethics.gc.ca/eng/policy-politique_tcps2-eptc2_2022.html</a></li>
+      <li id="ref-13"><span class="cat">Disability classification</span><span class="num">13.</span> World Health Organization (2001). International Classification of Functioning, Disability and Health (ICF). WHO — the source of the biopsychosocial model of disability.<br /><a href="https://www.who.int/standards/classifications/international-classification-of-functioning-disability-and-health">https://www.who.int/standards/classifications/international-classification-of-functioning-disability-and-health</a></li>
+      <li id="ref-14"><span class="cat">Disability studies</span><span class="num">14.</span> Retief, M., &amp; Letšosa, R. (2018). “Models of Disability: A Brief Overview.” HTS Teologiese Studies / Theological Studies, 74(1).</li>
+      <li id="ref-15"><span class="cat">Disability studies</span><span class="num">15.</span> Shakespeare, T. (2013). Disability Rights and Wrongs Revisited (2nd ed.). Routledge — a critical reassessment of the strong social model.</li>
+      <li id="ref-16"><span class="cat">Assistive technology</span><span class="num">16.</span> Cook, A. M., &amp; Polgar, J. M. (2015). Assistive Technologies: Principles and Practice (4th ed.). Elsevier — the source of the Human Activity Assistive Technology (HAAT) model.</li>
+      <li id="ref-17"><span class="cat">Assistive technology</span><span class="num">17.</span> Zabala, J. S. (2005). Ready, SETT, Go! Getting Started with the SETT Framework — the Student, Environments, Tasks, Tools framework for assistive technology decision-making.</li>
+      <li id="ref-18"><span class="cat">Assistive technology</span><span class="num">18.</span> World Health Organization &amp; UNICEF (2022). Global Report on Assistive Technology. World Health Organization.<br /><a href="https://www.who.int/publications/i/item/9789240049451">https://www.who.int/publications/i/item/9789240049451</a></li>
+      <li id="ref-19"><span class="cat">Disability data</span><span class="num">19.</span> World Health Organization &amp; World Bank (2011). World Report on Disability. World Health Organization.</li>
+      <li id="ref-20"><span class="cat">Disability and health equity</span><span class="num">20.</span> World Health Organization (2022). Global Report on Health Equity for Persons with Disabilities. World Health Organization.</li>
+      <li id="ref-21"><span class="cat">Disability data</span><span class="num">21.</span> Statistics Canada. Canadian Survey on Disability — the national source for disability prevalence in Canada.</li>
+      <li id="ref-22"><span class="cat">Disability etiquette</span><span class="num">22.</span> United Spinal Association. Disability Etiquette: Tips on Interacting with People with Disabilities.</li>
+      <li id="ref-23"><span class="cat">International instruments</span><span class="num">23.</span> United Nations (2006). Convention on the Rights of Persons with Disabilities (CRPD).<br /><a href="https://social.desa.un.org/issues/disability/crpd/convention-on-the-rights-of-persons-with-disabilities-crpd">https://social.desa.un.org/issues/disability/crpd/convention-on-the-rights-of-persons-with-disabilities-crpd</a></li>
+      <li id="ref-24"><span class="cat">Culturally relevant pedagogy</span><span class="num">24.</span> Ladson-Billings, G. (1995). “Toward a Theory of Culturally Relevant Pedagogy.” American Educational Research Journal, 32(3), 465–491.</li>
+      <li id="ref-25"><span class="cat">Universal design</span><span class="num">25.</span> Connell, B. R., Jones, M., Mace, R., Mueller, J., Mullick, A., Ostroff, E., Sanford, J., Steinfeld, E., Story, M., &amp; Vanderheiden, G. (1997). The Principles of Universal Design, Version 2.0. Center for Universal Design, North Carolina State University.</li>
+      <li id="ref-26"><span class="cat">Human rights law</span><span class="num">26.</span> British Columbia (Public Service Employee Relations Commission) v. BCGSEU, [1999] 3 S.C.R. 3, 1999 CanLII 652 (SCC) — the “Meiorin” decision, establishing the unified bona fide requirement test and accommodation to the point of undue hardship.<br /><a href="https://www.canlii.org/en/ca/scc/doc/1999/1999canlii652/1999canlii652.html">https://www.canlii.org/en/ca/scc/doc/1999/1999canlii652/1999canlii652.html</a></li>
+      <li id="ref-27"><span class="cat">Assessment</span><span class="num">27.</span> Messick, S. (1995). “Validity of Psychological Assessment: Validation of Inferences from Persons’ Responses and Performances as Scientific Inquiry into Score Meaning.” American Psychologist, 50(9), 741–749.</li>
+      <li id="ref-28"><span class="cat">Accessibility law</span><span class="num">28.</span> Accessible Canada Act, S.C. 2019, c. 10.<br /><a href="https://laws-lois.justice.gc.ca/eng/acts/a-0.6/">https://laws-lois.justice.gc.ca/eng/acts/a-0.6/</a></li>
+      <li id="ref-29"><span class="cat">Human rights law</span><span class="num">29.</span> Human Rights Code, R.S.B.C. 1996, c. 210. Province of British Columbia.</li>
+      <li id="ref-30"><span class="cat">Accessibility law</span><span class="num">30.</span> Accessible British Columbia Act, S.B.C. 2021, c. 19. Province of British Columbia.</li>
+      <li id="ref-31"><span class="cat">Accessibility law</span><span class="num">31.</span> Americans with Disabilities Act of 1990, as amended, 42 U.S.C. § 12101 et seq.; Rehabilitation Act of 1973, Sections 504 and 508, as amended.<br /><a href="https://www.ada.gov/">https://www.ada.gov/</a></li>
+      <li id="ref-32"><span class="cat">Disclosure and stigma</span><span class="num">32.</span> Goffman, E. (1963). Stigma: Notes on the Management of Spoiled Identity. Prentice-Hall.</li>
+      <li id="ref-33"><span class="cat">Information governance</span><span class="num">33.</span> Freedom of Information and Protection of Privacy Act, R.S.B.C. 1996, c. 165. Province of British Columbia.</li>
+      <li id="ref-34"><span class="cat">Episodic disability</span><span class="num">34.</span> O’Brien, K. K., Bayoumi, A. M., Strike, C., Young, N. L., &amp; Davis, A. M. (2008). “Exploring Disability from the Perspective of Adults Living with HIV/AIDS: Development of a Conceptual Framework.” Health and Quality of Life Outcomes, 6:76.</li>
+      <li id="ref-35"><span class="cat">International instruments</span><span class="num">35.</span> United Nations (1948). Universal Declaration of Human Rights.<br /><a href="https://www.un.org/en/about-us/universal-declaration-of-human-rights">https://www.un.org/en/about-us/universal-declaration-of-human-rights</a></li>
+      <li id="ref-36"><span class="cat">International instruments</span><span class="num">36.</span> World Intellectual Property Organization (2013). Marrakesh Treaty to Facilitate Access to Published Works for Persons Who Are Blind, Visually Impaired or Otherwise Print Disabled.</li>
+      <li id="ref-37"><span class="cat">Regional instruments</span><span class="num">37.</span> European Union (2012). Charter of Fundamental Rights of the European Union, 2012/C 326/02.</li>
+      <li id="ref-38"><span class="cat">Universal Design for Learning</span><span class="num">38.</span> Meyer, A., Rose, D. H., &amp; Gordon, D. (2014). Universal Design for Learning: Theory and Practice. CAST Professional Publishing.</li>
+      <li id="ref-39"><span class="cat">Universal Design for Learning</span><span class="num">39.</span> Rose, D. H., &amp; Meyer, A. (2002). Teaching Every Student in the Digital Age: Universal Design for Learning. ASCD.</li>
+      <li id="ref-40"><span class="cat">Motivation</span><span class="num">40.</span> Ryan, R. M., &amp; Deci, E. L. (2000). “Self-Determination Theory and the Facilitation of Intrinsic Motivation, Social Development, and Well-Being.” American Psychologist, 55(1), 68–78.<br /><a href="https://doi.org/10.1037/0003-066X.55.1.68">https://doi.org/10.1037/0003-066X.55.1.68</a></li>
+      <li id="ref-41"><span class="cat">Learning sciences</span><span class="num">41.</span> Mayer, R. E. (2009). Multimedia Learning (2nd ed.). Cambridge University Press.</li>
+      <li id="ref-42"><span class="cat">Accessibility standards</span><span class="num">42.</span> ETSI/CEN/CENELEC (2021). EN 301 549 V3.2.1: Accessibility Requirements for ICT Products and Services. Harmonised European Standard.<br /><a href="https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf">https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf</a></li>
+      <li id="ref-43"><span class="cat">Built environment</span><span class="num">43.</span> CSA Group. CSA B651: Accessible Design for the Built Environment. Canadian Standards Association.</li>
+      <li id="ref-44"><span class="cat">Evaluation</span><span class="num">44.</span> Kirkpatrick, D. L., &amp; Kirkpatrick, J. D. (2006). Evaluating Training Programs: The Four Levels (3rd ed.). Berrett-Koehler.</li>
+      <li id="ref-45"><span class="cat">Accessibility standards</span><span class="num">45.</span> Information Technology Industry Council. Voluntary Product Accessibility Template (VPAT) and Accessibility Conformance Reports.<br /><a href="https://www.itic.org/policy/accessibility/vpat">https://www.itic.org/policy/accessibility/vpat</a></li>
+      <li id="ref-46"><span class="cat">Behaviour change</span><span class="num">46.</span> Michie, S., van Stralen, M. M., &amp; West, R. (2011). “The Behaviour Change Wheel: A New Method for Characterising and Designing Behaviour Change Interventions.” Implementation Science, 6:42.<br /><a href="https://implementationscience.biomedcentral.com/articles/10.1186/1748-5908-6-42">https://implementationscience.biomedcentral.com/articles/10.1186/1748-5908-6-42</a></li>
+      <li id="ref-47"><span class="cat">Change management</span><span class="num">47.</span> Kotter, J. P. (1996). Leading Change. Harvard Business School Press.</li>
+      <li id="ref-48"><span class="cat">Organizational learning</span><span class="num">48.</span> Senge, P. M. (1990). The Fifth Discipline: The Art and Practice of the Learning Organization. Doubleday.</li>
+      <li id="ref-49"><span class="cat">Knowing–doing gap</span><span class="num">49.</span> Pfeffer, J., &amp; Sutton, R. I. (2000). The Knowing-Doing Gap: How Smart Companies Turn Knowledge into Action. Harvard Business School Press.</li>
+      <li id="ref-50"><span class="cat">Learning sciences</span><span class="num">50.</span> Bransford, J. D., Brown, A. L., &amp; Cocking, R. R. (Eds.). (2000). How People Learn: Brain, Mind, Experience, and School (Expanded ed.). National Academy Press.<br /><a href="https://nap.nationalacademies.org/catalog/9853/how-people-learn-brain-mind-experience-and-school">https://nap.nationalacademies.org/catalog/9853/how-people-learn-brain-mind-experience-and-school</a></li>
+      <li id="ref-51"><span class="cat">Health professions education</span><span class="num">51.</span> Meeks, L. M., &amp; Jain, N. R. (2018). Accessibility, Inclusion, and Action in Medical Education: Lived Experiences of Learners and Physicians with Disabilities. Association of American Medical Colleges.</li>
+      <li id="ref-52"><span class="cat">Health literacy</span><span class="num">52.</span> Nutbeam, D. (2000). “Health Literacy as a Public Health Goal: A Challenge for Contemporary Health Education and Communication Strategies into the 21st Century.” Health Promotion International, 15(3), 259–267.</li>
+      <li id="ref-53"><span class="cat">Disability and health equity</span><span class="num">53.</span> Krahn, G. L., Walker, D. K., &amp; Correa-De-Araujo, R. (2015). “Persons with Disabilities as an Unrecognized Health Disparity Population.” American Journal of Public Health, 105(S2), S198–S206.</li>
+      <li id="ref-54"><span class="cat">Social determinants</span><span class="num">54.</span> WHO Commission on Social Determinants of Health (2008). Closing the Gap in a Generation: Health Equity Through Action on the Social Determinants of Health. World Health Organization.</li>
+      <li id="ref-55"><span class="cat">Knowledge mobilization</span><span class="num">55.</span> Graham, I. D., Logan, J., Harrison, M. B., Straus, S. E., Tetroe, J., Caswell, W., &amp; Robinson, N. (2006). “Lost in Knowledge Translation: Time for a Map?” Journal of Continuing Education in the Health Professions, 26(1), 13–24.</li>
+      </ol>
+  </section>
+
+  <p><a href="#toc" class="back-to-top">Back to contents</a></p>
+
+  <div class="page-credit">
+    <p>Every resource on this page reflects applied work carried out with learners, design teams, and partner organizations, and is grounded in the scholarship listed above. An <a href="index.html">interactive version of this map</a> presents the same content as a navigable diagram.</p>
+  </div>
+
+</main>
+
+<footer>
+  <p>Accessible Learning Labs · Accessibility · Universal Design for Learning</p>
+</footer>
+
+</body>
+</html>
