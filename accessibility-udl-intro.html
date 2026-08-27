@@ -271,7 +271,7 @@
      rather than in front of it: opening on the right to education raises
      the accommodation question, and a rights-literate viewer would notice a
      film that took the ground and left that out. Then it closes by putting the question the whole practice asks
-     back into one line. Roughly 105 seconds against the landscape
+     back into one line. Roughly 108 seconds against the landscape
      intro's 80. */
   var BEATS=[
     /* One sentence across two beats. It carries over the fade on the repeat
@@ -287,7 +287,7 @@
     {ms:7500, film:true, hero:["Changed early, it is one decision. Left late, it becomes a request, made again by each person it failed."]},
     {ms:6000, cap:"The work is to change the assumption before it hardens.", act:"hub"},
     {ms:6000, cap:"Six bodies of work stand behind that.", act:"boughs"},
-    {ms:26000,cap:"Thirty-two knowledge resources, in six groups.", act:"names"},
+    {ms:29000,cap:"Thirty-two knowledge resources, in six groups.", act:"names"},
     {ms:7500, cap:"Ten of the thirty-two come from Universal Design for Learning.", act:"udl"},
     {ms:6500, cap:"All in addition to the right to ask."},
     {ms:8500, cap:"Six groups. One question, asked in six places: who was this built for?", act:"converge"},
@@ -893,10 +893,12 @@
       case "names":
         /* There are two things to read at each group, the name on the bough
            and what the group does in the caption, so the interval is taken
-           from the length of the beat rather than set on its own. Two
-           seconds are held back at the end for the last group, which has no
-           successor to arrive and move it along. */
-        var gap=(b.ms-2000)/GROUPS.length;
+           from the length of the beat rather than set on its own. The beat
+           divides evenly: the last group has no successor to move it along,
+           and holding time back for it made the sequence end on a longer
+           note than it had kept. Spread across all six instead, nobody
+           notices it and everybody gets it. */
+        var gap=b.ms/GROUPS.length;
         GROUPS.forEach(function(x,k){
           timers.push(setTimeout(function(){ nameGroup(k); }, k*gap));
         });
