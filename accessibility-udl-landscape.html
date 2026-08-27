@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Accessibility and Universal Design for Learning — a landscape of knowledge resources</title>
-<meta name="description" content="An interactive map of thirty-five knowledge resources and services on accessibility, disability and Universal Design for Learning, arranged in six groups with their shared themes and sources." />
+<meta name="description" content="An interactive map of forty-five knowledge resources and services on accessibility, disability and Universal Design for Learning, arranged in seven groups with their shared themes and sources." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
@@ -19,6 +19,7 @@
 }
   [data-g="grounding"]{--g:#477ba8;}
   [data-g="rights"]{--g:#567a9d;}
+  [data-g="accommodations"]{--g:#347cb2;}
   [data-g="variability"]{--g:#617993;}
   [data-g="standards"]{--g:#69788b;}
   [data-g="institutions"]{--g:#717781;}
@@ -213,7 +214,7 @@ footer{margin:64px 0 0;border-top:1px solid var(--hair);padding:26px 0 60px;
   <p class="eyebrow">Accessible Learning Labs</p>
   <h1>Accessibility and Universal Design for Learning</h1>
   <div class="rule"></div>
-  <p class="lede">Thirty-five knowledge resources and services, arranged in seven groups. The map shows how they relate: which draw on the same theory, which answer the same question from different directions, and which sit next to one another because a reader who needs one usually needs the other.</p>
+  <p class="lede">Forty-five knowledge resources and services, arranged in seven groups. The map shows how they relate: which draw on the same theory, which answer the same question from different directions, and which sit next to one another because a reader who needs one usually needs the other.</p>
   <p class="orient">Every resource names what it is grounded in and cites the sources it rests on. The full list below carries the same content in reading order, without the map. Determinations in individual accommodation cases rest with accessibility advisors, accommodation offices, and legal counsel; these resources are offered in support of that work, never in place of it.</p>
 </header>
 
@@ -221,13 +222,14 @@ footer{margin:64px 0 0;border-top:1px solid var(--hair);padding:26px 0 60px;
   <div class="controls" role="region" aria-label="Map controls">
       <div class="tf" id="filters" role="group" aria-label="Show one group, or all">
 <button type="button" class="lg lg-all" data-g="all" aria-pressed="true">All</button>
-        <button type="button" class="lg" data-g="variability" aria-pressed="false"><span class="dot" data-g="variability"></span><span class="lg-t">Designing for variability</span><span class="lg-n">4</span></button>
-        <button type="button" class="lg" data-g="grounding" aria-pressed="false"><span class="dot" data-g="grounding"></span><span class="lg-t">Grounding</span><span class="lg-n">8</span></button>
-        <button type="button" class="lg" data-g="institutions" aria-pressed="false"><span class="dot" data-g="institutions"></span><span class="lg-t">Institutions, governance and change</span><span class="lg-n">4</span></button>
-        <button type="button" class="lg" data-g="rights" aria-pressed="false"><span class="dot" data-g="rights"></span><span class="lg-t">Rights, duty and accommodation</span><span class="lg-n">8</span></button>
+        <button type="button" class="lg" data-g="accommodations" aria-pressed="false"><span class="dot" data-g="accommodations"></span><span class="lg-t">Accommodation in practice</span><span class="lg-n">5</span></button>
+<button type="button" class="lg" data-g="variability" aria-pressed="false"><span class="dot" data-g="variability"></span><span class="lg-t">Designing for variability</span><span class="lg-n">5</span></button>
+        <button type="button" class="lg" data-g="grounding" aria-pressed="false"><span class="dot" data-g="grounding"></span><span class="lg-t">Grounding</span><span class="lg-n">9</span></button>
+        <button type="button" class="lg" data-g="institutions" aria-pressed="false"><span class="dot" data-g="institutions"></span><span class="lg-t">Institutions, governance and change</span><span class="lg-n">5</span></button>
+        <button type="button" class="lg" data-g="rights" aria-pressed="false"><span class="dot" data-g="rights"></span><span class="lg-t">Rights and obligation</span><span class="lg-n">7</span></button>
         <button type="button" class="lg" data-g="sectors" aria-pressed="false"><span class="dot" data-g="sectors"></span><span class="lg-t">Sectors and participation</span><span class="lg-n">3</span></button>
         <button type="button" class="lg" data-g="services" aria-pressed="false"><span class="dot" data-g="services"></span><span class="lg-t">Services</span><span class="lg-n">3</span></button>
-        <button type="button" class="lg" data-g="standards" aria-pressed="false"><span class="dot" data-g="standards"></span><span class="lg-t">Standards and technical practice</span><span class="lg-n">5</span></button>
+        <button type="button" class="lg" data-g="standards" aria-pressed="false"><span class="dot" data-g="standards"></span><span class="lg-t">Standards and technical practice</span><span class="lg-n">8</span></button>
       </div>
     <div class="cgroup">
       <span class="clabel" id="l-arr">Arrangement</span>
@@ -256,7 +258,7 @@ footer{margin:64px 0 0;border-top:1px solid var(--hair);padding:26px 0 60px;
   <div class="stage">
     <div class="cwrap">
       <canvas id="cv" role="img" aria-labelledby="cv-desc"></canvas>
-      <p class="sr" id="cv-desc">A map of thirty-five resources positioned by group. The same content is available as a list further down this page.</p>
+      <p class="sr" id="cv-desc">A map of forty-five resources positioned by group. The same content is available as a list further down this page.</p>
       <div class="tt" id="tt" aria-hidden="true"><div class="k" id="tt-k"></div><div class="n" id="tt-n"></div></div>
         <p class="hint" id="hint">Drag to move · scroll to zoom</p>
     </div>
@@ -290,16 +292,68 @@ footer{margin:64px 0 0;border-top:1px solid var(--hair);padding:26px 0 60px;
 
   <nav aria-label="Groups">
     <ul class="toc">
-<li><a href="#g-variability"><span class="dot" data-g="variability"></span>Designing for variability</a></li>
+<li><a href="#g-accommodations"><span class="dot" data-g="accommodations"></span>Accommodation in practice</a></li>
+      <li><a href="#g-variability"><span class="dot" data-g="variability"></span>Designing for variability</a></li>
       <li><a href="#g-grounding"><span class="dot" data-g="grounding"></span>Grounding</a></li>
       <li><a href="#g-institutions"><span class="dot" data-g="institutions"></span>Institutions, governance and change</a></li>
-      <li><a href="#g-rights"><span class="dot" data-g="rights"></span>Rights, duty and accommodation</a></li>
+      <li><a href="#g-rights"><span class="dot" data-g="rights"></span>Rights and obligation</a></li>
       <li><a href="#g-sectors"><span class="dot" data-g="sectors"></span>Sectors and participation</a></li>
       <li><a href="#g-services"><span class="dot" data-g="services"></span>Services</a></li>
       <li><a href="#g-standards"><span class="dot" data-g="standards"></span>Standards and technical practice</a></li>
     </ul>
   </nav>
 
+<section class="grp" id="g-accommodations" aria-labelledby="h-accommodations"><h2 id="h-accommodations" class="grp-h"><span class="dot" data-g="accommodations"></span>Accommodation in practice</h2><p class="grp-d">The practice around an individual request, and what design does beforehand to change how often one is needed. Individual cases are decided by accommodation professionals; these resources describe the conditions they inherit.</p><p class="grp-l"><a href="https://www.accessiblelearninglabs.com/accommodations">Visit the Accommodation in practice page</a></p><article class="rec" id="n-ac8" data-id="ac8" data-group="accommodations" data-depth="3" data-home="access" data-status="dev" data-connects="ac4 ac7 ac13" data-tags="disability access equity" data-srcs="41 6 42">
+<h3 class="rec-t">Designing Out the Disclosure Requirement</h3>
+<p class="rec-s">Disclosure burden as a design variable</p>
+<p class="rec-meta"><span class="chip chip-g" data-g="accommodations">Accommodation in practice</span><span class="chip">Accessibility</span><span class="chip">In development</span><span class="chip">Well established</span></p>
+<p class="rec-b">Access that is gated behind disclosure asks a person to name a private matter to someone holding authority over them, and the documented costs of that request are real: anticipated stigma, delay, and for some, a decision not to ask at all. This resource treats disclosure burden as something design can measure and reduce — why a flexible deadline requiring an email is a disclosure event and a built-in buffer is not — while leaving the accommodation record itself where it belongs, with the office that holds it.</p>
+<p class="rec-g"><span class="lbl">Grounded in</span> Stigma and concealment (Goffman); academic ableism; BC information-governance requirements</p>
+<p class="rec-g"><span class="lbl">Themes</span> Disability studies, Access, Equity</p>
+<p class="rec-g"><span class="lbl">Draws on</span> <a href="#n-ac4">Why Universal Design Never Eliminates Individual Accommodation</a>, <a href="#n-ac7">Disability Studies for Learning Designers</a>, <a href="#n-ac13">Designing for Episodic and Fluctuating Conditions</a></p>
+<p class="rec-g"><span class="lbl">Sources</span> <a href="#s41">41</a>, <a href="#s6">6</a>, <a href="#s42">42</a></p>
+</article>
+<article class="rec" id="n-ac13" data-id="ac13" data-group="accommodations" data-depth="3" data-home="access" data-status="dev" data-connects="ac8 ac6" data-tags="accommodation wellbeing access" data-srcs="43 8">
+<h3 class="rec-t">Designing for Episodic and Fluctuating Conditions</h3>
+<p class="rec-s">Program architecture for conditions that vary</p>
+<p class="rec-meta"><span class="chip chip-g" data-g="accommodations">Accommodation in practice</span><span class="chip">Accessibility</span><span class="chip">In development</span><span class="chip">Well established</span></p>
+<p class="rec-b">Attendance policy, deadline architecture, cohort progression, and leave-and-return pathways — the structural layer of a problem that individual accommodation handles with difficulty because most systems assume stable limitations. It is program and policy design, offered in the knowledge that disabled people and experienced advisors hold far more understanding of these conditions than the design literature yet reflects.</p>
+<p class="rec-g"><span class="lbl">Grounded in</span> Episodic disability framework (O’Brien et al.); disability studies</p>
+<p class="rec-g"><span class="lbl">Themes</span> Accommodation, Wellbeing, Access</p>
+<p class="rec-g"><span class="lbl">Draws on</span> <a href="#n-ac8">Designing Out the Disclosure Requirement</a>, <a href="#n-ac6">Essential Requirements and the Limits of Flexibility</a></p>
+<p class="rec-g"><span class="lbl">Sources</span> <a href="#s43">43</a>, <a href="#s8">8</a></p>
+</article>
+<article class="rec" id="n-ac26" data-id="ac26" data-group="accommodations" data-depth="3" data-home="access" data-status="dev" data-connects="ac4 ac5 ac27" data-tags="accommodation policy access" data-srcs="57 36 48 6">
+<h3 class="rec-t">Working with Accommodation Offices and Access Advisors</h3>
+<p class="rec-s">Who decides, and what a referral has to carry</p>
+<p class="rec-meta"><span class="chip chip-g" data-g="accommodations">Accommodation in practice</span><span class="chip">Accessibility</span><span class="chip">In development</span><span class="chip">Well established</span></p>
+<p class="rec-b">What an accommodation office decides, what it requires from an instructor or a designer, and what a referral has to contain to be usable. It covers the implementation gap in which an approved accommodation is recorded and then not delivered, and the boundary between designing conditions and adjudicating an individual case. The second belongs to the advisors and accommodation professionals who hold that work.</p>
+<p class="rec-g"><span class="lbl">Grounded in</span> AHEAD program standards; Canadian human rights jurisprudence; disability in higher education</p>
+<p class="rec-g"><span class="lbl">Themes</span> Accommodation, Policy, Access</p>
+<p class="rec-g"><span class="lbl">Draws on</span> <a href="#n-ac4">Why Universal Design Never Eliminates Individual Accommodation</a>, <a href="#n-ac5">The Duty to Accommodate in Learning Design</a>, <a href="#n-ac27">The Interactive Process in Learning Settings</a></p>
+<p class="rec-g"><span class="lbl">Sources</span> <a href="#s57">57</a>, <a href="#s36">36</a>, <a href="#s48">48</a>, <a href="#s6">6</a></p>
+</article>
+<article class="rec" id="n-ac27" data-id="ac27" data-group="accommodations" data-depth="3" data-home="access" data-status="dev" data-connects="ac5 ac26 ac28" data-tags="accommodation policy access" data-srcs="56 36 38">
+<h3 class="rec-t">The Interactive Process in Learning Settings</h3>
+<p class="rec-s">A shared duty, not a request and a ruling</p>
+<p class="rec-meta"><span class="chip chip-g" data-g="accommodations">Accommodation in practice</span><span class="chip">Accessibility</span><span class="chip">In development</span><span class="chip">Well established</span></p>
+<p class="rec-b">Canadian human rights law treats accommodation as a process with obligations on every party to it, including the person seeking accommodation, and it sets limits on what may be asked of them. This resource covers who initiates, what good faith requires on each side, what documentation of the process is distinct from documentation of the person, and the points at which the process stalls: no response, an unworkable offer, or a request handled as a complaint.</p>
+<p class="rec-g"><span class="lbl">Grounded in</span> Renaud (SCC, 1992); Meiorin (SCC, 1999); BC Human Rights Code</p>
+<p class="rec-g"><span class="lbl">Themes</span> Accommodation, Policy, Access</p>
+<p class="rec-g"><span class="lbl">Draws on</span> <a href="#n-ac5">The Duty to Accommodate in Learning Design</a>, <a href="#n-ac26">Working with Accommodation Offices and Access Advisors</a>, <a href="#n-ac28">Documentation Requirements and Medical Gatekeeping</a></p>
+<p class="rec-g"><span class="lbl">Sources</span> <a href="#s56">56</a>, <a href="#s36">36</a>, <a href="#s38">38</a></p>
+</article>
+<article class="rec" id="n-ac28" data-id="ac28" data-group="accommodations" data-depth="2" data-home="access" data-status="dev" data-connects="ac8 ac13 ac27" data-tags="accommodation disability equity" data-srcs="41 42 6 43">
+<h3 class="rec-t">Documentation Requirements and Medical Gatekeeping</h3>
+<p class="rec-s">What is asked of a person before they are believed</p>
+<p class="rec-meta"><span class="chip chip-g" data-g="accommodations">Accommodation in practice</span><span class="chip">Accessibility</span><span class="chip">In development</span><span class="chip">Newer or contested</span></p>
+<p class="rec-b">What documentation is actually required, set against what institutions routinely request. Cost, waiting time and access to diagnosis are barriers in their own right, and requirements written for stable, diagnosed conditions operate differently for undiagnosed, episodic and fluctuating ones. It covers privacy and custody of records, and the conditions under which self-report is sufficient.</p>
+<p class="rec-g"><span class="lbl">Grounded in</span> Disability studies; stigma and disclosure (Goffman); BC information governance</p>
+<p class="rec-g"><span class="lbl">Themes</span> Accommodation, Disability studies, Equity</p>
+<p class="rec-g"><span class="lbl">Draws on</span> <a href="#n-ac8">Designing Out the Disclosure Requirement</a>, <a href="#n-ac13">Designing for Episodic and Fluctuating Conditions</a>, <a href="#n-ac27">The Interactive Process in Learning Settings</a></p>
+<p class="rec-g"><span class="lbl">Sources</span> <a href="#s41">41</a>, <a href="#s42">42</a>, <a href="#s6">6</a>, <a href="#s43">43</a></p>
+</article>
+</section>
 <section class="grp" id="g-variability" aria-labelledby="h-variability"><h2 id="h-variability" class="grp-h"><span class="dot" data-g="variability"></span>Designing for variability</h2><p class="grp-d">Designing for the predictable range of learners. Distinct from disability, and kept distinct here: variability is a design premise, disability is a relationship between a person and an environment.</p><p class="grp-l"><a href="https://www.accessiblelearninglabs.com/designing-for-variability">Visit the Designing for variability page</a></p><article class="rec" id="n-ud1" data-id="ud1" data-group="variability" data-depth="3" data-home="udl" data-status="built" data-connects="ud2" data-tags="variability scale" data-srcs="1 2">
 <h3 class="rec-t">Designing for Learner Variability at Scale</h3>
 <p class="rec-s">The thesis the other UDL work inherits</p>
@@ -339,7 +393,17 @@ footer{margin:64px 0 0;border-top:1px solid var(--hair);padding:26px 0 60px;
 <p class="rec-g"><span class="lbl">Themes</span> Scale, Iteration</p>
 <p class="rec-g"><span class="lbl">Draws on</span> <a href="#n-ud1">Designing for Learner Variability at Scale</a></p>
 <p class="rec-g"><span class="lbl">Sources</span> <a href="#s2">2</a>, <a href="#s4">4</a></p>
-</article></section>
+</article><article class="rec" id="n-ud11" data-id="ud11" data-group="variability" data-depth="2" data-home="udl" data-status="dev" data-connects="ud1 ud7 ac13" data-tags="variability assessment accommodation" data-srcs="2 37 43">
+<h3 class="rec-t">Time, Pacing and Deadlines as Design Variables</h3>
+<p class="rec-s">Where a time limit is measured, and where it is inherited</p>
+<p class="rec-meta"><span class="chip chip-g" data-g="variability">Designing for variability</span><span class="chip">Universal Design for Learning</span><span class="chip">In development</span><span class="chip">Newer or contested</span></p>
+<p class="rec-b">Time limits, deadline policy, pacing and cumulative workload across a program, treated as design decisions. A time limit is either part of what an assessment measures or an inherited convention, and the two call for different responses. Generous time as a design choice does not reach every case, so extended time as an individual accommodation remains necessary alongside it.</p>
+<p class="rec-g"><span class="lbl">Grounded in</span> UDL Guidelines (CAST); validity theory (Messick); episodic disability framework</p>
+<p class="rec-g"><span class="lbl">Themes</span> Variability, Assessment, Accommodation</p>
+<p class="rec-g"><span class="lbl">Draws on</span> <a href="#n-ud1">Designing for Learner Variability at Scale</a>, <a href="#n-ud7">Eliminating Construct-Irrelevant Barriers in Assessment</a>, <a href="#n-ac13">Designing for Episodic and Fluctuating Conditions</a></p>
+<p class="rec-g"><span class="lbl">Sources</span> <a href="#s2">2</a>, <a href="#s37">37</a>, <a href="#s43">43</a></p>
+</article>
+</section>
 <section class="grp" id="g-grounding" aria-labelledby="h-grounding"><h2 id="h-grounding" class="grp-h"><span class="dot" data-g="grounding"></span>Grounding</h2><p class="grp-d">How disability is understood, and what follows from the understanding. These resources supply the frame every later decision is made inside.</p><p class="grp-l"><a href="https://www.accessiblelearninglabs.com/grounding">Visit the Grounding page</a></p><article class="rec" id="n-ac7" data-id="ac7" data-group="grounding" data-depth="3" data-home="access" data-status="dev" data-connects="ac4 ac9 ud8" data-tags="disability equity access" data-srcs="5 6 7 8">
 <h3 class="rec-t">Disability Studies for Learning Designers</h3>
 <p class="rec-s">The grounding that changes what a designer sees</p>
@@ -355,7 +419,7 @@ footer{margin:64px 0 0;border-top:1px solid var(--hair);padding:26px 0 60px;
 <p class="rec-s">Co-design without extraction</p>
 <p class="rec-meta"><span class="chip chip-g" data-g="grounding">Grounding</span><span class="chip">Accessibility</span><span class="chip">In development</span><span class="chip">Well established</span></p>
 <p class="rec-b">Structuring lived-experience partnership so that it is compensated, early enough to shape decisions rather than ratify them, and accessible in its own conduct. It attends to the pattern in which technical expertise quietly eclipses lived experience, and favours partnership with disability-led organizations already doing this work over convening participants anew.</p>
-<p class="rec-g"><span class="lbl">Grounded in</span> Nothing about us without us (Charlton); inclusive design; TCPS 2 research ethics</p>
+<p class="rec-g"><span class="lbl">Grounded in</span> Disability justice (Sins Invalid; Berne); nothing about us without us (Charlton); inclusive design; TCPS 2 research ethics</p>
 <p class="rec-g"><span class="lbl">Themes</span> Disability studies, Community, Equity</p>
 <p class="rec-g"><span class="lbl">Draws on</span> <a href="#n-ac7">Disability Studies for Learning Designers</a>, <a href="#n-ac18">Accessible Research Participation and Knowledge Products</a></p>
 <p class="rec-g"><span class="lbl">Sources</span> <a href="#s9">9</a>, <a href="#s10">10</a>, <a href="#s11">11</a></p>
@@ -410,6 +474,16 @@ footer{margin:64px 0 0;border-top:1px solid var(--hair);padding:26px 0 60px;
 <p class="rec-g"><span class="lbl">Draws on</span> <a href="#n-ac3">Inclusive Facilitation &amp; Capacity Building</a>, <a href="#n-ac9">Partnering with Disabled People in Learning Design</a>, <a href="#n-ac7">Disability Studies for Learning Designers</a></p>
 <p class="rec-g"><span class="lbl">Sources</span> <a href="#s22">22</a>, <a href="#s23">23</a>, <a href="#s9">9</a></p>
 </article>
+<article class="rec" id="n-ac34" data-id="ac34" data-group="grounding" data-depth="3" data-home="access" data-status="dev" data-connects="ac7 ac9 ac19" data-tags="disability community equity" data-srcs="62 63 64 65 66 67">
+<h3 class="rec-t">Disability Justice and Where It Came From</h3>
+<p class="rec-s">A framework with named authors, and where to read them</p>
+<p class="rec-meta"><span class="chip chip-g" data-g="grounding">Grounding</span><span class="chip">Accessibility</span><span class="chip">In development</span><span class="chip">Well established</span></p>
+<p class="rec-b">Disability justice was created in 2005 and 2006 by the Disability Justice Collective, a group of disabled activists, primarily queer and trans disabled people of colour, working in the San Francisco Bay Area. Patty Berne, Stacey Park Milbern, Mia Mingus, Leroy F. Moore Jr., Eli Clare and Sebastian Margaret are among its architects, and the ten principles were set out by Berne and Sins Invalid. It is a distinct framework rather than a further stage of disability rights: it holds that single-issue organising leaves the most marginalised behind, and it originates in performance, mutual aid and community organising rather than in the academy. This resource states that history and sends the reader to the primary texts. The framework is not summarised here in place of its authors, and the sources below are theirs.</p>
+<p class="rec-g"><span class="lbl">Grounded in</span> Sins Invalid; the ten principles of disability justice (Berne); Black disability studies</p>
+<p class="rec-g"><span class="lbl">Themes</span> Disability studies, Community, Equity</p>
+<p class="rec-g"><span class="lbl">Draws on</span> <a href="#n-ac7">Disability Studies for Learning Designers</a>, <a href="#n-ac9">Partnering with Disabled People in Learning Design</a>, <a href="#n-ac19">Models of Disability as Design Decisions</a></p>
+<p class="rec-g"><span class="lbl">Sources</span> <a href="#s62">62</a>, <a href="#s63">63</a>, <a href="#s64">64</a>, <a href="#s65">65</a>, <a href="#s66">66</a>, <a href="#s67">67</a></p>
+</article>
 <article class="rec" id="n-ud8" data-id="ud8" data-group="grounding" data-depth="3" data-home="udl" data-status="dev" data-connects="ud1" data-tags="equity" data-srcs="24">
 <h3 class="rec-t">Equity-Centered Learning Design</h3>
 <p class="rec-s">The social and cultural layer over everything</p>
@@ -450,6 +524,16 @@ footer{margin:64px 0 0;border-top:1px solid var(--hair);padding:26px 0 60px;
 <p class="rec-g"><span class="lbl">Draws on</span> <a href="#n-ac5">The Duty to Accommodate in Learning Design</a>, <a href="#n-ud10">Evaluating Whether Design Reduced Barriers</a></p>
 <p class="rec-g"><span class="lbl">Sources</span> <a href="#s29">29</a>, <a href="#s30">30</a>, <a href="#s31">31</a>, <a href="#s32">32</a></p>
 </article>
+<article class="rec" id="n-ac32" data-id="ac32" data-group="institutions" data-depth="2" data-home="access" data-status="dev" data-connects="ac22 ac16 ud4" data-tags="policy change systems" data-srcs="29 19 31">
+<h3 class="rec-t">Making the Case for Resourcing Accessibility Work</h3>
+<p class="rec-s">The argument after the numbers, and its limits</p>
+<p class="rec-meta"><span class="chip chip-g" data-g="institutions">Institutions, governance and change</span><span class="chip">Accessibility</span><span class="chip">In development</span><span class="chip">Newer or contested</span></p>
+<p class="rec-b">The arguments available for resourcing this work, and the evidentiary weight each carries: legal obligation, enrolment and retention, institutional reputation, and mission. It covers the cost of retrofit set against the cost of designing for access at the outset, who signs and what they need to see, and the point at which an instrumental case begins to displace the obligation it was assembled to support.</p>
+<p class="rec-g"><span class="lbl">Grounded in</span> Accessible Canada Act; WHO and World Bank disability data; change management scholarship</p>
+<p class="rec-g"><span class="lbl">Themes</span> Policy, Change, Systems</p>
+<p class="rec-g"><span class="lbl">Draws on</span> <a href="#n-ac22">Disability Data and the Limits of Prevalence Figures</a>, <a href="#n-ac16">Institutional Accessibility Planning as a Change Program</a>, <a href="#n-ud4">Closing the Knowing–Doing Gap</a></p>
+<p class="rec-g"><span class="lbl">Sources</span> <a href="#s29">29</a>, <a href="#s19">19</a>, <a href="#s31">31</a></p>
+</article>
 <article class="rec" id="n-ud4" data-id="ud4" data-group="institutions" data-depth="3" data-home="udl" data-status="built" data-connects="ud1" data-tags="transfer" data-srcs="33 34">
 <h3 class="rec-t">Closing the Knowing–Doing Gap</h3>
 <p class="rec-s">From understanding to changed practice</p>
@@ -460,10 +544,10 @@ footer{margin:64px 0 0;border-top:1px solid var(--hair);padding:26px 0 60px;
 <p class="rec-g"><span class="lbl">Draws on</span> <a href="#n-ud1">Designing for Learner Variability at Scale</a></p>
 <p class="rec-g"><span class="lbl">Sources</span> <a href="#s33">33</a>, <a href="#s34">34</a></p>
 </article></section>
-<section class="grp" id="g-rights" aria-labelledby="h-rights"><h2 id="h-rights" class="grp-h"><span class="dot" data-g="rights"></span>Rights, duty and accommodation</h2><p class="grp-d">What is owed to a person, and what proactive design does and does not discharge. The legal and ethical architecture within which access decisions are made and defended.</p><p class="grp-l"><a href="https://www.accessiblelearninglabs.com/rights-duty-and-accommodation">Visit the Rights, duty and accommodation page</a></p><article class="rec" id="n-ac4" data-id="ac4" data-group="rights" data-depth="4" data-home="access" data-status="dev" data-connects="ud2 ud6 ac5 ac6 ac8" data-tags="accommodation access variability" data-srcs="10 35 36 37 2">
+<section class="grp" id="g-rights" aria-labelledby="h-rights"><h2 id="h-rights" class="grp-h"><span class="dot" data-g="rights"></span>Rights and obligation</h2><p class="grp-d">What is owed to a person, and what proactive design does and does not discharge. The legal and ethical architecture within which access decisions are made and defended.</p><p class="grp-l"><a href="https://www.accessiblelearninglabs.com/rights">Visit the Rights and obligation page</a></p><article class="rec" id="n-ac4" data-id="ac4" data-group="rights" data-depth="4" data-home="access" data-status="dev" data-connects="ud2 ud6 ac5 ac6 ac8" data-tags="accommodation access variability" data-srcs="10 35 36 37 2">
 <h3 class="rec-t">Why Universal Design Never Eliminates Individual Accommodation</h3>
 <p class="rec-s">The anchor · why both are permanent, and both are skilled</p>
-<p class="rec-meta"><span class="chip chip-g" data-g="rights">Rights, duty and accommodation</span><span class="chip">Accessibility</span><span class="chip">In development</span><span class="chip">Long-settled practice</span></p>
+<p class="rec-meta"><span class="chip chip-g" data-g="rights">Rights and obligation</span><span class="chip">Accessibility</span><span class="chip">In development</span><span class="chip">Long-settled practice</span></p>
 <p class="rec-b">Individual accommodation is not a residue left behind by imperfect design. Human variability has no outer edge, some barriers are the very thing an assessment is meant to measure, and the duty is owed to a person rather than discharged by a process — which is why proactive design and individual accommodation remain complementary, and why the accommodation encounter is skilled professional practice rather than an administrative step.</p>
 <p class="rec-g"><span class="lbl">Grounded in</span> Inclusive design and one-size-fits-one; the duty to accommodate; construct validity</p>
 <p class="rec-g"><span class="lbl">Themes</span> Accommodation, Access, Variability</p>
@@ -473,7 +557,7 @@ footer{margin:64px 0 0;border-top:1px solid var(--hair);padding:26px 0 60px;
 <article class="rec" id="n-ac5" data-id="ac5" data-group="rights" data-depth="3" data-home="access" data-status="dev" data-connects="ac4 ac6 ac16" data-tags="accommodation policy access" data-srcs="36 29 38 30 39">
 <h3 class="rec-t">The Duty to Accommodate in Learning Design</h3>
 <p class="rec-s">The legal frame, written for those who build and teach</p>
-<p class="rec-meta"><span class="chip chip-g" data-g="rights">Rights, duty and accommodation</span><span class="chip">Accessibility</span><span class="chip">In development</span><span class="chip">Well established</span></p>
+<p class="rec-meta"><span class="chip chip-g" data-g="rights">Rights and obligation</span><span class="chip">Accessibility</span><span class="chip">In development</span><span class="chip">Well established</span></p>
 <p class="rec-b">The architecture within which access decisions are made and defended: the procedural and substantive duty, the unified bona fide requirement test, and accommodation to the point of undue hardship, set in the Canadian frame with the cross-border standards that vendor and partnership work require. It is offered as synthesis for designers, faculty, and institutions; determinations in individual cases rest with accessibility advisors and accommodation offices, and with legal counsel where a matter becomes contested.</p>
 <p class="rec-g"><span class="lbl">Grounded in</span> Meiorin and the BFOR test; Accessible Canada Act; BC Human Rights Code; Accessible British Columbia Act; ADA and Sections 504/508</p>
 <p class="rec-g"><span class="lbl">Themes</span> Accommodation, Policy, Access</p>
@@ -483,47 +567,37 @@ footer{margin:64px 0 0;border-top:1px solid var(--hair);padding:26px 0 60px;
 <article class="rec" id="n-ac6" data-id="ac6" data-group="rights" data-depth="3" data-home="access" data-status="dev" data-connects="ac4 ud7 ac14" data-tags="accommodation assessment alignment" data-srcs="37 40 36">
 <h3 class="rec-t">Essential Requirements and the Limits of Flexibility</h3>
 <p class="rec-s">What a standard genuinely requires, articulated in advance</p>
-<p class="rec-meta"><span class="chip chip-g" data-g="rights">Rights, duty and accommodation</span><span class="chip">Accessibility</span><span class="chip">In development</span><span class="chip">Well established</span></p>
+<p class="rec-meta"><span class="chip chip-g" data-g="rights">Rights and obligation</span><span class="chip">Accessibility</span><span class="chip">In development</span><span class="chip">Well established</span></p>
 <p class="rec-b">The most demanding judgment in the field: when flexibility preserves what is being measured, and when it alters it. This resource supports programs in articulating their essential requirements before any dispute arises — separating what a standard genuinely requires from what it has inherited by convention — so that the reasoning is available to everyone who later needs it.</p>
 <p class="rec-g"><span class="lbl">Grounded in</span> Construct validity; constructive alignment; bona fide academic and technical standards</p>
 <p class="rec-g"><span class="lbl">Themes</span> Accommodation, Assessment, Alignment</p>
 <p class="rec-g"><span class="lbl">Draws on</span> <a href="#n-ac4">Why Universal Design Never Eliminates Individual Accommodation</a>, <a href="#n-ud7">Eliminating Construct-Irrelevant Barriers in Assessment</a>, <a href="#n-ac14">Access in Clinical and Placement Education</a></p>
 <p class="rec-g"><span class="lbl">Sources</span> <a href="#s37">37</a>, <a href="#s40">40</a>, <a href="#s36">36</a></p>
 </article>
-<article class="rec" id="n-ac8" data-id="ac8" data-group="rights" data-depth="3" data-home="access" data-status="dev" data-connects="ac4 ac7 ac13" data-tags="disability access equity" data-srcs="41 6 42">
-<h3 class="rec-t">Designing Out the Disclosure Requirement</h3>
-<p class="rec-s">Disclosure burden as a design variable</p>
-<p class="rec-meta"><span class="chip chip-g" data-g="rights">Rights, duty and accommodation</span><span class="chip">Accessibility</span><span class="chip">In development</span><span class="chip">Well established</span></p>
-<p class="rec-b">Access that is gated behind disclosure asks a person to name a private matter to someone holding authority over them, and the documented costs of that request are real: anticipated stigma, delay, and for some, a decision not to ask at all. This resource treats disclosure burden as something design can measure and reduce — why a flexible deadline requiring an email is a disclosure event and a built-in buffer is not — while leaving the accommodation record itself where it belongs, with the office that holds it.</p>
-<p class="rec-g"><span class="lbl">Grounded in</span> Stigma and concealment (Goffman); academic ableism; BC information-governance requirements</p>
-<p class="rec-g"><span class="lbl">Themes</span> Disability studies, Access, Equity</p>
-<p class="rec-g"><span class="lbl">Draws on</span> <a href="#n-ac4">Why Universal Design Never Eliminates Individual Accommodation</a>, <a href="#n-ac7">Disability Studies for Learning Designers</a>, <a href="#n-ac13">Designing for Episodic and Fluctuating Conditions</a></p>
-<p class="rec-g"><span class="lbl">Sources</span> <a href="#s41">41</a>, <a href="#s6">6</a>, <a href="#s42">42</a></p>
-</article>
-<article class="rec" id="n-ac13" data-id="ac13" data-group="rights" data-depth="3" data-home="access" data-status="dev" data-connects="ac8 ac6" data-tags="accommodation wellbeing access" data-srcs="43 8">
-<h3 class="rec-t">Designing for Episodic and Fluctuating Conditions</h3>
-<p class="rec-s">Program architecture for conditions that vary</p>
-<p class="rec-meta"><span class="chip chip-g" data-g="rights">Rights, duty and accommodation</span><span class="chip">Accessibility</span><span class="chip">In development</span><span class="chip">Well established</span></p>
-<p class="rec-b">Attendance policy, deadline architecture, cohort progression, and leave-and-return pathways — the structural layer of a problem that individual accommodation handles with difficulty because most systems assume stable limitations. It is program and policy design, offered in the knowledge that disabled people and experienced advisors hold far more understanding of these conditions than the design literature yet reflects.</p>
-<p class="rec-g"><span class="lbl">Grounded in</span> Episodic disability framework (O’Brien et al.); disability studies</p>
-<p class="rec-g"><span class="lbl">Themes</span> Accommodation, Wellbeing, Access</p>
-<p class="rec-g"><span class="lbl">Draws on</span> <a href="#n-ac8">Designing Out the Disclosure Requirement</a>, <a href="#n-ac6">Essential Requirements and the Limits of Flexibility</a></p>
-<p class="rec-g"><span class="lbl">Sources</span> <a href="#s43">43</a>, <a href="#s8">8</a></p>
-</article>
 <article class="rec" id="n-ac24" data-id="ac24" data-group="rights" data-depth="3" data-home="access" data-status="dev" data-connects="ac5 ac16 ac9" data-tags="policy standards access" data-srcs="44 23 45 46">
 <h3 class="rec-t">International and Regional Disability Rights Instruments</h3>
 <p class="rec-s">The layer above domestic duty</p>
-<p class="rec-meta"><span class="chip chip-g" data-g="rights">Rights, duty and accommodation</span><span class="chip">Accessibility</span><span class="chip">In development</span><span class="chip">Well established</span></p>
+<p class="rec-meta"><span class="chip chip-g" data-g="rights">Rights and obligation</span><span class="chip">Accessibility</span><span class="chip">In development</span><span class="chip">Well established</span></p>
 <p class="rec-b">The Universal Declaration of Human Rights, the Convention on the Rights of Persons with Disabilities and its General Comments, and the Marrakesh Treaty, together with the regional instruments — the Charter of Fundamental Rights of the European Union, the African Charter on Human and Peoples’ Rights, and the Inter-American Convention. It explains why accessibility obligations converge across jurisdictions rather than arising independently in each, and supplies the vocabulary required to work with partners outside Canada.</p>
 <p class="rec-g"><span class="lbl">Grounded in</span> UDHR (1948); CRPD (2006); Marrakesh Treaty (2013); regional human rights instruments</p>
 <p class="rec-g"><span class="lbl">Themes</span> Policy, Standards, Access</p>
 <p class="rec-g"><span class="lbl">Draws on</span> <a href="#n-ac5">The Duty to Accommodate in Learning Design</a>, <a href="#n-ac16">Institutional Accessibility Planning as a Change Program</a>, <a href="#n-ac9">Partnering with Disabled People in Learning Design</a></p>
 <p class="rec-g"><span class="lbl">Sources</span> <a href="#s44">44</a>, <a href="#s23">23</a>, <a href="#s45">45</a>, <a href="#s46">46</a></p>
 </article>
+<article class="rec" id="n-ac33" data-id="ac33" data-group="rights" data-depth="3" data-home="access" data-status="dev" data-connects="ac5 ac24 ac16" data-tags="policy access accommodation" data-srcs="29 30 38 36 60 61">
+<h3 class="rec-t">Canadian Accessibility and Accommodation Law for Learning Designers</h3>
+<p class="rec-s">Two separate instruments, in plain language</p>
+<p class="rec-meta"><span class="chip chip-g" data-g="rights">Rights and obligation</span><span class="chip">Accessibility</span><span class="chip">In development</span><span class="chip">Well established</span></p>
+<p class="rec-b">The Accessible Canada Act, the Accessible British Columbia Act and the BC Human Rights Code duty to accommodate, written for learning designers and faculty. Human rights law and accessibility legislation are separate instruments with different mechanisms, different scope and different remedies, and the distinction determines what an institution owes and to whom. It sets out what binds a public post-secondary institution in British Columbia, where obligations differ for private training providers, and includes the Ontario legislation for comparison.</p>
+<p class="rec-g"><span class="lbl">Grounded in</span> Accessible Canada Act; Accessible British Columbia Act; BC Human Rights Code; CRPD</p>
+<p class="rec-g"><span class="lbl">Themes</span> Policy, Access, Accommodation</p>
+<p class="rec-g"><span class="lbl">Draws on</span> <a href="#n-ac5">The Duty to Accommodate in Learning Design</a>, <a href="#n-ac24">International and Regional Disability Rights Instruments</a>, <a href="#n-ac16">Institutional Accessibility Planning as a Change Program</a></p>
+<p class="rec-g"><span class="lbl">Sources</span> <a href="#s29">29</a>, <a href="#s30">30</a>, <a href="#s38">38</a>, <a href="#s36">36</a>, <a href="#s60">60</a>, <a href="#s61">61</a></p>
+</article>
 <article class="rec" id="n-ud2" data-id="ud2" data-group="rights" data-depth="3" data-home="udl" data-status="built" data-connects="ud1 ac1 ac4" data-tags="access variability" data-srcs="47 2">
 <h3 class="rec-t">From Accommodation to Proactive Inclusive Design</h3>
 <p class="rec-s">The field&#x27;s defining reframe</p>
-<p class="rec-meta"><span class="chip chip-g" data-g="rights">Rights, duty and accommodation</span><span class="chip">Universal Design for Learning</span><span class="chip">Published resource</span><span class="chip">Well established</span></p>
+<p class="rec-meta"><span class="chip chip-g" data-g="rights">Rights and obligation</span><span class="chip">Universal Design for Learning</span><span class="chip">Published resource</span><span class="chip">Well established</span></p>
 <p class="rec-b">Shifting from retrofitting access for individuals after the fact to designing inclusively from the start, so fewer barriers are ever built in. It states the paradigm shift the field rests on, plainly.</p>
 <p class="rec-g"><span class="lbl">Grounded in</span> Universal Design for Learning; inclusive design principles</p>
 <p class="rec-g"><span class="lbl">Themes</span> Access, Variability</p>
@@ -533,7 +607,7 @@ footer{margin:64px 0 0;border-top:1px solid var(--hair);padding:26px 0 60px;
 <article class="rec" id="n-ud7" data-id="ud7" data-group="rights" data-depth="3" data-home="udl" data-status="built" data-connects="ud1 ac1 ac6" data-tags="assessment access" data-srcs="37 2">
 <h3 class="rec-t">Eliminating Construct-Irrelevant Barriers in Assessment</h3>
 <p class="rec-s">Measuring capability, not obstacles</p>
-<p class="rec-meta"><span class="chip chip-g" data-g="rights">Rights, duty and accommodation</span><span class="chip">Universal Design for Learning</span><span class="chip">Published resource</span><span class="chip">Well established</span></p>
+<p class="rec-meta"><span class="chip chip-g" data-g="rights">Rights and obligation</span><span class="chip">Universal Design for Learning</span><span class="chip">Published resource</span><span class="chip">Well established</span></p>
 <p class="rec-b">Removing features of an assessment that get in the way of demonstrating mastery without being part of what is measured, so results reflect capability rather than incidental barriers. It works alongside assessment designed as experience.</p>
 <p class="rec-g"><span class="lbl">Grounded in</span> Construct validity; UDL action &amp; expression</p>
 <p class="rec-g"><span class="lbl">Themes</span> Assessment, Access</p>
@@ -630,6 +704,36 @@ footer{margin:64px 0 0;border-top:1px solid var(--hair);padding:26px 0 60px;
 <p class="rec-g"><span class="lbl">Draws on</span> <a href="#n-ac4">Why Universal Design Never Eliminates Individual Accommodation</a>, <a href="#n-ac14">Access in Clinical and Placement Education</a>, <a href="#n-ud6">Making Accessibility More Than Compliance</a></p>
 <p class="rec-g"><span class="lbl">Sources</span> <a href="#s35">35</a>, <a href="#s54">54</a>, <a href="#s29">29</a></p>
 </article>
+<article class="rec" id="n-ac29" data-id="ac29" data-group="standards" data-depth="3" data-home="access" data-status="dev" data-connects="ac10 ud6 ac11" data-tags="standards access evaluation" data-srcs="58 15 61">
+<h3 class="rec-t">Accessible Documents as Everyday Practice</h3>
+<p class="rec-s">Structure at the point of authoring, not repair</p>
+<p class="rec-meta"><span class="chip chip-g" data-g="standards">Standards and technical practice</span><span class="chip">Accessibility</span><span class="chip">In development</span><span class="chip">Well established</span></p>
+<p class="rec-b">Headings, reading order, tables, alternative text and contrast across word processing files, presentations, spreadsheets and PDF, treated as authoring practice. Remediation costs more than creation, which places institutional templates among the highest-leverage points of intervention. It also covers what an automated checker establishes and what it leaves untested.</p>
+<p class="rec-g"><span class="lbl">Grounded in</span> PDF/UA (ISO 14289-1); WCAG 2.2; CAN/ASC-EN 301 549:2024</p>
+<p class="rec-g"><span class="lbl">Themes</span> Standards, Access, Evaluation</p>
+<p class="rec-g"><span class="lbl">Draws on</span> <a href="#n-ac10">Accessibility Triage for Existing Course Inventories</a>, <a href="#n-ud6">Making Accessibility More Than Compliance</a>, <a href="#n-ac11">Designing for the Assistive Technology People Actually Use</a></p>
+<p class="rec-g"><span class="lbl">Sources</span> <a href="#s58">58</a>, <a href="#s15">15</a>, <a href="#s61">61</a></p>
+</article>
+<article class="rec" id="n-ac30" data-id="ac30" data-group="standards" data-depth="3" data-home="access" data-status="dev" data-connects="ac29 ac11 ud6" data-tags="standards access" data-srcs="59 15 4">
+<h3 class="rec-t">Captions, Transcripts and Audio Description</h3>
+<p class="rec-s">Three artefacts, three sets of users</p>
+<p class="rec-meta"><span class="chip chip-g" data-g="standards">Standards and technical practice</span><span class="chip">Accessibility</span><span class="chip">In development</span><span class="chip">Well established</span></p>
+<p class="rec-b">Captions, transcripts and audio description serve different users and do not substitute for one another. This resource covers caption accuracy and the degradation of automatic captioning on the specialist vocabulary that carries the most meaning, the transcript as an independently useful artefact, standard and extended audio description, and where each belongs in a production workflow and a budget.</p>
+<p class="rec-g"><span class="lbl">Grounded in</span> W3C Media Accessibility User Requirements; WCAG 2.2; multimedia learning research</p>
+<p class="rec-g"><span class="lbl">Themes</span> Standards, Access</p>
+<p class="rec-g"><span class="lbl">Draws on</span> <a href="#n-ac29">Accessible Documents as Everyday Practice</a>, <a href="#n-ac11">Designing for the Assistive Technology People Actually Use</a>, <a href="#n-ud6">Making Accessibility More Than Compliance</a></p>
+<p class="rec-g"><span class="lbl">Sources</span> <a href="#s59">59</a>, <a href="#s15">15</a>, <a href="#s4">4</a></p>
+</article>
+<article class="rec" id="n-ac31" data-id="ac31" data-group="standards" data-depth="2" data-home="access" data-status="dev" data-connects="ac12 ac10 ac29" data-tags="standards policy access" data-srcs="26 61 25">
+<h3 class="rec-t">Selecting Materials, Textbooks and Platforms</h3>
+<p class="rec-s">Reading a conformance claim against what a person meets</p>
+<p class="rec-meta"><span class="chip chip-g" data-g="standards">Standards and technical practice</span><span class="chip">Accessibility</span><span class="chip">In development</span><span class="chip">Newer or contested</span></p>
+<p class="rec-b">Publisher platforms, courseware, library resources and open educational resources, and the accessibility settled at the point of selection. It covers reading an Accessibility Conformance Report against what a person using the product encounters, what to ask a vendor, what to ask a colleague already using the tool, and the options remaining when an inaccessible product is already in service.</p>
+<p class="rec-g"><span class="lbl">Grounded in</span> VPAT and Accessibility Conformance Reports; EN 301 549; CAN/ASC-EN 301 549:2024</p>
+<p class="rec-g"><span class="lbl">Themes</span> Standards, Policy, Access</p>
+<p class="rec-g"><span class="lbl">Draws on</span> <a href="#n-ac12">Accessible Procurement and Vendor Accountability</a>, <a href="#n-ac10">Accessibility Triage for Existing Course Inventories</a>, <a href="#n-ac29">Accessible Documents as Everyday Practice</a></p>
+<p class="rec-g"><span class="lbl">Sources</span> <a href="#s26">26</a>, <a href="#s61">61</a>, <a href="#s25">25</a></p>
+</article>
 <article class="rec" id="n-ud6" data-id="ud6" data-group="standards" data-depth="2" data-home="udl" data-status="dev" data-connects="ud1 ac1 ac2 ac4" data-tags="access" data-srcs="15 2">
 <h3 class="rec-t">Making Accessibility More Than Compliance</h3>
 <p class="rec-s">Access as design quality, not a checklist</p>
@@ -655,13 +759,14 @@ footer{margin:64px 0 0;border-top:1px solid var(--hair);padding:26px 0 60px;
     <h2 id="h-grouppages">The seven groups</h2>
     <p class="grp-d">Each group has its own page. The resources below link to the group they belong to.</p>
     <ul class="areas">
-<li><a href="https://www.accessiblelearninglabs.com/designing-for-variability"><span class="dot" data-g="variability"></span>Designing for variability</a> <span class="ga-n">4 resources</span></li>
-        <li><a href="https://www.accessiblelearninglabs.com/grounding"><span class="dot" data-g="grounding"></span>Grounding</a> <span class="ga-n">8 resources</span></li>
-        <li><a href="https://www.accessiblelearninglabs.com/institutions-governance-and-change"><span class="dot" data-g="institutions"></span>Institutions, governance and change</a> <span class="ga-n">4 resources</span></li>
-        <li><a href="https://www.accessiblelearninglabs.com/rights-duty-and-accommodation"><span class="dot" data-g="rights"></span>Rights, duty and accommodation</a> <span class="ga-n">8 resources</span></li>
+<li><a href="https://www.accessiblelearninglabs.com/accommodations"><span class="dot" data-g="accommodations"></span>Accommodation in practice</a> <span class="ga-n">5 resources</span></li>
+        <li><a href="https://www.accessiblelearninglabs.com/designing-for-variability"><span class="dot" data-g="variability"></span>Designing for variability</a> <span class="ga-n">5 resources</span></li>
+        <li><a href="https://www.accessiblelearninglabs.com/grounding"><span class="dot" data-g="grounding"></span>Grounding</a> <span class="ga-n">9 resources</span></li>
+        <li><a href="https://www.accessiblelearninglabs.com/institutions-governance-and-change"><span class="dot" data-g="institutions"></span>Institutions, governance and change</a> <span class="ga-n">5 resources</span></li>
+        <li><a href="https://www.accessiblelearninglabs.com/rights"><span class="dot" data-g="rights"></span>Rights and obligation</a> <span class="ga-n">7 resources</span></li>
         <li><a href="https://www.accessiblelearninglabs.com/sectors-and-participation"><span class="dot" data-g="sectors"></span>Sectors and participation</a> <span class="ga-n">3 resources</span></li>
         <li><a href="https://www.accessiblelearninglabs.com/services"><span class="dot" data-g="services"></span>Services</a> <span class="ga-n">3 resources</span></li>
-        <li><a href="https://www.accessiblelearninglabs.com/standards-and-technical-practice"><span class="dot" data-g="standards"></span>Standards and technical practice</a> <span class="ga-n">5 resources</span></li>
+        <li><a href="https://www.accessiblelearninglabs.com/standards-and-technical-practice"><span class="dot" data-g="standards"></span>Standards and technical practice</a> <span class="ga-n">8 resources</span></li>
     </ul>
   </section>
 
@@ -672,11 +777,15 @@ footer{margin:64px 0 0;border-top:1px solid var(--hair);padding:26px 0 60px;
 <li id="s29" value="29">Accessible Canada Act, S.C. 2019, c. 10. <a class="ext" href="https://laws-lois.justice.gc.ca/eng/acts/a-0.6/">Open source<span class="exti" aria-hidden="true"></span></a></li>
 <li id="s30" value="30">Accessible British Columbia Act, S.B.C. 2021, c. 19. Province of British Columbia.</li>
 <li id="s39" value="39">Americans with Disabilities Act of 1990, as amended, 42 U.S.C. § 12101 et seq.; Rehabilitation Act of 1973, Sections 504 and 508, as amended. <a class="ext" href="https://www.ada.gov/">Open source<span class="exti" aria-hidden="true"></span></a></li>
+<li id="s60" value="60">Accessibility for Ontarians with Disabilities Act, 2005, S.O. 2005, c. 11. Province of Ontario.</li>
 </ol>
 <h3 class="bib-h">Accessibility standards</h3><ol class="bib">
 <li id="s15" value="15">W3C (2023). Web Content Accessibility Guidelines (WCAG) 2.2. W3C Recommendation. <a class="ext" href="https://www.w3.org/TR/WCAG22/">Open source<span class="exti" aria-hidden="true"></span></a></li>
 <li id="s25" value="25">ETSI/CEN/CENELEC (2021). EN 301 549 V3.2.1: Accessibility Requirements for ICT Products and Services. Harmonised European Standard. <a class="ext" href="https://www.etsi.org/deliver/etsi_en/301500_301599/301549/03.02.01_60/en_301549v030201p.pdf">Open source<span class="exti" aria-hidden="true"></span></a></li>
 <li id="s26" value="26">Information Technology Industry Council. Voluntary Product Accessibility Template (VPAT) and Accessibility Conformance Reports. <a class="ext" href="https://www.itic.org/policy/accessibility/vpat">Open source<span class="exti" aria-hidden="true"></span></a></li>
+<li id="s58" value="58">ISO 14289-1:2014. Document Management Applications &mdash; Electronic Document File Format Enhancement for Accessibility &mdash; Part 1: Use of ISO 32000-1 (PDF/UA-1). International Organization for Standardization.</li>
+<li id="s59" value="59">W3C (2015). Media Accessibility User Requirements. W3C Working Group Note. <a class="ext" href="https://www.w3.org/TR/media-accessibility-reqs/">Open source<span class="exti" aria-hidden="true"></span></a></li>
+<li id="s61" value="61">CAN/ASC-EN 301 549:2024. Accessibility Requirements for ICT Products and Services (EN 301 549:2021, IDT). Accessibility Standards Canada, published 31 May 2024, available free of charge. <a class="ext" href="https://accessible.canada.ca/creating-accessibility-standards/canasc-en-301-5492024-accessibility-requirements-ict-products-and-services">Open source<span class="exti" aria-hidden="true"></span></a></li>
 </ol>
 <h3 class="bib-h">Adult learning</h3><ol class="bib">
 <li id="s28" value="28">Knowles, M. S., Holton, E. F., &amp; Swanson, R. A. (2015). The Adult Learner (8th ed.). Routledge.</li>
@@ -717,6 +826,15 @@ footer{margin:64px 0 0;border-top:1px solid var(--hair);padding:26px 0 60px;
 </ol>
 <h3 class="bib-h">Disability justice</h3><ol class="bib">
 <li id="s9" value="9">Charlton, J. I. (1998). Nothing About Us Without Us: Disability Oppression and Empowerment. University of California Press.</li>
+<li id="s62" value="62">Sins Invalid (2019). Skin, Tooth, and Bone: The Basis of Movement is Our People &mdash; A Disability Justice Primer (2nd ed.). Berkeley, CA: Sins Invalid. ISBN 9781647133658 &mdash; the source text of the ten principles, based in the work of Patty Berne.</li>
+<li id="s63" value="63">Berne, P., &amp; Sins Invalid. 10 Principles of Disability Justice (2nd ed.). Design by Nomy Lamm. Sins Invalid. <a class="ext" href="https://www.sinsinvalid.org/disability-justice-primer">Open source<span class="exti" aria-hidden="true"></span></a></li>
+<li id="s64" value="64">Mingus, M. (2011). &ldquo;Access Intimacy: The Missing Link.&rdquo; Leaving Evidence, 5 May 2011 &mdash; where access intimacy is named. <a class="ext" href="https://leavingevidence.wordpress.com/2011/05/05/access-intimacy-the-missing-link/">Open source<span class="exti" aria-hidden="true"></span></a></li>
+<li id="s65" value="65">Milbern, S. P. (2019). &ldquo;On the Ancestral Plane: Crip Hand Me Downs and the Legacy of Our Movements.&rdquo; Disability Visibility Project, 10 March 2019. Reprinted in A. Wong (Ed.), Disability Visibility: First-Person Stories from the Twenty-First Century (Vintage Books, 2020). <a class="ext" href="https://disabilityvisibilityproject.com/2019/03/10/on-the-ancestral-plane-crip-hand-me-downs-and-the-legacy-of-our-movements/">Open source<span class="exti" aria-hidden="true"></span></a></li>
+<li id="s66" value="66">Clare, E. (2015). Exile and Pride: Disability, Queerness, and Liberation. Duke University Press. Originally published 1999.</li>
+<li id="s67" value="67">Moore, L. F., Jr., McClung, N. A., &amp; Nusbaum, E. A. (2017). Black Disabled Art History 101. Xóchitl Justice Press. ISBN 9781942001577.</li>
+</ol>
+<h3 class="bib-h">Disability services in higher education</h3><ol class="bib">
+<li id="s57" value="57">Association on Higher Education And Disability (AHEAD). Program Domains, Standards, and Performance Indicators. <a class="ext" href="https://www.ahead.org/professional-resources/program-standards-ethics">Open source<span class="exti" aria-hidden="true"></span></a></li>
 </ol>
 <h3 class="bib-h">Disability studies</h3><ol class="bib">
 <li id="s5" value="5">Oliver, M. (1990). The Politics of Disablement. Macmillan — the foundational statement of the social model of disability.</li>
@@ -744,6 +862,7 @@ footer{margin:64px 0 0;border-top:1px solid var(--hair);padding:26px 0 60px;
 <h3 class="bib-h">Human rights law</h3><ol class="bib">
 <li id="s36" value="36">British Columbia (Public Service Employee Relations Commission) v. BCGSEU, [1999] 3 S.C.R. 3, 1999 CanLII 652 (SCC) — the “Meiorin” decision, establishing the unified bona fide requirement test and accommodation to the point of undue hardship. <a class="ext" href="https://www.canlii.org/en/ca/scc/doc/1999/1999canlii652/1999canlii652.html">Open source<span class="exti" aria-hidden="true"></span></a></li>
 <li id="s38" value="38">Human Rights Code, R.S.B.C. 1996, c. 210. Province of British Columbia.</li>
+<li id="s56" value="56">Central Okanagan School District No. 23 v. Renaud, 1992 CanLII 81 (SCC), [1992] 2 S.C.R. 970 &mdash; the shared responsibility of every party to the accommodation process. <a class="ext" href="https://www.canlii.org/en/ca/scc/doc/1992/1992canlii81/1992canlii81.html">Open source<span class="exti" aria-hidden="true"></span></a></li>
 </ol>
 <h3 class="bib-h">Inclusive design</h3><ol class="bib">
 <li id="s10" value="10">Inclusive Design Research Centre. The Inclusive Design Guide. OCAD University — the source of the one-size-fits-one principle and the inclusive design framework. <a class="ext" href="https://guide.inclusivedesign.ca/">Open source<span class="exti" aria-hidden="true"></span></a></li>
@@ -812,9 +931,9 @@ footer{margin:64px 0 0;border-top:1px solid var(--hair);padding:26px 0 60px;
 (function(){
 document.body.classList.add('has-js');
 
-var GC = {"grounding": "#477ba8", "rights": "#567a9d", "variability": "#617993", "standards": "#69788b", "institutions": "#717781", "sectors": "#767677", "services": "#303e44"};
-var GL = {"variability": "Designing for variability", "grounding": "Grounding", "institutions": "Institutions, governance and change", "rights": "Rights, duty and accommodation", "sectors": "Sectors and participation", "services": "Services", "standards": "Standards and technical practice"};
-var GO = ["variability", "grounding", "institutions", "rights", "sectors", "services", "standards"];
+var GC = {"grounding": "#477ba8", "accommodations": "#347cb2", "rights": "#567a9d", "variability": "#617993", "standards": "#69788b", "institutions": "#717781", "sectors": "#767677", "services": "#303e44"};
+var GL = {"accommodations": "Accommodation in practice", "variability": "Designing for variability", "grounding": "Grounding", "institutions": "Institutions, governance and change", "rights": "Rights and obligation", "sectors": "Sectors and participation", "services": "Services", "standards": "Standards and technical practice"};
+var GO = ["accommodations", "variability", "grounding", "institutions", "rights", "sectors", "services", "standards"];
 
 /* The rendered list below is the single source of truth. Reading the nodes out
    of the DOM means the map and the text can never carry different content, and
@@ -874,8 +993,8 @@ var EDGES = [];
    the contribution is: the anchor of each group sits nearest the middle, newer
    or more contested work further out. Angular order puts the groups that share
    most sources and themes beside one another, so the wheel reads as a continuum
-   rather than six unrelated sets. */
-var SPATIAL = ["grounding", "institutions", "standards", "variability", "rights", "sectors"];
+   rather than seven unrelated sets. */
+var SPATIAL = ["grounding", "sectors", "accommodations", "rights", "variability", "standards", "institutions"];
 function layoutGroup(){
   var TWO = Math.PI * 2;
   SPATIAL.forEach(function(gk, k){
@@ -1276,8 +1395,8 @@ pair(document.getElementById('m-group'), document.getElementById('m-aff'), funct
   if (isGroup) layoutGroup(); else layoutAffinity();
   fitView();
   document.getElementById('cv-desc').textContent = isGroup
-    ? 'A map of thirty-five resources positioned by group, with lines showing recorded connections. The same content is available as a list.'
-    : 'A map of thirty-five resources positioned by likeness, with line weight showing how much two resources share in sources and themes. The same content is available as a list.';
+    ? 'A map of forty-five resources positioned by group, with lines showing recorded connections. The same content is available as a list.'
+    : 'A map of forty-five resources positioned by likeness, with line weight showing how much two resources share in sources and themes. The same content is available as a list.';
   settle();
 });
 pair(document.getElementById('d-2'), document.getElementById('d-3'), function(is2){
