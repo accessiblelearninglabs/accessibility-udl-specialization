@@ -225,9 +225,7 @@
     </ul>
 
     <p>Ten of the thirty-two come from Universal Design for Learning. They sit in
-       five of the six groups, and four of them form Designing for variability.
-       Variability and disability are not the same concept, and the map holds them
-       apart.</p>
+       five of the six groups, and four of them form Designing for variability.</p>
     <p>On the map, distance from the centre is how established a contribution is,
        and circle size carries the same reading. The three engagements sit at the
        centre.</p>
@@ -273,13 +271,13 @@
      nodes:[3,3,3],           udl:[],
      d:"Clinical, health and research settings, and who can take part"}
   ];
-  var SERVICE="#303e44", MAXN=8;
+  var SERVICE="#303e44";
 
   /* The film argues; the map demonstrates. Movement one names the default
      assumption, its invisibility, its scale and the cost of leaving it late.
      Movement two shows the six places the work of changing it goes on, and
      closes by putting the question the whole practice asks back into one
-     line. Roughly 98 seconds against the landscape intro's 80. */
+     line. Roughly 95 seconds against the landscape intro's 80. */
   var BEATS=[
     {ms:6500, film:true, hero:["Nearly every effort to improve the world moves through learning that someone has to be able to reach."]},
     {ms:11500,film:true, stack:true, hero:["Built for someone who can hear the video.",
@@ -291,7 +289,7 @@
     {ms:6000, cap:"The work is to change the assumption before it hardens.", act:"hub"},
     {ms:6000, cap:"Six bodies of work stand behind that.", act:"spokes"},
     {ms:21000,cap:"Thirty-two knowledge resources, in six groups.", act:"names"},
-    {ms:9500, cap:"Ten of the thirty-two come from Universal Design for Learning. Variability and disability are not the same concept.", act:"udl"},
+    {ms:7500, cap:"Ten of the thirty-two come from Universal Design for Learning.", act:"udl"},
     {ms:8500, cap:"Six groups. One question, asked in six places: who was this built for?", act:"converge"},
     {ms:8000, film:true, act:"outro"}
   ];
@@ -330,9 +328,72 @@
   function el(t,a){var e=document.createElementNS(NS,t);for(var k in a)e.setAttribute(k,a[k]);return e;}
 
   /* ── Geometry ────────────────────────────────────────────────────────
-     Drawn in real stage pixels: the viewBox is the stage's own size, so a
-     label can never drift away from the circle it names. Rebuilt on resize. */
-  var G=null, gGrp=[], hubDots=[], allNodes=[], geom=null, TIGHT_NAMES=false;
+     A canopy rather than a wheel. The radial arrangement was true to the
+     map but it needs width on every side, and a phone has none: at 300px
+     it came out as six bare lines through three dots.
+
+     A tree is portrait, which is the shape a phone actually offers, and it
+     carries the same three assertions. The three engagements sit at the
+     fork. Distance along a bough is how established a contribution is.
+     Adjacency between boughs is likeness between groups.
+
+     One thing is lost in the move and it should be said plainly. The
+     radial version could close the likeness order into a ring; a fan has
+     two ends, so one adjacency has to be cut. The cut here is between
+     Institutions and Standards, chosen so the two eight-node groups land
+     inside the fan where there is height for them rather than at the
+     edges where there is not. FAN_ORDER is the line to edit if a different
+     pair should carry the break.
+
+     Everything is drawn in real stage pixels, so a label can never drift
+     away from the bough it names. Rebuilt on resize. */
+  var FAN_ORDER=[2,3,4,5,0,1];
+
+  var G=null, gGrp=[], hubDots=[], allNodes=[], trunkClip=null, trunkPulse=null,
+      TIGHT_NAMES=false;
+
+  function cubic(p0,p1,p2,p3,t){
+    var u=1-t, a=u*u*u, b=3*u*u*t, c=3*u*t*t, d=t*t*t;
+    return {x:a*p0.x+b*p1.x+c*p2.x+d*p3.x, y:a*p0.y+b*p1.y+c*p2.y+d*p3.y};
+  }
+
+  /* A bough is a quadratic sampled into a polyline with running arc length,
+     so a node can be placed at a measured distance from the fork instead of
+     at a parameter value, which would bunch them where the curve bends. */
+  function boughSamples(fx,fy,ux,uy,rx,ry){
+    var P0={x:fx,y:fy},
+        P1={x:fx+ux*rx*0.88, y:fy+uy*ry*0.16},
+        P2={x:fx+ux*rx,      y:fy+uy*ry};
+    var pts=[], run=0, N=72;
+    for(var i=0;i<=N;i++){
+      var t=i/N, u=1-t;
+      var x=u*u*P0.x+2*u*t*P1.x+t*t*P2.x,
+          y=u*u*P0.y+2*u*t*P1.y+t*t*P2.y;
+      if(i) run+=Math.hypot(x-pts[i-1].x, y-pts[i-1].y);
+      pts.push({x:x,y:y,s:run});
+    }
+    return pts;
+  }
+  function atLength(pts,s){
+    if(s<=0) return pts[0];
+    for(var i=1;i<pts.length;i++){
+      if(pts[i].s>=s){
+        var a=pts[i-1], b=pts[i], f=(s-a.s)/((b.s-a.s)||1);
+        return {x:a.x+(b.x-a.x)*f, y:a.y+(b.y-a.y)*f,
+                tx:(b.x-a.x), ty:(b.y-a.y)};
+      }
+    }
+    var p=pts[pts.length-1], q=pts[pts.length-2];
+    return {x:p.x,y:p.y,tx:p.x-q.x,ty:p.y-q.y};
+  }
+  function pathTo(pts,s){
+    var d="M"+pts[0].x.toFixed(1)+" "+pts[0].y.toFixed(1);
+    for(var i=1;i<pts.length;i++){
+      if(pts[i].s>s){ var e=atLength(pts,s); d+="L"+e.x.toFixed(1)+" "+e.y.toFixed(1); break; }
+      d+="L"+pts[i].x.toFixed(1)+" "+pts[i].y.toFixed(1);
+    }
+    return d;
+  }
 
   function wrap(node, text, maxW, fs){
     var words=text.split(" "), lines=[], cur="";
@@ -358,49 +419,51 @@
     while(svg.firstChild) svg.removeChild(svg.firstChild);
     gGrp=[]; hubDots=[]; allNodes=[];
 
-    /* Floors, not scaled sizes. 12.5px is the smallest a group name is
-       allowed to render at any width. Names wrap to more lines instead of
-       shrinking below it. */
     var fs   = Math.max(12.5, Math.min(16, W*0.0148));
     var lane = Math.max(88, Math.min(210, W*0.245));
-    var cx   = W/2, cy = H*0.505;
     var lh   = fs*1.25;
 
-    /* Two things change with the shape of the frame.
-
-       A wide frame puts two spokes on the horizontal, where the longest
-       group names have a lane to sit in. A tall one rotates the whole
-       arrangement thirty degrees, so two spokes run vertically and their
-       names can use the full width instead.
-
-       Below about 430px there is no lane worth having. The names come off
-       the drawing entirely and are spoken by the caption line as each group
-       arrives, which leaves the map itself room to be legible. */
-    var rot   = (H > W*1.02) ? 30 : 0;
+    /* Below about 430px there is no label lane worth having. The names come
+       off the drawing and the caption speaks each one as its bough arrives,
+       which leaves the canopy room to be a canopy. */
     var TIGHT = W < 430;
 
-    /* The caption line sits over the bottom of the stage, so the drawing is
-       given the band above it rather than the whole frame. The group
-       descriptions are the longest captions in the piece and run to three
-       lines at the narrowest widths, so the band is reserved for three. */
     var capFs   = (W<=760) ? 14 : Math.max(13.5, Math.min(19, W*0.016));
     var capZone = H*0.035 + 3*capFs*1.45 + 10;
-    var band0 = 6, band1 = H - capZone;
-    cy = (band0+band1)/2;
 
-    var hubR  = Math.max(15, Math.min(30, W*0.026));
-    var first = hubR + Math.max(16, W*0.022);
+    var yBase = H - capZone - 2;
+    var topPad= TIGHT ? 10 : fs*2.7;
+    var yTop  = 6 + topPad;
+    var totalH= yBase - yTop;
+    var yFork = yBase - totalH*0.28;
+    var cx    = W/2;
 
-    /* Wrap every name first, because a name that wraps to three lines needs
-       more height above its tip than one that wraps to two, and a single
-       long word needs a wider lane than the nominal one. */
+    /* A wide frame can open the fan out; a tall one keeps it upright, so the
+       long boughs spend their length on height rather than on width. */
+    var FAN = (W > H) ? 72 : 52;
+    var rx  = (TIGHT ? W/2-8 : W/2 - lane - 4);
+    var ry  = yFork - yTop;
+
+    var hubR  = Math.max(11, Math.min(22, W*0.02));
+    var first = hubR + Math.max(14, W*0.020);
+    var tail  = Math.max(10, W*0.012);
+
+    /* Wrap the names first: a name that wraps to three lines needs more room
+       above its bough tip, and a single long word needs a wider lane. */
+    var labels=[];
     var probe=el("text",{"font-size":fs,"font-weight":600,visibility:"hidden"});
     svg.appendChild(probe);
-    var meta=GROUPS.map(function(GR){
-      var t=(GR.a+rot)*Math.PI/180, ux=Math.cos(t), uy=Math.sin(t);
-      var side=Math.abs(ux)>0.2, lines=[], wide=0;
+    var meta=GROUPS.map(function(GR,gi){
+      var pos=FAN_ORDER.indexOf(gi);
+      var A=(-FAN + 2*FAN*pos/(GROUPS.length-1))*Math.PI/180;
+      /* Every bough lifts, including the outer ones. Taking the vertical
+         reach straight from the cosine leaves the edges of the fan lying
+         almost flat, which reads as a shrub. Holding a floor under it gives
+         a rounded canopy instead. */
+      var ux=Math.sin(A), uy=-(0.46+0.54*Math.cos(A));
+      var lines=[], wide=0;
       if(!TIGHT){
-        lines=wrap(probe, GR.n, side? lane-14 : W*0.66, fs);
+        lines=wrap(probe, GR.n, lane-14, fs);
         lines.forEach(function(ln){
           probe.textContent=ln;
           var w = probe.getComputedTextLength ? probe.getComputedTextLength() : ln.length*fs*0.55;
@@ -408,143 +471,164 @@
         });
         probe.textContent="";
       }
-      return {g:GR, ux:ux, uy:uy, side:side, lines:lines, wide:wide};
+      return {g:GR, gi:gi, ux:ux, uy:uy, lines:lines, wide:wide};
     });
     svg.removeChild(probe);
 
-    /* One step for the whole map, taken from whichever spoke runs out of
-       room first. Solving it this way rather than fitting each spoke to its
-       own length keeps distance from the centre comparable across groups,
-       which is the one thing the arrangement asserts. */
-    /* How far past its own tip a label reaches, vertically. A name over a
-       vertical spoke stacks its lines away from the map; a name beside a
-       steep spoke sits above or below the tip; a name beside a horizontal
-       one is centred on it and reaches half its height each way. */
-    function vpadOf(m){
-      if(TIGHT) return 12;
-      if(!m.side) return m.lines.length*lh + 14;
-      if(Math.abs(m.uy)>0.2) return (m.lines.length-1)*lh + fs + 8;
-      return (m.lines.length-1)*lh/2 + fs*0.7;
-    }
+    /* One step for the whole canopy, taken from whichever bough runs out of
+       curve first. Solving it once rather than per bough is what keeps
+       distance from the fork comparable across groups. */
+    meta.forEach(function(m){
+      var r = TIGHT ? rx : Math.min(rx, W/2 - Math.max(lane, m.wide+14) - 4);
+      m.pts = boughSamples(cx, yFork, m.ux, m.uy, Math.max(30,r), Math.max(30,ry));
+      m.total = m.pts[m.pts.length-1].s;
+    });
     var step=1e9;
     meta.forEach(function(m){
-      var k=(m.g.nodes.length-1)+0.42, lim=1e9;
-      if(Math.abs(m.ux)>0.02){
-        var avail = TIGHT ? (W/2-10)
-                  : (m.side ? (W/2 - Math.max(lane, m.wide+14) - 4) : (W/2-8));
-        lim=Math.min(lim, avail/Math.abs(m.ux));
-      }
-      if(Math.abs(m.uy)>0.02){
-        var room = (m.uy<0 ? cy-band0 : band1-cy) - vpadOf(m);
-        lim=Math.min(lim, room/Math.abs(m.uy));
-      }
-      if(k>0) step=Math.min(step,(lim-first)/k);
+      var n=m.g.nodes.length;
+      if(n>1) step=Math.min(step,(m.total-first-tail)/(n-1));
     });
     step=Math.max(7, step);
 
-    /* The six spokes are different lengths, so the figure is not centred on
-       its own hub. Reach up and reach down are measured, then the hub is
-       nudged until the slack above and below is equal. */
-    var up=hubR, down=hubR;
-    meta.forEach(function(m){
-      var reach=(first+(m.g.nodes.length-1)*step+step*0.42)*Math.abs(m.uy)+vpadOf(m);
-      if(m.uy<0) up=Math.max(up,reach); else if(m.uy>0) down=Math.max(down,reach);
-    });
-    var slackTop=cy-band0-up, slackBot=band1-cy-down;
-    var shift=(slackBot-slackTop)/2;
-    if(shift>0) cy += Math.min(shift, Math.max(0,slackBot));
-    else        cy += Math.max(shift, -Math.max(0,slackTop));
-
     var nBase = Math.max(3.0, Math.min(5.4, W*0.0051));
     var SIZE  = {2:nBase*0.74, 3:nBase, 4:nBase*1.3};
-
-    geom={cx:cx, cy:cy, hubR:hubR, tight:TIGHT};
     TIGHT_NAMES=TIGHT;
 
-    var gSpoke=el("g",{}), gNode=el("g",{}), gRing=el("g",{}),
+    var defs=el("defs",{});
+    var clip=el("clipPath",{id:"aui-grow"});
+    trunkClip=el("rect",{x:0,y:yBase,width:W,height:0});
+    clip.appendChild(trunkClip); defs.appendChild(clip); svg.appendChild(defs);
+
+    var gTrunk=el("g",{}), gBough=el("g",{}), gNode=el("g",{}), gRing=el("g",{}),
         gHub=el("g",{}), gName=el("g",{}), gPulse=el("g",{});
-    [gSpoke,gNode,gRing,gHub,gName,gPulse].forEach(function(g){svg.appendChild(g);});
+    [gTrunk,gBough,gNode,gRing,gHub,gName,gPulse].forEach(function(g){svg.appendChild(g);});
 
-    /* ── Hub: the three engagements ─────────────────────────────────── */
-    var hubDotR=Math.max(4, Math.min(7, W*0.0062));
-    [270,30,150].forEach(function(a){
-      var t=a*Math.PI/180, d=hubR*0.42;
-      var c=el("circle",{cx:(cx+Math.cos(t)*d).toFixed(1), cy:(cy+Math.sin(t)*d).toFixed(1),
-        r:0, fill:SERVICE});
-      c.style.transition="r .6s"+E;
-      c._r=hubDotR; gHub.appendChild(c); hubDots.push(c);
-    });
+    /* ── Trunk ───────────────────────────────────────────────────────
+       A tapered filled shape sampled off one gentle S, the same
+       construction as the trunk in the landscape intro, so the two films
+       are drawn by the same hand. */
+    var trunkH=yBase-yFork;
+    var P0={x:cx,y:yBase}, P1={x:cx-trunkH*0.05,y:yBase-trunkH*0.40},
+        P2={x:cx+trunkH*0.05,y:yFork+trunkH*0.40}, P3={x:cx,y:yFork};
+    var baseHalf=Math.max(3.0,W*0.0092), topHalf=baseHalf*0.40;
+    var N=22, spine=[], left=[], right=[];
+    for(var i=0;i<=N;i++){
+      var t=i/N, p=cubic(P0,P1,P2,P3,t), q=cubic(P0,P1,P2,P3,Math.min(1,t+0.001));
+      var dx=q.x-p.x, dy=q.y-p.y, L=Math.hypot(dx,dy)||1;
+      var nx=-dy/L, ny=dx/L, w=baseHalf+(topHalf-baseHalf)*Math.pow(t,0.75);
+      spine.push(p);
+      left.push({x:p.x+nx*w,y:p.y+ny*w});
+      right.push({x:p.x-nx*w,y:p.y-ny*w});
+    }
+    var td="M"+left[0].x.toFixed(1)+" "+left[0].y.toFixed(1);
+    left.forEach(function(p,i){ if(i) td+="L"+p.x.toFixed(1)+" "+p.y.toFixed(1); });
+    for(var j=right.length-1;j>=0;j--) td+="L"+right[j].x.toFixed(1)+" "+right[j].y.toFixed(1);
+    td+="Z";
+    gTrunk.appendChild(el("path",{d:td,fill:"#556066","clip-path":"url(#aui-grow)"}));
 
-    /* ── Six spokes ─────────────────────────────────────────────────── */
+    var spineD="M"+spine[0].x.toFixed(1)+" "+spine[0].y.toFixed(1);
+    spine.forEach(function(p,i){ if(i) spineD+="L"+p.x.toFixed(1)+" "+p.y.toFixed(1); });
+    trunkPulse=el("path",{d:spineD,fill:"none",stroke:"#8a959b","stroke-width":3,
+      "stroke-linecap":"round",opacity:0});
+    var tl=trunkPulse.getTotalLength?trunkPulse.getTotalLength():trunkH;
+    trunkPulse.style.strokeDasharray="20 "+tl; trunkPulse._len=tl;
+    gPulse.appendChild(trunkPulse);
+
+    /* ── Six boughs ──────────────────────────────────────────────────── */
     meta.forEach(function(m){
-      var GR=m.g, ux=m.ux, uy=m.uy;
-      var tip=first+(GR.nodes.length-1)*step;
-      var g={};
+      var GR=m.g, g={}, n=GR.nodes.length;
+      var drawn=first+(n-1)*step+tail;
+      var d=pathTo(m.pts, drawn);
 
-      var x1=cx+ux*hubR, y1=cy+uy*hubR, x2=cx+ux*(tip+step*0.42), y2=cy+uy*(tip+step*0.42);
-      var line=el("line",{x1:x1.toFixed(1),y1:y1.toFixed(1),x2:x2.toFixed(1),y2:y2.toFixed(1),
-        stroke:GR.c,"stroke-width":1.5,"stroke-linecap":"round",opacity:.85});
-      var len=Math.hypot(x2-x1,y2-y1);
-      line.style.strokeDasharray=len+" "+len;
-      line.style.strokeDashoffset=len;
-      line.style.transition="stroke-dashoffset 1.1s"+E;
-      line._len=len; gSpoke.appendChild(line); g.line=line;
+      var bp=el("path",{d:d,fill:"none",stroke:GR.c,"stroke-width":1.5,
+        "stroke-linecap":"round",opacity:.9});
+      var len=bp.getTotalLength?bp.getTotalLength():drawn;
+      bp.style.strokeDasharray=len+" "+len;
+      bp.style.strokeDashoffset=len;
+      bp.style.transition="stroke-dashoffset 1.1s"+E;
+      bp._len=len; gBough.appendChild(bp); g.line=bp;
 
-      /* A pulse that runs the spoke outward. Used on the closing beat to
-         pick out Designing for variability without recolouring anything. */
-      var pl=el("line",{x1:x1.toFixed(1),y1:y1.toFixed(1),x2:x2.toFixed(1),y2:y2.toFixed(1),
-        stroke:GR.c,"stroke-width":3.2,"stroke-linecap":"round",opacity:0});
+      var pl=el("path",{d:d,fill:"none",stroke:GR.c,"stroke-width":3.2,
+        "stroke-linecap":"round",opacity:0});
       pl.style.strokeDasharray="16 "+len; pl._len=len;
       gPulse.appendChild(pl); g.pulse=pl;
 
       g.nodes=[]; g.rings=[];
-      GR.nodes.forEach(function(depth,j){
-        var r=first+j*step, x=cx+ux*r, y=cy+uy*r, nr=SIZE[depth]||SIZE[3];
-        var c=el("circle",{cx:x.toFixed(1),cy:y.toFixed(1),r:0,fill:GR.c});
+      GR.nodes.forEach(function(depth,k){
+        var pt=atLength(m.pts, first+k*step), nr=SIZE[depth]||SIZE[3];
+        var c=el("circle",{cx:pt.x.toFixed(1),cy:pt.y.toFixed(1),r:0,fill:GR.c});
         c.style.transition="r .45s"+E;
-        c._r=nr; c._rad=r; gNode.appendChild(c); g.nodes.push(c); allNodes.push(c);
-
-        if(GR.udl.indexOf(j)>-1){
-          var ring=el("circle",{cx:x.toFixed(1),cy:y.toFixed(1),r:(nr+3.6).toFixed(1),
+        c._r=nr; gNode.appendChild(c); g.nodes.push(c); allNodes.push(c);
+        if(GR.udl.indexOf(k)>-1){
+          var ring=el("circle",{cx:pt.x.toFixed(1),cy:pt.y.toFixed(1),r:(nr+3.6).toFixed(1),
             fill:"none",stroke:GR.c,"stroke-width":1.1,opacity:0});
           ring.style.transition="opacity .5s"+E;
           gRing.appendChild(ring); g.rings.push(ring);
         }
       });
 
-      /* A side label sits in the lane beyond its own tip. A vertical spoke
-         has no lane, so its name centres over or under the tip and takes
-         the width it needs. Below 430px there is no label at all and the
-         caption carries the name instead. */
+      /* The label sits past the tip, carried on in the direction the bough
+         was travelling when it ended. */
       if(!TIGHT){
-        var tx=cx+ux*(tip+step*0.42), ty=cy+uy*(tip+step*0.42), lx, anch, y0;
-        if(m.side){
-          lx  = tx + (ux>0 ? 12 : -12);
-          anch= ux>0 ? "start" : "end";
-          y0  = uy<-0.2 ? ty-(m.lines.length-1)*lh-6
-              : uy> 0.2 ? ty+fs*0.9
-              : ty-(m.lines.length-1)*lh/2+fs*0.34;
-        } else {
-          lx=cx; anch="middle";
-          y0 = uy<0 ? ty-(m.lines.length-1)*lh-10 : ty+fs*1.5;
-        }
-        var txt=el("text",{x:lx.toFixed(1),y:y0.toFixed(1),"text-anchor":anch,"font-size":fs,
-          "font-weight":600,fill:GR.c,opacity:0});
+        var tip=atLength(m.pts, drawn);
+        var tlen=Math.hypot(tip.tx,tip.ty)||1, dxu=tip.tx/tlen, dyu=tip.ty/tlen;
+        var lx=tip.x+dxu*10, ly=tip.y+dyu*10;
+        var anch = dxu>0.25 ? "start" : (dxu<-0.25 ? "end" : "middle");
+        if(anch==="start") lx+=4; else if(anch==="end") lx-=4;
+        var y0 = dyu<-0.25 ? ly-(m.lines.length-1)*lh-4
+               : dyu> 0.25 ? ly+fs*0.9
+               : ly-(m.lines.length-1)*lh/2+fs*0.34;
+        var txt=el("text",{x:lx.toFixed(1),y:y0.toFixed(1),"text-anchor":anch,
+          "font-size":fs,"font-weight":600,fill:GR.c,opacity:0});
         m.lines.forEach(function(ln,i){
           var ts=el("tspan",{x:lx.toFixed(1)}); if(i) ts.setAttribute("dy",lh);
           ts.textContent=ln; txt.appendChild(ts);
         });
         txt.style.transition="opacity .7s"+E;
         gName.appendChild(txt); g.text=txt;
+        labels.push({t:txt, x:lx, y:y0, w:m.wide, h:(m.lines.length-1)*lh,
+                     anch:anch, spans:m.lines.length});
       } else g.text=null;
 
       g.name=GR.n; g.gloss=GR.d; g.colour=GR.c;
-      gGrp.push(g);
+      gGrp[m.gi]=g;                       /* reading order, not fan order */
     });
 
-    allNodes.sort(function(a,b){ return a._rad-b._rad; });
+    /* Two boughs that end at a similar height put their names in the same
+       place. Rather than move a name away from the bough it belongs to, the
+       pair is separated vertically by the smallest amount that clears, and
+       only that much. */
+    function box(L){
+      var x0 = L.anch==="start" ? L.x : (L.anch==="end" ? L.x-L.w : L.x-L.w/2);
+      return {x0:x0, x1:x0+L.w, y0:L.y-fs*0.85, y1:L.y+L.h+fs*0.4};
+    }
+    for(var pass=0; pass<4; pass++){
+      var moved=false;
+      for(var i=0;i<labels.length;i++) for(var j=i+1;j<labels.length;j++){
+        var A=box(labels[i]), B=box(labels[j]);
+        if(A.x0<B.x1-2 && B.x0<A.x1-2 && A.y0<B.y1-2 && B.y0<A.y1-2){
+          var lo=(A.y0<B.y0)?labels[i]:labels[j], hi=(A.y0<B.y0)?labels[j]:labels[i];
+          var need=(box(lo).y1-box(hi).y0)/2+2;
+          if(box(lo).y0-need>4 && box(hi).y1+need<H-4){
+            lo.y-=need; hi.y+=need; moved=true;
+          }
+        }
+      }
+      if(!moved) break;
+    }
+    labels.forEach(function(L){ L.t.setAttribute("y", L.y.toFixed(1)); });
 
-    G={W:W,H:H};
+    /* ── The three engagements, at the fork ──────────────────────────── */
+    var hubDotR=Math.max(3.6, Math.min(6, W*0.0056));
+    [200,340,90].forEach(function(a){
+      var t=a*Math.PI/180, dd=hubR*0.40;
+      var c=el("circle",{cx:(cx+Math.cos(t)*dd).toFixed(1),
+        cy:(yFork+Math.sin(t)*dd).toFixed(1), r:0, fill:SERVICE});
+      c.style.transition="r .6s"+E;
+      c._r=hubDotR; gHub.appendChild(c); hubDots.push(c);
+    });
+
+    G={W:W,H:H,yBase:yBase,trunkH:trunkH};
     applyState();
   }
 
@@ -573,6 +657,8 @@
 
   function applyState(){
     if(!G) return;
+    trunkClip.setAttribute("y", st.hub ? 0 : G.yBase);
+    trunkClip.setAttribute("height", st.hub ? G.yBase+2 : 0);
     hubDots.forEach(function(c){ c.setAttribute("r", st.hub ? c._r : 0); });
     gGrp.forEach(function(g,i){
       g.line.style.strokeDashoffset = st.spokes ? 0 : g.line._len;
@@ -581,57 +667,39 @@
       g.rings.forEach(function(r){ r.setAttribute("opacity", st.rings ? .95 : 0); });
       g.pulse.setAttribute("opacity",0);
     });
+    if(trunkPulse) trunkPulse.setAttribute("opacity",0);
   }
 
+  /* The trunk grows out of the ground, then the fork answers. */
   function growHub(){
     st.hub=true;
+    tween(1250,function(e){
+      var p=1-Math.pow(1-e,3);
+      trunkClip.setAttribute("y", G.yBase*(1-p));
+      trunkClip.setAttribute("height", G.yBase*p+2);
+    });
     hubDots.forEach(function(c,i){
-      timers.push(setTimeout(function(){ c.setAttribute("r",c._r); }, i*180));
+      timers.push(setTimeout(function(){ c.setAttribute("r",c._r); }, 900+i*160));
     });
   }
   function growSpokes(){
     st.spokes=true;
-    gGrp.forEach(function(g,i){
-      timers.push(setTimeout(function(){ g.line.style.strokeDashoffset=0; }, i*170));
+    FAN_ORDER.forEach(function(gi,pos){
+      var g=gGrp[gi];
+      timers.push(setTimeout(function(){ g.line.style.strokeDashoffset=0; }, pos*150));
     });
   }
-  /* Names arrive one group at a time, each name followed by its own nodes
-     running outward. Six groups, so the beat is long. */
   function nameGroup(i){
     var g=gGrp[i]; if(!g) return;
     st.names=Math.max(st.names,i+1); st.nodes=Math.max(st.nodes,i+1);
     if(g.text){
       g.text.setAttribute("opacity",1);
-      setCap(g.gloss, g.colour);            /* the spoke names it, the caption says what it does */
+      setCap(g.gloss, g.colour);            /* the bough names it, the caption says what it does */
     } else setCap(g.name, g.colour);        /* narrow frames have no room for both */
     g.nodes.forEach(function(c,j){
       timers.push(setTimeout(function(){ c.setAttribute("r",c._r); }, 260+j*110));
     });
   }
-  /* Everything runs back to one. The six pulses travel inward rather than
-     out, and the hub answers, so the closing question lands on the centre
-     instead of on any single spoke. The landscape intro does the same move
-     down the trunk; this is that move in a radial frame. */
-  function converge(){
-    gGrp.forEach(function(g,i){
-      var p=g.pulse;
-      timers.push(setTimeout(function(){
-        p.setAttribute("opacity",.9);
-        p.style.strokeDashoffset=-p._len;
-        tween(1050,function(e){
-          var q=1-Math.pow(1-e,2);
-          p.style.strokeDashoffset = -p._len*(1-q);
-        },function(){ p.setAttribute("opacity",0); });
-      }, i*90));
-    });
-    timers.push(setTimeout(function(){
-      hubDots.forEach(function(c){
-        c.setAttribute("r",(c._r*1.5).toFixed(2));
-        timers.push(setTimeout(function(){ c.setAttribute("r",c._r); },520));
-      });
-    },1000));
-  }
-
   function showRings(){
     st.rings=true;
     var n=0;
@@ -642,6 +710,35 @@
       });
     });
   }
+  /* Everything runs back to one. Six pulses travel inward down the boughs,
+     the fork answers, and a last pulse goes down the trunk, which is the
+     move the landscape intro makes at the same point. */
+  function converge(){
+    FAN_ORDER.forEach(function(gi,pos){
+      var p=gGrp[gi].pulse;
+      timers.push(setTimeout(function(){
+        p.setAttribute("opacity",.9);
+        p.style.strokeDashoffset=-p._len;
+        tween(1000,function(e){
+          var q=1-Math.pow(1-e,2);
+          p.style.strokeDashoffset = -p._len*(1-q);
+        },function(){ p.setAttribute("opacity",0); });
+      }, pos*80));
+    });
+    timers.push(setTimeout(function(){
+      hubDots.forEach(function(c){
+        c.setAttribute("r",(c._r*1.5).toFixed(2));
+        timers.push(setTimeout(function(){ c.setAttribute("r",c._r); },520));
+      });
+      trunkPulse.setAttribute("opacity",.6);
+      trunkPulse.style.strokeDashoffset=-trunkPulse._len;
+      tween(1150,function(e){
+        var q=1-Math.pow(1-e,2);
+        trunkPulse.style.strokeDashoffset = -trunkPulse._len*(1-q);
+      },function(){ trunkPulse.setAttribute("opacity",0); });
+    },1050));
+  }
+
   function setHero(lines,stack){
     hero.innerHTML=""; hero.classList.toggle("stack",!!stack);
     lines.forEach(function(t){var p=document.createElement("p");p.textContent=t;hero.appendChild(p);});
