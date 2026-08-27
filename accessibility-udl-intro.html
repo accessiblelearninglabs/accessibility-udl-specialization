@@ -196,10 +196,9 @@
 <details class="aui-text">
   <summary>Read this as text</summary>
   <div class="body">
-    <p>Nearly every effort to improve the world moves through learning that someone
-       has to be able to reach.</p>
-    <p>Built for someone who can hear the video. Built for someone who can read for
-       two hours. Built for someone whose energy on Thursday matches their energy on
+    <p>Education is a right. Reaching it is a design question; every learning
+       experience is designed for someone: someone who can hear the video, who can
+       read for two hours, whose energy on Thursday matches their energy on
        Monday.</p>
     <p>None of that is written down. It is assumed.</p>
     <p>Assumed once, it repeats. Every module, every platform, every cohort.</p>
@@ -210,21 +209,17 @@
 
     <h3>The six groups</h3>
     <ul>
-      <li><strong>Grounding</strong> (8): how disability is understood, and what
-          follows from the understanding</li>
-      <li><strong>Institutions, governance and change</strong> (4): where
-          accessibility is decided before anything is designed</li>
-      <li><strong>Standards and technical practice</strong> (5): conformance,
-          assistive technology, and the gap between the two</li>
-      <li><strong>Designing for variability</strong> (4): designing for the
-          predictable range of learners, distinct from disability</li>
-      <li><strong>Rights, duty and accommodation</strong> (8): what is owed to a
-          person, and what proactive design does and does not discharge</li>
-      <li><strong>Sectors and participation</strong> (3): clinical, health and
-          research settings, and who can take part</li>
+      <li>How disability is understood, and what follows from the understanding (8)</li>
+      <li>Where accessibility is decided before anything is designed (4)</li>
+      <li>Conformance, assistive technology, and the gap between the two (5)</li>
+      <li>Designing for the predictable range of learners, distinct from disability (4)</li>
+      <li>What is owed to a person, and what proactive design does and does not
+          discharge (8)</li>
+      <li>Clinical, health and research settings, and who can take part (3)</li>
     </ul>
 
     <p>Ten of the thirty-two come from Universal Design for Learning.</p>
+    <p>All in addition to the right to ask.</p>
     <p>Six groups. One question, asked in six places: who was this built for?</p>
     <p>Thirty-five resources in all. Each one is a way of asking that question
        earlier. Scroll down to explore the map.</p>
@@ -271,21 +266,30 @@
 
   /* The film argues; the map demonstrates. Movement one names the default
      assumption, its invisibility, its scale and the cost of leaving it late.
-     Movement two shows the six places the work of changing it goes on, and
-     closes by putting the question the whole practice asks back into one
-     line. Roughly 95 seconds against the landscape intro's 80. */
+     Movement two shows the six places the work of changing it goes on. The
+     beat before the close places the whole of it beside the right to ask
+     rather than in front of it: opening on the right to education raises
+     the accommodation question, and a rights-literate viewer would notice a
+     film that took the ground and left that out. Then it closes by putting the question the whole practice asks
+     back into one line. Roughly 105 seconds against the landscape
+     intro's 80. */
   var BEATS=[
-    {ms:6500, film:true, hero:["Nearly every effort to improve the world moves through learning that someone has to be able to reach."]},
-    {ms:11500,film:true, stack:true, hero:["Built for someone who can hear the video.",
-                                           "Built for someone who can read for two hours.",
-                                           "Built for someone whose energy on Thursday matches their energy on Monday."]},
-    {ms:6500, film:true, hero:["None of that is written down. It is assumed."]},
+    /* One sentence across two beats. It carries over the fade on the repeat
+       of "someone", which is the only thing holding the two halves together,
+       so the word has to stay at the end of the first and the start of the
+       second. */
+    {ms:7000, film:true, hero:["Education is a right. Reaching it is a design question; every learning experience is designed for someone"]},
+    {ms:11500,film:true, stack:true, hero:["someone who can hear the video,",
+                                           "who can read for two hours,",
+                                           "whose energy on Thursday matches their energy on Monday."]},
+    {ms:4000, film:true, hero:["None of that is written down. It is assumed."]},
     {ms:6500, film:true, hero:["Assumed once, it repeats. Every module, every platform, every cohort."]},
     {ms:7500, film:true, hero:["Changed early, it is one decision. Left late, it becomes a request, made again by each person it failed."]},
     {ms:6000, cap:"The work is to change the assumption before it hardens.", act:"hub"},
     {ms:6000, cap:"Six bodies of work stand behind that.", act:"boughs"},
-    {ms:21000,cap:"Thirty-two knowledge resources, in six groups.", act:"names"},
+    {ms:26000,cap:"Thirty-two knowledge resources, in six groups.", act:"names"},
     {ms:7500, cap:"Ten of the thirty-two come from Universal Design for Learning.", act:"udl"},
+    {ms:6500, cap:"All in addition to the right to ask."},
     {ms:8500, cap:"Six groups. One question, asked in six places: who was this built for?", act:"converge"},
     {ms:8000, film:true, act:"outro"}
   ];
@@ -448,6 +452,8 @@
     var TIGHT = false;   /* settled below, once the names are measured */
 
     var capFs   = (W<=760) ? 14 : Math.max(13.5, Math.min(19, W*0.016));
+    /* Three lines holds the longest caption in the piece at 320px, which is
+       the narrowest frame worth designing for. */
     var capZone = H*0.035 + 3*capFs*1.45 + 10;
 
     var yBase = H - capZone - 2;
@@ -645,7 +651,7 @@
       } else g.text=null;
 
       drawnPts.push({gi:m.gi, pts:m.pts.filter(function(q){ return q.s<=drawn; })});
-      g.name=GR.n; g.gloss=GR.d; g.colour=GR.c;
+      g.gloss=GR.d; g.colour=GR.c;
       gGrp[m.gi]=g;                       /* reading order, not fan order */
     });
 
@@ -789,10 +795,10 @@
     var g=gGrp[i]; if(!g) return;
     st.nodes=Math.max(st.nodes,i+1); st.showName=i;
     gGrp.forEach(function(o,k){ if(o.text) o.text.setAttribute("opacity", k===i?1:0); });
-    /* On the tree the bough carries the name and the caption says what the
-       group does. Where there is no room for a label, the caption does both
-       jobs and takes the name. */
-    setCap(g.text ? g.gloss : g.name, g.colour);
+    /* The caption always says what the group does. Where the tree has room
+       for a label the bough carries the name alongside it; where it has not,
+       what the group does is the more useful of the two to keep. */
+    setCap(g.gloss, g.colour);
     g.nodes.forEach(function(c,j){
       timers.push(setTimeout(function(){ c.setAttribute("transform", c._base+" scale(1)"); },
                              260+j*110));
@@ -885,8 +891,14 @@
       case "hub":    growHub(); break;
       case "boughs": growBoughs(); break;
       case "names":
+        /* There are two things to read at each group, the name on the bough
+           and what the group does in the caption, so the interval is taken
+           from the length of the beat rather than set on its own. Two
+           seconds are held back at the end for the last group, which has no
+           successor to arrive and move it along. */
+        var gap=(b.ms-2000)/GROUPS.length;
         GROUPS.forEach(function(x,k){
-          timers.push(setTimeout(function(){ nameGroup(k); }, k*2900));
+          timers.push(setTimeout(function(){ nameGroup(k); }, k*gap));
         });
         break;
       case "udl":    clearNames(); showRings(); break;
