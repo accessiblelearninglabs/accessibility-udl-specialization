@@ -174,7 +174,7 @@
     <p class="aui-cap" id="aui-cap" aria-hidden="true"></p>
     <div class="aui-outro" id="aui-outro" aria-hidden="true">
       <div class="card">
-        <p class="n">Thirty-five resources.</p>
+        <p class="n">Forty-five knowledge resources.</p>
         <p class="s">Each one is a way of asking that question earlier.</p>
         <p class="cta">Scroll down to explore the map <span class="arrow" aria-hidden="true">↓</span></p>
       </div>
@@ -204,24 +204,27 @@
     <p>Assumed once, it repeats. Every module, every platform, every cohort.</p>
     <p>Changed early, it is one decision. Left late, it becomes a request, made again
        by each person it failed.</p>
-    <p>The work is to change the assumption before it hardens. Six bodies of work
-       stand behind that, holding thirty-two knowledge resources between them.</p>
+    <p>The work is to change the assumption before it hardens. Seven bodies of work
+       stand behind that, holding forty-two knowledge resources between them.</p>
 
-    <h3>The six groups</h3>
+    <h3>The seven groups</h3>
     <ul>
-      <li>How disability is understood, and what follows from the understanding (8)</li>
-      <li>Where accessibility is decided before anything is designed (4)</li>
-      <li>Conformance, assistive technology, and the gap between the two (5)</li>
-      <li>Designing for the predictable range of learners, distinct from disability (4)</li>
+      <li>How disability is understood, and what follows from the understanding (9)</li>
+      <li>Where accessibility is decided before anything is designed (5)</li>
+      <li>Conformance, assistive technology, and the gap between the two (8)</li>
+      <li>Designing for the predictable range of learners, distinct from disability (5)</li>
       <li>What is owed to a person, and what proactive design does and does not
-          discharge (8)</li>
+          discharge (7)</li>
+      <li>The practice around an individual request, and what design does beforehand
+          to change how often one is needed (5)</li>
       <li>Clinical, health and research settings, and who can take part (3)</li>
     </ul>
 
-    <p>Ten of the thirty-two come from Universal Design for Learning.</p>
+    <p>Three more sit at the fork. Those three are offered as engagements.</p>
+    <p>Eleven of the forty-five come from Universal Design for Learning.</p>
     <p>All in addition to the right to ask.</p>
-    <p>Six groups. One question, asked in six places: who was this built for?</p>
-    <p>Thirty-five resources in all. Each one is a way of asking that question
+    <p>Seven groups. One question, asked in seven places: who was this built for?</p>
+    <p>Forty-five knowledge resources in all. Each one is a way of asking that question
        earlier. Scroll down to explore the map.</p>
   </div>
 </details>
@@ -232,32 +235,36 @@
   "use strict";
 
   /* ── The map this animation is drawing ───────────────────────────────
-     Six groups, ordered around the circle by mean likeness rather than by
-     name: Grounding → Institutions → Standards → Designing for variability
-     → Rights → Sectors. That is the spatial order the landscape file uses,
+     Seven groups, ordered around the circle by mean likeness rather than by
+     name: Grounding → Sectors → Accommodation in practice → Rights →
+     Designing for variability → Standards → Institutions. That is the spatial
+     order the landscape file uses,
      and it is why two groups that read alike sit next to each other here.
      The three services hold the centre.
 
      Nodes are listed depth-descending, which is the order the map draws
      them outward from the centre. `u` marks a Universal Design for Learning
-     node; the rest come from the Accessibility branch. Colours are the six
+     node; the rest come from the Accessibility branch. Colours are the seven
      group tokens, unchanged. */
   var GROUPS=[
     {k:"grounding",    n:"Grounding",                          c:"#477ba8", a:300,
-     nodes:[3,3,3,3,3,3,3,3], udl:[7],
+     nodes:[3,3,3,3,3,3,3,3,3], udl:[8],
      d:"How disability is understood, and what follows from the understanding"},
     {k:"institutions", n:"Institutions, governance and change",c:"#717781", a:0,
-     nodes:[3,3,3,3],         udl:[3],
+     nodes:[3,3,3,3,2],         udl:[3],
      d:"Where accessibility is decided before anything is designed"},
     {k:"standards",    n:"Standards and technical practice",   c:"#69788b", a:60,
-     nodes:[3,3,3,3,2],       udl:[3,4],
+     nodes:[3,3,3,3,3,3,2,2],       udl:[5,7],
      d:"Conformance, assistive technology, and the gap between the two"},
     {k:"variability",  n:"Designing for variability",          c:"#617993", a:120,
-     nodes:[3,2,2,2],         udl:[0,1,2,3],
+     nodes:[3,2,2,2,2],         udl:[0,1,2,3,4],
      d:"Designing for the predictable range of learners, distinct from disability"},
-    {k:"rights",       n:"Rights, duty and accommodation",     c:"#567a9d", a:180,
-     nodes:[4,3,3,3,3,3,3,3], udl:[6,7],
+    {k:"rights",       n:"Rights and obligation",              c:"#567a9d", a:180,
+     nodes:[4,3,3,3,3,3,3], udl:[5,6],
      d:"What is owed to a person, and what proactive design does and does not discharge"},
+    {k:"accommodations",n:"Accommodation in practice",         c:"#347cb1", a:210,
+     nodes:[3,3,3,3,2],       udl:[],
+     d:"The practice around an individual request, and what design does beforehand to change how often one is needed"},
     {k:"sectors",      n:"Sectors and participation",          c:"#767677", a:240,
      nodes:[3,3,3],           udl:[],
      d:"Clinical, health and research settings, and who can take part"}
@@ -266,7 +273,7 @@
 
   /* The film argues; the map demonstrates. Movement one names the default
      assumption, its invisibility, its scale and the cost of leaving it late.
-     Movement two shows the six places the work of changing it goes on. The
+     Movement two shows the seven places the work of changing it goes on. The
      beat before the close places the whole of it beside the right to ask
      rather than in front of it: opening on the right to education raises
      the accommodation question, and a rights-literate viewer would notice a
@@ -279,18 +286,19 @@
        so the word has to stay at the end of the first and the start of the
        second. */
     {ms:7000, film:true, hero:["Education is a right. Reaching it is a design question; every learning experience is designed for someone"]},
-    {ms:11500,film:true, stack:true, hero:["someone who can hear the video,",
+    {ms:10500,film:true, stack:true, hero:["someone who can hear the video,",
                                            "who can read for two hours,",
                                            "whose energy on Thursday matches their energy on Monday."]},
     {ms:4000, film:true, hero:["None of that is written down. It is assumed."]},
     {ms:6500, film:true, hero:["Assumed once, it repeats. Every module, every platform, every cohort."]},
     {ms:7500, film:true, hero:["Changed early, it is one decision. Left late, it becomes a request, made again by each person it failed."]},
     {ms:6000, cap:"The work is to change the assumption before it hardens.", act:"hub"},
-    {ms:6000, cap:"Six bodies of work stand behind that.", act:"boughs"},
-    {ms:29000,cap:"Thirty-two knowledge resources, in six groups.", act:"names"},
-    {ms:7500, cap:"Ten of the thirty-two come from Universal Design for Learning.", act:"udl"},
+    {ms:6000, cap:"Seven bodies of work stand behind that.", act:"boughs"},
+    {ms:30000,cap:"Forty-two knowledge resources, in seven groups.", act:"names"},
+    {ms:6000, cap:"Three more sit at the fork. Those three are offered as engagements."},
+    {ms:7500, cap:"Eleven of the forty-five come from Universal Design for Learning.", act:"udl"},
     {ms:6500, cap:"All in addition to the right to ask."},
-    {ms:8500, cap:"Six groups. One question, asked in six places: who was this built for?", act:"converge"},
+    {ms:8500, cap:"Seven groups. One question, asked in seven places: who was this built for?", act:"converge"},
     {ms:8000, film:true, act:"outro"}
   ];
 
@@ -314,7 +322,7 @@
      and fails.
 
      QUIET 1.0. The footage does not sit behind the map at all, and this is
-     a property of the palette rather than of the clip. The six group
+     a property of the palette rather than of the clip. The seven group
      colours are tuned to 4.50–4.54 against white, so there is no headroom
      to spend: at 0.99 the palest of them is already down to 4.44:1. The
      film opens and closes the piece, and the map is drawn on paper. */
@@ -330,7 +338,7 @@
   /* ── Geometry ────────────────────────────────────────────────────────
      A canopy rather than a wheel. The radial arrangement was true to the
      map but it needs width on every side, and a phone has none: at 300px
-     it came out as six bare lines through three dots.
+     it came out as bare lines through three dots.
 
      A tree is portrait, which is the shape a phone actually offers, and it
      carries the same three assertions. The three engagements sit at the
@@ -340,15 +348,17 @@
      One thing is lost in the move and it should be said plainly. The
      radial version could close the likeness order into a ring; a fan has
      two ends, so one adjacency has to be cut. The cut here is between
-     Institutions and Standards, chosen so the two eight-node groups land
-     inside the fan where there is height for them rather than at the
-     edges where there is not. FAN_ORDER is the line to edit if a different
-     pair should carry the break.
+     Sectors and Accommodation in practice, chosen so the two largest
+     groups, Grounding at nine and Standards at eight, land inside the fan
+     where there is height for them rather than at the edges where there is
+     not. FAN_ORDER is the line to edit if a different pair should carry the
+     break, and FRACT has one entry per bough, so both grow together if an
+     eighth group is ever added.
 
      Everything is drawn in real stage pixels, so a label can never drift
      away from the bough it names. Rebuilt on resize. */
-  var FAN_ORDER=[2,3,4,5,0,1];
-  var FRACT=[-1,-0.66,-0.28,0.28,0.66,1];
+  var FAN_ORDER=[5,4,3,2,1,0,6];
+  var FRACT=[-1,-0.7,-0.38,0,0.38,0.7,1];
 
   var G=null, gGrp=[], hubDots=[], trunkClip=null, trunkPulse=null;
 
@@ -445,7 +455,7 @@
 
     /* Whether names go on the tree is measured rather than set at a
        breakpoint. Only one name is ever on screen, so the question is not
-       whether six will pack: it is whether each one fits beside its own
+       whether they will all pack: it is whether each one fits beside its own
        bough while leaving the tree most of the width it could have had.
        Below 45 percent the canopy is being starved to make room for text,
        and the caption takes the names instead. */
@@ -475,10 +485,11 @@
     svg.appendChild(probe);
     var meta=GROUPS.map(function(GR,gi){
       var pos=FAN_ORDER.indexOf(gi);
-      /* Not an even fan. The middle is opened a little so the two innermost
-         boughs read as two branches rather than a narrow V, and the outer
-         pairs sit closer, which they can afford because height separates
-         them. FRACT is the line to edit to change the shape of the canopy. */
+      /* Not an even fan. The gaps widen toward the middle and tighten at the
+         edges, which the outer boughs can afford because height separates
+         them. With seven boughs one runs straight up the centre and carries
+         Standards, the longest of them, where there is most room. FRACT is
+         the line to edit to change the shape of the canopy. */
       var A=FAN*FRACT[pos]*Math.PI/180;
       /* Every bough lifts, including the outer ones. Taking the vertical
          reach straight from the cosine leaves the edges of the fan lying
@@ -486,7 +497,7 @@
          a rounded canopy instead. */
       var ux=Math.sin(A), uy=-(0.46+0.54*Math.cos(A));
       /* Names wrap narrow and tall on purpose. A wide single line reaching
-         back across the canopy is the hardest shape to place among six
+         back across the canopy is the hardest shape to place among seven
          branches; two or three short lines fit in the gaps between them. */
       var lines=wrap(probe, GR.n, Math.max(84, Math.min(190, W*0.145)), fs), wide=0;
       lines.forEach(function(ln){
@@ -573,13 +584,13 @@
     trunkPulse.style.strokeDasharray="20 "+tl; trunkPulse._len=tl;
     gPulse.appendChild(trunkPulse);
 
-    /* ── Six boughs ──────────────────────────────────────────────────── */
+    /* ── The boughs ──────────────────────────────────────────────────── */
     meta.forEach(function(m){
       var GR=m.g, g={}, n=GR.nodes.length;
-      /* A bough ends a little past its own last node. Six boughs of six
+      /* A bough ends a little past its own last node. Seven boughs of seven
          lengths is what the counts actually are, and it is what a tree
          looks like. They were run out to a common rim for a while, to hold
-         the six names apart from each other; showing one name at a time
+         the names apart from each other; showing one name at a time
          removed that reason, and with it the long bare stretches on the
          groups that hold fewer resources. */
       var drawn=Math.min(m.total, first+(n-1)*step+tail);
@@ -665,7 +676,7 @@
        branch rather than a straight line matters: the corridor between two
        neighbours widens as it rises, so the name climbs into the gap
        instead of pushing sideways into it. At worst it reaches the end of
-       its own curve, which is where all six names used to sit. */
+       its own curve, which is where all the names used to sit. */
     function box(L){
       var x0 = L.anch==="start" ? L.x : (L.anch==="end" ? L.x-L.w : L.x-L.w/2);
       return {x0:x0, x1:x0+L.w, y0:L.y-fs*0.85, y1:L.y+L.h+fs*0.4};
@@ -814,7 +825,7 @@
       });
     });
   }
-  /* Everything runs back to one. Six pulses travel inward down the boughs,
+  /* Everything runs back to one. Seven pulses travel inward down the boughs,
      the fork answers, and a last pulse goes down the trunk, which is the
      move the landscape intro makes at the same point. */
   function converge(){
@@ -870,12 +881,12 @@
     clearHero();
     veil.style.opacity=1;
     if(vid && vid.pause) vid.pause();
-    /* The tree stands unnamed at rest. Fading all six back in would put
+    /* The tree stands unnamed at rest. Fading all seven back in would put
        the packing problem straight back on screen; the caption and the text
        below carry the names instead. */
     st={hub:true,boughs:true,showName:-1,nodes:GROUPS.length,rings:true};
     applyState();
-    setCap("Six groups. One question, asked in six places: who was this built for?");
+    setCap("Seven groups. One question, asked in seven places: who was this built for?");
   }
 
   /* ── Timeline ──────────────────────────────────────────────────────── */
@@ -896,7 +907,7 @@
            from the length of the beat rather than set on its own. The beat
            divides evenly: the last group has no successor to move it along,
            and holding time back for it made the sequence end on a longer
-           note than it had kept. Spread across all six instead, nobody
+           note than it had kept. Spread across all seven instead, nobody
            notices it and everybody gets it. */
         var gap=b.ms/GROUPS.length;
         GROUPS.forEach(function(x,k){

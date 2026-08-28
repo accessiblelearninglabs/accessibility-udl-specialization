@@ -19,7 +19,7 @@
 }
   [data-g="grounding"]{--g:#477ba8;}
   [data-g="rights"]{--g:#567a9d;}
-  [data-g="accommodations"]{--g:#347cb2;}
+  [data-g="accommodations"]{--g:#347cb1;}
   [data-g="variability"]{--g:#617993;}
   [data-g="standards"]{--g:#69788b;}
   [data-g="institutions"]{--g:#717781;}
@@ -886,7 +886,7 @@ footer{border-top:1px solid var(--hair);padding:20px 0 40px;margin-top:34px;
    Everything outside the group is removed from the document before the map
    reads it, which keeps the list and the map in step. */
 (function(){
-  var SLUGS = {"accommodations": "https://www.accessiblelearninglabs.com/accommodations", "variability": "https://www.accessiblelearninglabs.com/designing-for-variability", "grounding": "https://www.accessiblelearninglabs.com/grounding", "institutions": "https://www.accessiblelearninglabs.com/institutions-governance-and-change", "rights": "https://www.accessiblelearninglabs.com/rights", "sectors": "https://www.accessiblelearninglabs.com/sectors-and-participation", "services": "https://www.accessiblelearninglabs.com/services", "standards": "https://www.accessiblelearninglabs.com/standards-and-technical-practice"}, LABELS = {"accommodations": "Accommodation in practice", "variability": "Designing for variability", "grounding": "Grounding", "institutions": "Institutions, governance and change", "rights": "Rights and obligation", "sectors": "Sectors and participation", "services": "Services", "standards": "Standards and technical practice"}, COLS = {"grounding": "#477ba8", "accommodations": "#347cb2", "rights": "#567a9d", "variability": "#617993", "standards": "#69788b", "institutions": "#717781", "sectors": "#767677", "services": "#303e44"};
+  var SLUGS = {"accommodations": "https://www.accessiblelearninglabs.com/accommodations", "variability": "https://www.accessiblelearninglabs.com/designing-for-variability", "grounding": "https://www.accessiblelearninglabs.com/grounding", "institutions": "https://www.accessiblelearninglabs.com/institutions-governance-and-change", "rights": "https://www.accessiblelearninglabs.com/rights", "sectors": "https://www.accessiblelearninglabs.com/sectors-and-participation", "services": "https://www.accessiblelearninglabs.com/services", "standards": "https://www.accessiblelearninglabs.com/standards-and-technical-practice"}, LABELS = {"accommodations": "Accommodation in practice", "variability": "Designing for variability", "grounding": "Grounding", "institutions": "Institutions, governance and change", "rights": "Rights and obligation", "sectors": "Sectors and participation", "services": "Services", "standards": "Standards and technical practice"}, COLS = {"grounding": "#477ba8", "accommodations": "#347cb1", "rights": "#567a9d", "variability": "#617993", "standards": "#69788b", "institutions": "#717781", "sectors": "#767677", "services": "#303e44"};
   var qs = new URLSearchParams(location.search);
   var q = (qs.get('group') || qs.get('area') ||
            location.hash.replace('#','') || 'grounding').toLowerCase().trim();
