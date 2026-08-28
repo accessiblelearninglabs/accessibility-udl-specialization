@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accommodation in practice &mdash; accessible version</title>
+  <meta name="description" content="Knowledge resources on accessibility, disability and Universal Design for Learning, set out in reading order with their grounding, their sources, and their relationships." />
+  <link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root{--bg:#ffffff;--surface:#f5f6f7;--ink:#303e44;--ink-mid:#4f6068;--ink-muted:#576a73;
+      --accent:#3c6b93;--accent-light:#eef3f8;--border:#d5dde1;
+      --font:'Asap',system-ui,sans-serif;--max:740px;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:var(--font);background:var(--bg);color:var(--ink);font-size:16px;
+      line-height:1.7;-webkit-text-size-adjust:100%;}
+    a{color:var(--accent);text-underline-offset:3px;}
+    a:hover{text-decoration-thickness:2px;}
+    a:focus-visible{outline:3px solid var(--accent);outline-offset:2px;
+      box-shadow:0 0 0 6px rgba(255,255,255,.95);border-radius:2px;}
+    .skip-link{position:absolute;top:-100px;left:1rem;background:var(--accent);color:#fff;
+      padding:.65rem 1rem;border-radius:4px;text-decoration:none;font-size:.85rem;z-index:999;}
+    .skip-link:focus{top:1rem;}
+    header{background:var(--bg);border-bottom:1px solid var(--border);padding:0 2rem;}
+    .header-inner{max-width:var(--max);margin:0 auto;padding:2.25rem 0 2rem;}
+    .site-label{font-size:.72rem;font-weight:600;letter-spacing:.1em;word-spacing:.14em;
+      text-transform:uppercase;color:var(--accent);margin-bottom:.75rem;}
+    header h1{font-size:1.9rem;font-weight:700;line-height:1.2;color:var(--ink);}
+    .header-sub{font-size:.95rem;color:var(--ink-mid);margin-top:.6rem;line-height:1.6;}
+    .version-note{background:var(--accent-light);border-left:3px solid var(--accent);
+      margin-top:1.25rem;padding:.9rem 1.1rem;font-size:.9rem;color:var(--ink);border-radius:0 4px 4px 0;}
+    main{max-width:var(--max);margin:0 auto;padding:0 2rem 4rem;}
+    nav#toc{margin:2.25rem 0 0;padding:1.4rem 1.5rem;background:var(--surface);
+      border:1px solid var(--border);border-radius:5px;}
+    nav#toc h2{font-size:.78rem;font-weight:600;letter-spacing:.1em;word-spacing:.14em;
+      text-transform:uppercase;color:var(--ink-muted);margin-bottom:.7rem;}
+    nav#toc ol{padding-left:1.3rem;}
+    nav#toc ul{padding-left:1.3rem;list-style:disc;margin:.35rem 0 .5rem;}
+    nav#toc li{margin-bottom:.32rem;font-size:.95rem;}
+    .section-block{margin-top:3.25rem;}
+    .section-marker{display:block;font-size:.7rem;font-weight:600;letter-spacing:.13em;
+      word-spacing:.14em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:.45rem;}
+    .section-block h2{font-size:1.45rem;font-weight:700;line-height:1.25;padding-bottom:.6rem;
+      border-bottom:2px solid var(--border);margin-bottom:1rem;}
+    .section-block > p{margin-bottom:.9rem;color:var(--ink-mid);}
+    .section-block h3{font-size:1.15rem;font-weight:600;margin:2.4rem 0 .5rem;
+      padding-top:1.1rem;border-top:1px solid var(--border);}
+    .section-block h3:first-of-type{border-top:0;padding-top:0;margin-top:1.6rem;}
+    table.summary-table{width:100%;border-collapse:collapse;margin:1.1rem 0 .5rem;font-size:.92rem;}
+    table.summary-table caption{text-align:left;font-size:.85rem;color:var(--ink-muted);margin-bottom:.5rem;}
+    table.summary-table th,table.summary-table td{text-align:left;padding:.5rem .7rem;
+      border-bottom:1px solid var(--border);vertical-align:top;}
+    table.summary-table thead th{font-size:.75rem;letter-spacing:.08em;word-spacing:.14em;
+      text-transform:uppercase;color:var(--ink-muted);font-weight:600;}
+    table.summary-table tbody th{font-weight:500;}
+    table.summary-table tbody tr:last-child th,table.summary-table tbody tr:last-child td{
+      font-weight:600;border-bottom:0;}
+    .entry{margin:1.5rem 0 0;padding:0 0 0 1.1rem;border-left:3px solid var(--border);}
+    .entry h4{font-size:1.02rem;font-weight:600;line-height:1.35;}
+    .entry-sub{font-size:.9rem;color:var(--ink-muted);font-style:italic;margin:.15rem 0 .5rem;}
+    .entry-status{display:inline-block;font-size:.72rem;font-weight:600;letter-spacing:.07em;
+      word-spacing:.14em;text-transform:uppercase;color:var(--ink-muted);background:var(--surface);
+      border:1px solid var(--border);border-radius:100px;padding:.1rem .6rem;margin-bottom:.6rem;}
+    .entry > p{font-size:.96rem;margin-bottom:.6rem;}
+    .entry .meta{font-size:.89rem;color:var(--ink-mid);margin-bottom:.35rem;}
+    .sublist-label{font-size:.72rem;font-weight:600;letter-spacing:.1em;word-spacing:.14em;
+      text-transform:uppercase;color:var(--ink-muted);margin:.85rem 0 .3rem;}
+    ul.sublist{list-style:none;padding:0;}
+    ul.sublist li{font-size:.89rem;line-height:1.55;margin-bottom:.4rem;padding-left:1rem;
+      text-indent:-1rem;color:var(--ink-mid);}
+    .basis{color:var(--ink-muted);}
+    ol.refs{list-style:none;padding:0;}
+    ol.refs li{font-size:.89rem;line-height:1.6;margin-bottom:.95rem;padding-left:2.6rem;
+      text-indent:-2.6rem;color:var(--ink-mid);}
+    ol.refs .cat{display:block;font-size:.68rem;font-weight:600;letter-spacing:.1em;
+      word-spacing:.14em;text-transform:uppercase;color:var(--ink-muted);text-indent:0;margin-left:2.6rem;}
+    ol.refs .num{font-weight:600;color:var(--ink);}
+    ol.refs a{word-break:break-word;}
+    .back-to-top{display:inline-block;margin-top:2rem;font-size:.9rem;}
+    .page-credit{margin-top:2.5rem;padding-top:1.4rem;border-top:1px solid var(--border);
+      font-size:.88rem;color:var(--ink-muted);}
+    footer{border-top:1px solid var(--border);padding:1.6rem 2rem 3rem;}
+    footer p{max-width:var(--max);margin:0 auto;font-size:.72rem;font-weight:600;
+      letter-spacing:.12em;word-spacing:.14em;text-transform:uppercase;color:var(--ink-muted);}
+    @media (max-width:640px){
+      header,main{padding-left:1.15rem;padding-right:1.15rem;}
+      header h1{font-size:1.55rem;}
+      nav#toc{padding:1.1rem 1.15rem;}
+    }
+    @media (prefers-contrast:more){:root{--border:#5c6a71;--ink-mid:#35434b;--ink-muted:#3c4a52;}}
+    @media (prefers-reduced-motion:reduce){*{animation-duration:.01ms !important;transition-duration:.01ms !important;}}
+    @media print{
+      .skip-link,nav#toc{display:none;}
+      body{font-size:11pt;}
+      .entry{break-inside:avoid;}
+      a[href^="http"]::after{content:" (" attr(href) ")";font-size:9pt;color:#555;}
+    }
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header>
+  <div class="header-inner">
+    <p class="site-label">Accessible Learning Labs</p>
+    <h1>Accommodation in practice</h1>
+    <p class="header-sub">The practice around an individual request, and what design does beforehand to change how often one is needed. Individual cases are decided by accommodation professionals; these resources describe the conditions they inherit.</p>
+    <p class="version-note"><strong>Screen reader and keyboard optimised version.</strong> All content is presented in reading order, with no diagram, tabs, or scripting. An <a href="area-map.html?group=accommodations">interactive map version</a> presents the same content as a navigable diagram.</p>
+  </div>
+</header>
+
+<main id="main-content">
+
+  <nav id="toc" aria-label="Contents">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#how-to-read">How this landscape is organized</a></li>
+      <li><a href="#overview">What is here</a></li>
+      <li><a href="#resources">Every resource, in full</a>
+        <ul>
+          <li><a href="#group-accommodations">Accommodation in practice</a></li>
+        </ul>
+      </li>
+      <li><a href="#references">References and resources</a></li>
+    </ol>
+  </nav>
+
+  <section class="section-block" id="how-to-read">
+    <span class="section-marker">Section 1 of four</span>
+    <h2>How this landscape is organized</h2>
+    <p>This is the accessibility work of a learning design practice, gathered in one place. It draws on two branches: Accessibility, which concerns access at the level of an individual person and the obligation an institution holds toward them, and Universal Design for Learning, which concerns designing for the predictable range of learners before any individual request is made. The two are related but not the same, and the arrangement here keeps them distinct while showing where they meet.</p>
+    <p>Resources are arranged in eight groups by what they are for, rather than by which branch they grow on. A group therefore holds resources from both branches where the question they answer is shared. Each resource names its home branch so the distinction is never lost. Groups are given in alphabetical order.</p>
+    <p>Every resource states the bodies of knowledge it rests on and cites its sources by number to the reference list in Section 4. Where a resource is still in development, it is marked as such: the grounding and sources are settled, and the written resource is not yet published.</p>
+    <p>Two kinds of relationship are given for each resource. <strong>Most related</strong> is calculated from sources and themes held in common, and surfaces resources that answer similar questions from different groups. <strong>Connected resources</strong> are the direct relationships recorded on the map — the resources a reader is likely to need alongside this one.</p>
+  </section>
+
+  <section class="section-block" id="overview">
+    <span class="section-marker">Section 2 of four</span>
+    <h2>What is here</h2>
+    <p>5 resources in this group &mdash; 5 from Accessibility.</p><p class="meta"><a href="https://www.accessiblelearninglabs.com/accommodations">Visit the Accommodation in practice page</a> &middot; <a href="accessibility-udl-landscape-linear.html">All eight groups in one page</a></p>
+  </section>
+
+  <section class="section-block" id="resources">
+    <span class="section-marker">Section 3 of four</span>
+    <h2>Every resource, in full</h2>
+    <p>Sources are written out in full here as well as numbered, so that following a reference is never necessary to understand an entry.</p>
+    <h3 id="group-accommodations">Accommodation in practice</h3>
+      <p>The practice around an individual request, and what design does beforehand to change how often one is needed. Individual cases are decided by accommodation professionals; these resources describe the conditions they inherit.</p>
+      <article class="entry" id="node-ac8">
+        <h4>Designing Out the Disclosure Requirement</h4>
+        <p class="entry-sub">Disclosure burden as a design variable</p>
+        <p class="entry-status dev">In development</p>
+        <p>Access that is gated behind disclosure asks a person to name a private matter to someone holding authority over them, and the documented costs of that request are real: anticipated stigma, delay, and for some, a decision not to ask at all. This resource treats disclosure burden as something design can measure and reduce — why a flexible deadline requiring an email is a disclosure event and a built-in buffer is not — while leaving the accommodation record itself where it belongs, with the office that holds it.</p>
+        <p class="meta"><strong>Group.</strong> Accommodation in practice</p>
+        <p class="meta"><strong>Home branch.</strong> Accessibility &middot; Well established</p>
+        <p class="meta"><strong>Accommodation in practice.</strong> Stigma and concealment (Goffman); academic ableism; BC information-governance requirements</p>
+        <p class="meta"><strong>Themes.</strong> Disability studies, Access, Equity</p>
+        <p class="sublist-label">Sources</p><ul class="sublist">
+        <li><a href="#ref-41">Reference 41</a>: Goffman, E. (1963). Stigma: Notes on the Management of Spoiled Identity. Prentice-Hall.</li>
+        <li><a href="#ref-6">Reference 6</a>: Dolmage, J. T. (2017). Academic Ableism: Disability and Higher Education. University of Michigan Press.</li>
+        <li><a href="#ref-42">Reference 42</a>: Freedom of Information and Protection of Privacy Act, R.S.B.C. 1996, c. 165. Province of British Columbia.</li>
+        </ul>
+        <p class="sublist-label">Most related, by shared source and theme</p><ul class="sublist">
+        <li><a href="#node-ac28">Documentation Requirements and Medical Gatekeeping</a> <span class="basis">&mdash; Disability, Equity &middot; 3 shared sources</span></li>
+        <li><a href="#node-ac7">Disability Studies for Learning Designers</a> <span class="basis">&mdash; Access, Disability, Equity &middot; 1 shared source</span></li>
+        <li><a href="#node-ac13">Designing for Episodic and Fluctuating Conditions</a> <span class="basis">&mdash; Access</span></li>
+        <li><a href="#node-ac19">Models of Disability as Design Decisions</a> <span class="basis">&mdash; Access, Disability, Equity</span></li>
+        <li><a href="#node-ac4">Why Universal Design Never Eliminates Individual Accommodation</a> <span class="basis">&mdash; Access</span></li>
+        </ul>
+        <p class="sublist-label">Connected resources</p><ul class="sublist">
+        <li><a href="#node-ac4">Why Universal Design Never Eliminates Individual Accommodation</a> <span class="basis">&mdash; Rights and obligation</span></li>
+        <li><a href="#node-ac7">Disability Studies for Learning Designers</a> <span class="basis">&mdash; Accommodation in practice</span></li>
+        <li><a href="#node-ac13">Designing for Episodic and Fluctuating Conditions</a> <span class="basis">&mdash; Accommodation in practice</span></li>
+        </ul>
+        </article>
+      <article class="entry" id="node-ac13">
+        <h4>Designing for Episodic and Fluctuating Conditions</h4>
+        <p class="entry-sub">Program architecture for conditions that vary</p>
+        <p class="entry-status dev">In development</p>
+        <p>Attendance policy, deadline architecture, cohort progression, and leave-and-return pathways — the structural layer of a problem that individual accommodation handles with difficulty because most systems assume stable limitations. It is program and policy design, offered in the knowledge that disabled people and experienced advisors hold far more understanding of these conditions than the design literature yet reflects.</p>
+        <p class="meta"><strong>Group.</strong> Accommodation in practice</p>
+        <p class="meta"><strong>Home branch.</strong> Accessibility &middot; Well established</p>
+        <p class="meta"><strong>Accommodation in practice.</strong> Episodic disability framework (O’Brien et al.); disability studies</p>
+        <p class="meta"><strong>Themes.</strong> Accommodation, Wellbeing, Access</p>
+        <p class="sublist-label">Sources</p><ul class="sublist">
+        <li><a href="#ref-43">Reference 43</a>: O’Brien, K. K., Bayoumi, A. M., Strike, C., Young, N. L., &amp; Davis, A. M. (2008). “Exploring Disability from the Perspective of Adults Living with HIV/AIDS: Development of a Conceptual Framework.” Health and Quality of Life Outcomes, 6:76.</li>
+        <li><a href="#ref-8">Reference 8</a>: Kafer, A. (2013). Feminist, Queer, Crip. Indiana University Press.</li>
+        </ul>
+        <p class="sublist-label">Most related, by shared source and theme</p><ul class="sublist">
+        <li><a href="#node-ac28">Documentation Requirements and Medical Gatekeeping</a> <span class="basis">&mdash; Accommodation &middot; 1 shared source</span></li>
+        <li><a href="#node-ud11">Time, Pacing and Deadlines as Design Variables</a> <span class="basis">&mdash; Accommodation &middot; 1 shared source</span></li>
+        <li><a href="#node-ac8">Designing Out the Disclosure Requirement</a> <span class="basis">&mdash; Access</span></li>
+        <li><a href="#node-ac20">Disability Categories and the Barriers People Meet</a> <span class="basis">&mdash; Access</span></li>
+        <li><a href="#node-ac6">Essential Requirements and the Limits of Flexibility</a> <span class="basis">&mdash; Accommodation</span></li>
+        </ul>
+        <p class="sublist-label">Connected resources</p><ul class="sublist">
+        <li><a href="#node-ac8">Designing Out the Disclosure Requirement</a> <span class="basis">&mdash; Accommodation in practice</span></li>
+        <li><a href="#node-ac6">Essential Requirements and the Limits of Flexibility</a> <span class="basis">&mdash; Rights and obligation</span></li>
+        </ul>
+        </article>
+      <article class="entry" id="node-ac26">
+        <h4>Working with Accommodation Offices and Access Advisors</h4>
+        <p class="entry-sub">Who decides, and what a referral has to carry</p>
+        <p class="entry-status dev">In development</p>
+        <p>What an accommodation office decides, what it requires from an instructor or a designer, and what a referral has to contain to be usable. It covers the implementation gap in which an approved accommodation is recorded and then not delivered, and the boundary between designing conditions and adjudicating an individual case. The second belongs to the advisors and accommodation professionals who hold that work.</p>
+        <p class="meta"><strong>Group.</strong> Accommodation in practice</p>
+        <p class="meta"><strong>Home branch.</strong> Accessibility &middot; Well established</p>
+        <p class="meta"><strong>Accommodation in practice.</strong> AHEAD program standards; Canadian human rights jurisprudence; disability in higher education</p>
+        <p class="meta"><strong>Themes.</strong> Accommodation, Policy, Access</p>
+        <p class="sublist-label">Sources</p><ul class="sublist">
+        <li><a href="#ref-57">Reference 57</a>: Association on Higher Education And Disability (AHEAD). Program Domains, Standards, and Performance Indicators.</li>
+        <li><a href="#ref-36">Reference 36</a>: British Columbia (Public Service Employee Relations Commission) v. BCGSEU, [1999] 3 S.C.R. 3, 1999 CanLII 652 (SCC) — the “Meiorin” decision, establishing the unified bona fide requirement test and accommodation to the point of undue hardship.<br /><a href="https://www.canlii.org/en/ca/scc/doc/1999/1999canlii652/1999canlii652.html">https://www.canlii.org/en/ca/scc/doc/1999/1999canlii652/1999canlii652.html</a></li>
+        <li><a href="#ref-48">Reference 48</a>: Meeks, L. M., &amp; Jain, N. R. (2018). Accessibility, Inclusion, and Action in Medical Education: Lived Experiences of Learners and Physicians with Disabilities. Association of American Medical Colleges.</li>
+        <li><a href="#ref-6">Reference 6</a>: Dolmage, J. T. (2017). Academic Ableism: Disability and Higher Education. University of Michigan Press.</li>
+        </ul>
+        <p class="sublist-label">Most related, by shared source and theme</p><ul class="sublist">
+        <li><a href="#node-ac27">The Interactive Process in Learning Settings</a> <span class="basis">&mdash; Access, Accommodation, Policy &middot; 1 shared source</span></li>
+        <li><a href="#node-ac5">The Duty to Accommodate in Learning Design</a> <span class="basis">&mdash; Access, Accommodation, Policy &middot; 1 shared source</span></li>
+        <li><a href="#node-ac4">Why Universal Design Never Eliminates Individual Accommodation</a> <span class="basis">&mdash; Access, Accommodation &middot; 1 shared source</span></li>
+        <li><a href="#node-ac33">Canadian Accessibility and Accommodation Law for Learning Designers</a> <span class="basis">&mdash; Access, Accommodation, Policy &middot; 1 shared source</span></li>
+        <li><a href="#node-ac14">Access in Clinical and Placement Education</a> <span class="basis">&mdash; Access, Accommodation &middot; 2 shared sources</span></li>
+        </ul>
+        <p class="sublist-label">Connected resources</p><ul class="sublist">
+        <li><a href="#node-ac4">Why Universal Design Never Eliminates Individual Accommodation</a> <span class="basis">&mdash; Rights and obligation</span></li>
+        <li><a href="#node-ac5">The Duty to Accommodate in Learning Design</a> <span class="basis">&mdash; Rights and obligation</span></li>
+        <li><a href="#node-ac27">The Interactive Process in Learning Settings</a> <span class="basis">&mdash; Accommodation in practice</span></li>
+        </ul>
+        </article>
+      <article class="entry" id="node-ac27">
+        <h4>The Interactive Process in Learning Settings</h4>
+        <p class="entry-sub">A shared duty, not a request and a ruling</p>
+        <p class="entry-status dev">In development</p>
+        <p>Canadian human rights law treats accommodation as a process with obligations on every party to it, including the person seeking accommodation, and it sets limits on what may be asked of them. This resource covers who initiates, what good faith requires on each side, what documentation of the process is distinct from documentation of the person, and the points at which the process stalls: no response, an unworkable offer, or a request handled as a complaint.</p>
+        <p class="meta"><strong>Group.</strong> Accommodation in practice</p>
+        <p class="meta"><strong>Home branch.</strong> Accessibility &middot; Well established</p>
+        <p class="meta"><strong>Accommodation in practice.</strong> Renaud (SCC, 1992); Meiorin (SCC, 1999); BC Human Rights Code</p>
+        <p class="meta"><strong>Themes.</strong> Accommodation, Policy, Access</p>
+        <p class="sublist-label">Sources</p><ul class="sublist">
+        <li><a href="#ref-56">Reference 56</a>: Central Okanagan School District No. 23 v. Renaud, 1992 CanLII 81 (SCC), [1992] 2 S.C.R. 970 &mdash; the shared responsibility of every party to the accommodation process.</li>
+        <li><a href="#ref-36">Reference 36</a>: British Columbia (Public Service Employee Relations Commission) v. BCGSEU, [1999] 3 S.C.R. 3, 1999 CanLII 652 (SCC) — the “Meiorin” decision, establishing the unified bona fide requirement test and accommodation to the point of undue hardship.<br /><a href="https://www.canlii.org/en/ca/scc/doc/1999/1999canlii652/1999canlii652.html">https://www.canlii.org/en/ca/scc/doc/1999/1999canlii652/1999canlii652.html</a></li>
+        <li><a href="#ref-38">Reference 38</a>: Human Rights Code, R.S.B.C. 1996, c. 210. Province of British Columbia.</li>
+        </ul>
+        <p class="sublist-label">Most related, by shared source and theme</p><ul class="sublist">
+        <li><a href="#node-ac26">Working with Accommodation Offices and Access Advisors</a> <span class="basis">&mdash; Access, Accommodation, Policy &middot; 1 shared source</span></li>
+        <li><a href="#node-ac5">The Duty to Accommodate in Learning Design</a> <span class="basis">&mdash; Access, Accommodation, Policy &middot; 2 shared sources</span></li>
+        <li><a href="#node-ac33">Canadian Accessibility and Accommodation Law for Learning Designers</a> <span class="basis">&mdash; Access, Accommodation, Policy &middot; 2 shared sources</span></li>
+        <li><a href="#node-ac28">Documentation Requirements and Medical Gatekeeping</a> <span class="basis">&mdash; Accommodation</span></li>
+        <li><a href="#node-ac14">Access in Clinical and Placement Education</a> <span class="basis">&mdash; Access, Accommodation &middot; 1 shared source</span></li>
+        </ul>
+        <p class="sublist-label">Connected resources</p><ul class="sublist">
+        <li><a href="#node-ac5">The Duty to Accommodate in Learning Design</a> <span class="basis">&mdash; Rights and obligation</span></li>
+        <li><a href="#node-ac26">Working with Accommodation Offices and Access Advisors</a> <span class="basis">&mdash; Accommodation in practice</span></li>
+        <li><a href="#node-ac28">Documentation Requirements and Medical Gatekeeping</a> <span class="basis">&mdash; Accommodation in practice</span></li>
+        </ul>
+        </article>
+      <article class="entry" id="node-ac28">
+        <h4>Documentation Requirements and Medical Gatekeeping</h4>
+        <p class="entry-sub">What is asked of a person before they are believed</p>
+        <p class="entry-status dev">In development</p>
+        <p>What documentation is actually required, set against what institutions routinely request. Cost, waiting time and access to diagnosis are barriers in their own right, and requirements written for stable, diagnosed conditions operate differently for undiagnosed, episodic and fluctuating ones. It covers privacy and custody of records, and the conditions under which self-report is sufficient.</p>
+        <p class="meta"><strong>Group.</strong> Accommodation in practice</p>
+        <p class="meta"><strong>Home branch.</strong> Accessibility &middot; Newer or contested</p>
+        <p class="meta"><strong>Accommodation in practice.</strong> Disability studies; stigma and disclosure (Goffman); BC information governance</p>
+        <p class="meta"><strong>Themes.</strong> Accommodation, Disability studies, Equity</p>
+        <p class="sublist-label">Sources</p><ul class="sublist">
+        <li><a href="#ref-41">Reference 41</a>: Goffman, E. (1963). Stigma: Notes on the Management of Spoiled Identity. Prentice-Hall.</li>
+        <li><a href="#ref-42">Reference 42</a>: Freedom of Information and Protection of Privacy Act, R.S.B.C. 1996, c. 165. Province of British Columbia.</li>
+        <li><a href="#ref-6">Reference 6</a>: Dolmage, J. T. (2017). Academic Ableism: Disability and Higher Education. University of Michigan Press.</li>
+        <li><a href="#ref-43">Reference 43</a>: O’Brien, K. K., Bayoumi, A. M., Strike, C., Young, N. L., &amp; Davis, A. M. (2008). “Exploring Disability from the Perspective of Adults Living with HIV/AIDS: Development of a Conceptual Framework.” Health and Quality of Life Outcomes, 6:76.</li>
+        </ul>
+        <p class="sublist-label">Most related, by shared source and theme</p><ul class="sublist">
+        <li><a href="#node-ac8">Designing Out the Disclosure Requirement</a> <span class="basis">&mdash; Disability, Equity &middot; 3 shared sources</span></li>
+        <li><a href="#node-ac13">Designing for Episodic and Fluctuating Conditions</a> <span class="basis">&mdash; Accommodation &middot; 1 shared source</span></li>
+        <li><a href="#node-ac27">The Interactive Process in Learning Settings</a> <span class="basis">&mdash; Accommodation</span></li>
+        <li><a href="#node-ac7">Disability Studies for Learning Designers</a> <span class="basis">&mdash; Disability, Equity &middot; 1 shared source</span></li>
+        <li><a href="#node-ac26">Working with Accommodation Offices and Access Advisors</a> <span class="basis">&mdash; Accommodation &middot; 1 shared source</span></li>
+        </ul>
+        <p class="sublist-label">Connected resources</p><ul class="sublist">
+        <li><a href="#node-ac8">Designing Out the Disclosure Requirement</a> <span class="basis">&mdash; Accommodation in practice</span></li>
+        <li><a href="#node-ac13">Designing for Episodic and Fluctuating Conditions</a> <span class="basis">&mdash; Accommodation in practice</span></li>
+        <li><a href="#node-ac27">The Interactive Process in Learning Settings</a> <span class="basis">&mdash; Accommodation in practice</span></li>
+        </ul>
+        </article>
+
+  </section>
+
+  <section class="section-block" id="references">
+    <span class="section-marker">Section 4 of four</span>
+    <h2>References and resources</h2>
+    <p>The theory, law, and standards these resources are rooted in, listed once and cited by number above. Peer-reviewed, statutory, and institutional sources link directly. Books, reports, and legislation are cited in full so they can be found in any library catalogue or official register.</p>
+    <ol class="refs">
+      <li id="ref-6"><span class="cat">Disability studies</span><span class="num">6.</span> Dolmage, J. T. (2017). Academic Ableism: Disability and Higher Education. University of Michigan Press.</li>
+      <li id="ref-8"><span class="cat">Disability studies</span><span class="num">8.</span> Kafer, A. (2013). Feminist, Queer, Crip. Indiana University Press.</li>
+      <li id="ref-36"><span class="cat">Human rights law</span><span class="num">36.</span> British Columbia (Public Service Employee Relations Commission) v. BCGSEU, [1999] 3 S.C.R. 3, 1999 CanLII 652 (SCC) — the “Meiorin” decision, establishing the unified bona fide requirement test and accommodation to the point of undue hardship.<br /><a href="https://www.canlii.org/en/ca/scc/doc/1999/1999canlii652/1999canlii652.html">https://www.canlii.org/en/ca/scc/doc/1999/1999canlii652/1999canlii652.html</a></li>
+      <li id="ref-38"><span class="cat">Human rights law</span><span class="num">38.</span> Human Rights Code, R.S.B.C. 1996, c. 210. Province of British Columbia.</li>
+      <li id="ref-41"><span class="cat">Disclosure and stigma</span><span class="num">41.</span> Goffman, E. (1963). Stigma: Notes on the Management of Spoiled Identity. Prentice-Hall.</li>
+      <li id="ref-42"><span class="cat">Information governance</span><span class="num">42.</span> Freedom of Information and Protection of Privacy Act, R.S.B.C. 1996, c. 165. Province of British Columbia.</li>
+      <li id="ref-43"><span class="cat">Episodic disability</span><span class="num">43.</span> O’Brien, K. K., Bayoumi, A. M., Strike, C., Young, N. L., &amp; Davis, A. M. (2008). “Exploring Disability from the Perspective of Adults Living with HIV/AIDS: Development of a Conceptual Framework.” Health and Quality of Life Outcomes, 6:76.</li>
+      <li id="ref-48"><span class="cat">Health professions education</span><span class="num">48.</span> Meeks, L. M., &amp; Jain, N. R. (2018). Accessibility, Inclusion, and Action in Medical Education: Lived Experiences of Learners and Physicians with Disabilities. Association of American Medical Colleges.</li>
+      <li id="ref-56"><span class="cat">Human rights law</span><span class="num">56.</span> Central Okanagan School District No. 23 v. Renaud, 1992 CanLII 81 (SCC), [1992] 2 S.C.R. 970 &mdash; the shared responsibility of every party to the accommodation process.<br /><a href="https://www.canlii.org/en/ca/scc/doc/1992/1992canlii81/1992canlii81.html">https://www.canlii.org/en/ca/scc/doc/1992/1992canlii81/1992canlii81.html</a></li>
+      <li id="ref-57"><span class="cat">Disability services in higher education</span><span class="num">57.</span> Association on Higher Education And Disability (AHEAD). Program Domains, Standards, and Performance Indicators.<br /><a href="https://www.ahead.org/professional-resources/program-standards-ethics">https://www.ahead.org/professional-resources/program-standards-ethics</a></li>
+      </ol>
+  </section>
+
+  <p><a href="#toc" class="back-to-top">Back to contents</a></p>
+
+  <div class="page-credit">
+    <p>Every resource on this page reflects applied work carried out with learners, design teams, and partner organizations, and is grounded in the scholarship listed above. An <a href="area-map.html?group=accommodations">interactive version of this map</a> presents the same content as a navigable diagram.</p>
+  </div>
+
+</main>
+
+<footer>
+  <p>Accessible Learning Labs · Accessibility · Universal Design for Learning</p>
+</footer>
+
+</body>
+</html>
