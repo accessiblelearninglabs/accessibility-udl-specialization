@@ -11,12 +11,13 @@
       --accent:#3c6b93;--accent-light:#eef3f8;--border:#d5dde1;
       --font:'Asap',system-ui,sans-serif;--max:740px;}
     *{box-sizing:border-box;margin:0;padding:0;}
-    body{font-family:var(--font);background:var(--bg);color:var(--ink);font-size:16px;
+    body{font-family:var(--font);background:var(--bg);color:var(--ink);font-size:100%;
       line-height:1.7;-webkit-text-size-adjust:100%;}
     a{color:var(--accent);text-underline-offset:3px;}
     a:hover{text-decoration-thickness:2px;}
     a:focus-visible{outline:3px solid var(--accent);outline-offset:2px;
       box-shadow:0 0 0 6px rgba(255,255,255,.95);border-radius:2px;}
+    .vh{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0;}
     .skip-link{position:absolute;top:-100px;left:1rem;background:var(--accent);color:#fff;
       padding:.65rem 1rem;border-radius:4px;text-decoration:none;font-size:.85rem;z-index:999;}
     .skip-link:focus{top:1rem;}
@@ -142,14 +143,14 @@
   <section class="section-block" id="overview">
     <span class="section-marker">Section 2 of four</span>
     <h2>What is here</h2>
-    <table class="summary-table"><caption>Resources in each group, how many are published, and where each group lives</caption><thead><tr><th scope="col">Group</th><th scope="col">Resources</th><th scope="col">Published</th><th scope="col">Page</th></tr></thead><tbody><tr><th scope="row"><a href="#group-accommodations">Accommodation in practice</a></th><td>5</td><td>0</td><td><a href="https://www.accessiblelearninglabs.com/accommodations">Group page</a></td></tr>
-        <tr><th scope="row"><a href="#group-variability">Designing for variability</a></th><td>5</td><td>1</td><td><a href="https://www.accessiblelearninglabs.com/designing-for-variability">Group page</a></td></tr>
-        <tr><th scope="row"><a href="#group-grounding">Grounding</a></th><td>9</td><td>0</td><td><a href="https://www.accessiblelearninglabs.com/grounding">Group page</a></td></tr>
-        <tr><th scope="row"><a href="#group-institutions">Institutions, governance and change</a></th><td>5</td><td>1</td><td><a href="https://www.accessiblelearninglabs.com/institutions-governance-and-change">Group page</a></td></tr>
-        <tr><th scope="row"><a href="#group-rights">Rights and obligation</a></th><td>7</td><td>2</td><td><a href="https://www.accessiblelearninglabs.com/rights">Group page</a></td></tr>
-        <tr><th scope="row"><a href="#group-sectors">Sectors and participation</a></th><td>3</td><td>0</td><td><a href="https://www.accessiblelearninglabs.com/sectors-and-participation">Group page</a></td></tr>
-        <tr><th scope="row"><a href="#group-services">Services</a></th><td>3</td><td>0</td><td><a href="https://www.accessiblelearninglabs.com/services">Group page</a></td></tr>
-        <tr><th scope="row"><a href="#group-standards">Standards and technical practice</a></th><td>8</td><td>0</td><td><a href="https://www.accessiblelearninglabs.com/standards-and-technical-practice">Group page</a></td></tr>
+    <table class="summary-table"><caption>Resources in each group, how many are published, and where each group lives</caption><thead><tr><th scope="col">Group</th><th scope="col">Resources</th><th scope="col">Published</th><th scope="col">Page</th></tr></thead><tbody><tr><th scope="row"><a href="#group-accommodations">Accommodation in practice</a></th><td>5</td><td>0</td><td><a href="https://www.accessiblelearninglabs.com/accommodations">Group page<span class="vh"> for Accommodation in practice</span></a></td></tr>
+        <tr><th scope="row"><a href="#group-variability">Designing for variability</a></th><td>5</td><td>1</td><td><a href="https://www.accessiblelearninglabs.com/designing-for-variability">Group page<span class="vh"> for Designing for variability</span></a></td></tr>
+        <tr><th scope="row"><a href="#group-grounding">Grounding</a></th><td>9</td><td>0</td><td><a href="https://www.accessiblelearninglabs.com/grounding">Group page<span class="vh"> for Grounding</span></a></td></tr>
+        <tr><th scope="row"><a href="#group-institutions">Institutions, governance and change</a></th><td>5</td><td>1</td><td><a href="https://www.accessiblelearninglabs.com/institutions-governance-and-change">Group page<span class="vh"> for Institutions, governance and change</span></a></td></tr>
+        <tr><th scope="row"><a href="#group-rights">Rights and obligation</a></th><td>7</td><td>2</td><td><a href="https://www.accessiblelearninglabs.com/rights">Group page<span class="vh"> for Rights and obligation</span></a></td></tr>
+        <tr><th scope="row"><a href="#group-sectors">Sectors and participation</a></th><td>3</td><td>0</td><td><a href="https://www.accessiblelearninglabs.com/sectors-and-participation">Group page<span class="vh"> for Sectors and participation</span></a></td></tr>
+        <tr><th scope="row"><a href="#group-services">Services</a></th><td>3</td><td>0</td><td><a href="https://www.accessiblelearninglabs.com/services">Group page<span class="vh"> for Services</span></a></td></tr>
+        <tr><th scope="row"><a href="#group-standards">Standards and technical practice</a></th><td>8</td><td>0</td><td><a href="https://www.accessiblelearninglabs.com/standards-and-technical-practice">Group page<span class="vh"> for Standards and technical practice</span></a></td></tr>
         <tr><th scope="row">All groups</th><td>45</td><td>4</td><td></td></tr></tbody></table>
   </section>
 
@@ -159,7 +160,7 @@
     <p>Sources are written out in full here as well as numbered, so that following a reference is never necessary to understand an entry.</p>
     <h3 id="group-accommodations">Accommodation in practice</h3>
       <p>The practice around an individual request, and what design does beforehand to change how often one is needed. Individual cases are decided by accommodation professionals; these resources describe the conditions they inherit.</p>
-      <p class="meta"><a href="https://www.accessiblelearninglabs.com/accommodations">Visit the Accommodation in practice page</a> &middot; <a href="area-accommodation-in-practice-linear.html">Read this group on its own</a></p>
+      <p class="meta"><a href="https://www.accessiblelearninglabs.com/accommodations">Visit the Accommodation in practice page</a> &middot; <a href="area-accommodation-in-practice-linear.html">Read Accommodation in practice on its own</a></p>
       <article class="entry" id="node-ac8">
         <h4>Designing Out the Disclosure Requirement</h4>
         <p class="entry-sub">Disclosure burden as a design variable</p>
@@ -297,7 +298,7 @@
         </article>
                       <h3 id="group-variability">Designing for variability</h3>
       <p>Designing for the predictable range of learners. Distinct from disability, and kept distinct here: variability is a design premise, disability is a relationship between a person and an environment.</p>
-      <p class="meta"><a href="https://www.accessiblelearninglabs.com/designing-for-variability">Visit the Designing for variability page</a> &middot; <a href="area-designing-for-variability-linear.html">Read this group on its own</a></p>
+      <p class="meta"><a href="https://www.accessiblelearninglabs.com/designing-for-variability">Visit the Designing for variability page</a> &middot; <a href="area-designing-for-variability-linear.html">Read Designing for variability on its own</a></p>
       <article class="entry" id="node-ud1">
         <h4>Designing for Learner Variability at Scale</h4>
         <p class="entry-sub">The thesis the other UDL work inherits</p>
@@ -422,7 +423,7 @@
         </article>
           <h3 id="group-grounding">Grounding</h3>
       <p>How disability is understood, and what follows from the understanding. These resources supply the frame every later decision is made inside.</p>
-      <p class="meta"><a href="https://www.accessiblelearninglabs.com/grounding">Visit the Grounding page</a> &middot; <a href="area-grounding-linear.html">Read this group on its own</a></p>
+      <p class="meta"><a href="https://www.accessiblelearninglabs.com/grounding">Visit the Grounding page</a> &middot; <a href="area-grounding-linear.html">Read Grounding on its own</a></p>
       <article class="entry" id="node-ac7">
         <h4>Disability Studies for Learning Designers</h4>
         <p class="entry-sub">The grounding that changes what a designer sees</p>
@@ -668,7 +669,7 @@
         </article>
     <h3 id="group-institutions">Institutions, governance and change</h3>
       <p>Where accessibility is decided before anything is designed - procurement, planning, faculty development - and what makes a published commitment turn into changed practice.</p>
-      <p class="meta"><a href="https://www.accessiblelearninglabs.com/institutions-governance-and-change">Visit the Institutions, governance and change page</a> &middot; <a href="area-institutions-governance-and-change-linear.html">Read this group on its own</a></p>
+      <p class="meta"><a href="https://www.accessiblelearninglabs.com/institutions-governance-and-change">Visit the Institutions, governance and change page</a> &middot; <a href="area-institutions-governance-and-change-linear.html">Read Institutions, governance and change on its own</a></p>
       <article class="entry" id="node-ac12">
         <h4>Accessible Procurement and Vendor Accountability</h4>
         <p class="entry-sub">The decisions made before anything is built</p>
@@ -803,7 +804,7 @@
         </article>
     <h3 id="group-rights">Rights and obligation</h3>
       <p>What is owed to a person, and what proactive design does and does not discharge. The legal and ethical architecture within which access decisions are made and defended.</p>
-      <p class="meta"><a href="https://www.accessiblelearninglabs.com/rights">Visit the Rights and obligation page</a> &middot; <a href="area-rights-and-obligation-linear.html">Read this group on its own</a></p>
+      <p class="meta"><a href="https://www.accessiblelearninglabs.com/rights">Visit the Rights and obligation page</a> &middot; <a href="area-rights-and-obligation-linear.html">Read Rights and obligation on its own</a></p>
       <article class="entry" id="node-ac4">
         <h4>Why Universal Design Never Eliminates Individual Accommodation</h4>
         <p class="entry-sub">The anchor · why both are permanent, and both are skilled</p>
@@ -1003,7 +1004,7 @@
         </article>
     <h3 id="group-sectors">Sectors and participation</h3>
       <p>Clinical, health and research settings, where access questions carry additional duties, and the question of who is able to take part at all.</p>
-      <p class="meta"><a href="https://www.accessiblelearninglabs.com/sectors-and-participation">Visit the Sectors and participation page</a> &middot; <a href="area-sectors-and-participation-linear.html">Read this group on its own</a></p>
+      <p class="meta"><a href="https://www.accessiblelearninglabs.com/sectors-and-participation">Visit the Sectors and participation page</a> &middot; <a href="area-sectors-and-participation-linear.html">Read Sectors and participation on its own</a></p>
       <article class="entry" id="node-ac14">
         <h4>Access in Clinical and Placement Education</h4>
         <p class="entry-sub">Holding patient safety and access seriously at once</p>
@@ -1084,7 +1085,7 @@
         </article>
     <h3 id="group-services">Services</h3>
       <p>The three engagements the knowledge resources ground. Each names the resource that sets out its method in full.</p>
-      <p class="meta"><a href="https://www.accessiblelearninglabs.com/services">Visit the Services page</a> &middot; <a href="area-services-linear.html">Read this group on its own</a></p>
+      <p class="meta"><a href="https://www.accessiblelearninglabs.com/services">Visit the Services page</a> &middot; <a href="area-services-linear.html">Read Services on its own</a></p>
       <article class="entry" id="node-ac1">
         <h4>Accessibility Review</h4>
         <p class="entry-sub">Service · Accessible Learning Labs</p>
@@ -1164,7 +1165,7 @@
         </article>
     <h3 id="group-standards">Standards and technical practice</h3>
       <p>Conformance, assistive technology, and the gap between the two. What a standard requires, and why meeting it does not always mean a person can use the thing.</p>
-      <p class="meta"><a href="https://www.accessiblelearninglabs.com/standards-and-technical-practice">Visit the Standards and technical practice page</a> &middot; <a href="area-standards-and-technical-practice-linear.html">Read this group on its own</a></p>
+      <p class="meta"><a href="https://www.accessiblelearninglabs.com/standards-and-technical-practice">Visit the Standards and technical practice page</a> &middot; <a href="area-standards-and-technical-practice-linear.html">Read Standards and technical practice on its own</a></p>
       <article class="entry" id="node-ac10">
         <h4>Accessibility Triage for Existing Course Inventories</h4>
         <p class="entry-sub">A defensible order of work when everything cannot be fixed at once</p>
