@@ -119,7 +119,9 @@ canvas{display:block;width:100%;height:100%;}
 .chip-go:hover{background:var(--sunk);}
 .chip-go .cd{width:9px;height:9px;border-radius:100px;background:var(--sw);
   flex-shrink:0;display:inline-block;}
-.rec-t[role="button"]:hover{text-decoration:underline;text-underline-offset:3px;}
+.rec-t .rec-go{font:inherit;color:inherit;letter-spacing:inherit;background:none;
+  border:0;padding:0;margin:0;text-align:left;cursor:pointer;display:inline;}
+.rec-t .rec-go:hover{text-decoration:underline;text-underline-offset:3px;}
 .legend{display:flex;flex-wrap:wrap;gap:10px 34px;padding:14px 0 0;}
 .lgrp{display:flex;flex-direction:column;gap:6px;}
 .lt{font-size:10px;letter-spacing:.14em;word-spacing:.14em;text-transform:uppercase;
@@ -204,13 +206,17 @@ footer{border-top:1px solid var(--hair);padding:20px 0 40px;margin-top:34px;
 
 <div class="wrap">
 
+<main>
+
+  <h1 class="sr">Map of the accessibility and Universal Design for Learning knowledge resources</h1>
+
   <div class="note">
     <p><strong>How to read this.</strong> <strong>By group</strong> arranges the resources in this group with the most established nearest the centre. <strong>By theme</strong> repositions the same circles by the ideas they share. Select any circle to read it.</p>
     <p>Circle size shows how established the contribution is in the field, and distance from the centre says the same thing again: the anchor of each group sits nearest the middle, newer or more contested work further out. Colour shows the group. Every resource names its home branch — Accessibility or Universal Design for Learning — when selected.</p>
   </div>
 
   <div class="js-only">
-    <div class="controls" role="region" aria-label="Map controls">
+    <div class="controls">
       <p class="areamark" id="areamark"><span class="dot" id="areadot"></span><span id="areaname"></span></p>
       <span class="spacer"></span>
       <button class="linkbtn" id="reset" type="button">Reset view</button>
@@ -231,9 +237,10 @@ footer{border-top:1px solid var(--hair);padding:20px 0 40px;margin-top:34px;
         <div class="tt" id="tt" aria-hidden="true"><div class="k" id="tt-k"></div><div class="n" id="tt-n"></div></div>
         <p class="hint" id="hint">Drag to move · scroll to zoom</p>
       </div>
-      <aside class="panel" id="side" tabindex="-1" aria-live="polite">
+      <div class="panel" id="side" tabindex="-1">
         <div class="empty"><strong>Select a resource</strong>Tap any circle to open it here. Drag to move the map, scroll to zoom.</div>
-      </aside>
+      </div>
+      <p class="sr" id="side-status" role="status"></p>
     </div>
 
     <div class="legend">
@@ -876,6 +883,8 @@ footer{border-top:1px solid var(--hair);padding:20px 0 40px;margin-top:34px;
     </details>
   </div>
 
+</main>
+
   <footer id="areafoot">Accessible Learning Labs</footer>
 
 </div>
@@ -918,7 +927,7 @@ footer{border-top:1px solid var(--hair);padding:20px 0 40px;margin-top:34px;
 (function(){
 document.body.classList.add('has-js');
 
-var GC = {"grounding": "#477ba8", "accommodations": "#347cb1", "rights": "#567a9d", "variability": "#617993", "standards": "#69788b", "institutions": "#717781", "sectors": "#767677", "services": "#303e44"};
+var GC = {"grounding": "#477ba8", "rights": "#567a9d", "variability": "#617993", "standards": "#69788b", "institutions": "#717781", "sectors": "#767677", "services": "#303e44"};
 var GL = {"accommodations": "Accommodation in practice", "variability": "Designing for variability", "grounding": "Grounding", "institutions": "Institutions, governance and change", "rights": "Rights and obligation", "sectors": "Sectors and participation", "services": "Services", "standards": "Standards and technical practice"};
 var GO = ["accommodations", "variability", "grounding", "institutions", "rights", "sectors", "services", "standards"];
 
@@ -1249,6 +1258,7 @@ function settle(){
 
 /* ---------- panel ---------- */
 var side = document.getElementById('side');
+var sideStatus = document.getElementById('side-status');
 function esc(s){ return String(s).replace(/[&<>"]/g, function(c){
   return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
 
@@ -1260,7 +1270,7 @@ function emptyPanel(){
 
 function show(n, move){
   sel = n;
-  if (!n){ side.innerHTML = emptyPanel(); draw(); return; }
+  if (!n){ side.innerHTML = emptyPanel(); if (sideStatus) sideStatus.textContent = ''; draw(); return; }
   if (move !== false){ focusOn(n); settle(); }
 
   var rel = NODES.filter(function(m){ return m !== n; })
@@ -1298,6 +1308,11 @@ function show(n, move){
     + n.srcs.map(function(s){ return '<a href="#s' + s + '">' + s + '</a>'; }).join(', ') + '</p>';
   h += '<p class="p-close"><a href="#n-' + n.id + '">Read this resource in full below</a></p>';
   side.innerHTML = h;
+  /* A short announcement instead of a live region on the panel itself: the panel
+     holds a full card plus up to ten buttons, and announcing all of it on every
+     selection is unusable. The reader is told what was selected and can then
+     navigate into the panel at their own pace. */
+  if (sideStatus) sideStatus.textContent = 'Selected: ' + n.name + '. Details follow in the panel.';
   draw();
 }
 
@@ -1435,19 +1450,22 @@ document.addEventListener('click', function(ev){
 /* Selecting a heading in the list drives the map, which is how keyboard users
    reach every node without a focus ring travelling around a canvas. */
 [].forEach.call(document.querySelectorAll('.rec-t'), function(t){
-  t.style.cursor = 'pointer';
-  t.setAttribute('tabindex', '0');
-  t.setAttribute('role', 'button');
-  t.setAttribute('aria-label', t.textContent.trim() + ' — show on the map');
-  function go(){
+  /* The heading keeps its heading role. Putting a real button inside it, rather
+     than putting role="button" on the h3, is the whole point: role would replace
+     the heading role and drop all forty-five titles out of heading navigation,
+     which is the main way this page gets read. A real button also brings its own
+     keyboard handling, so there is no keydown shim here. */
+  var b = document.createElement('button');
+  b.type = 'button';
+  b.className = 'rec-go';
+  b.textContent = t.textContent.trim();
+  t.textContent = '';
+  t.appendChild(b);
+  b.addEventListener('click', function(){
     var el = t.closest('.rec'), n = MAP[el.dataset.id];
     if (!n) return;
     if (hidden(n)) setFilter('all');
     show(n);
-  }
-  t.addEventListener('click', go);
-  t.addEventListener('keydown', function(ev){
-    if (ev.key === 'Enter' || ev.key === ' '){ ev.preventDefault(); go(); }
   });
 });
 

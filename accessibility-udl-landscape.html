@@ -105,7 +105,9 @@ canvas{display:block;width:100%;height:100%;touch-action:none;}
 .chip-go:hover{background:var(--sunk);}
 .chip-go .cd{width:9px;height:9px;border-radius:100px;background:var(--sw);
   flex-shrink:0;display:inline-block;}
-.rec-t[role="button"]:hover{text-decoration:underline;text-underline-offset:3px;}
+.rec-t .rec-go{font:inherit;color:inherit;letter-spacing:inherit;background:none;
+  border:0;padding:0;margin:0;text-align:left;cursor:pointer;display:inline;}
+.rec-t .rec-go:hover{text-decoration:underline;text-underline-offset:3px;}
 .tf{display:flex;flex-wrap:wrap;gap:6px;}
 .lg{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 14px;
   border:1px solid var(--hair);border-radius:100px;background:var(--paper);cursor:pointer;
@@ -219,7 +221,7 @@ footer{margin:64px 0 0;border-top:1px solid var(--hair);padding:26px 0 60px;
 </header>
 
 <div class="js-only">
-  <div class="controls" role="region" aria-label="Map controls">
+  <div class="controls">
       <div class="tf" id="filters" role="group" aria-label="Show one group, or all">
 <button type="button" class="lg lg-all" data-g="all" aria-pressed="true">All</button>
         <button type="button" class="lg" data-g="accommodations" aria-pressed="false"><span class="dot" data-g="accommodations"></span><span class="lg-t">Accommodation in practice</span><span class="lg-n">5</span></button>
@@ -262,9 +264,10 @@ footer{margin:64px 0 0;border-top:1px solid var(--hair);padding:26px 0 60px;
       <div class="tt" id="tt" aria-hidden="true"><div class="k" id="tt-k"></div><div class="n" id="tt-n"></div></div>
         <p class="hint" id="hint">Drag to move · scroll to zoom</p>
     </div>
-    <div class="side" id="side" tabindex="-1" aria-live="polite">
+    <div class="side" id="side" tabindex="-1">
       <p class="side-empty">Select any circle to read what it holds. Circle size shows how established the contribution is in the field; colour shows its group.</p>
     </div>
+    <p class="sr" id="side-status" role="status"></p>
   </div>
 
     <div class="legend">
@@ -1262,6 +1265,7 @@ function settle(){
 
 /* ---------- panel ---------- */
 var side = document.getElementById('side');
+var sideStatus = document.getElementById('side-status');
 function esc(s){ return String(s).replace(/[&<>"]/g, function(c){
   return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
 
@@ -1273,7 +1277,7 @@ function emptyPanel(){
 
 function show(n, move){
   sel = n;
-  if (!n){ side.innerHTML = emptyPanel(); draw(); return; }
+  if (!n){ side.innerHTML = emptyPanel(); if (sideStatus) sideStatus.textContent = ''; draw(); return; }
   if (move !== false){ focusOn(n); settle(); }
 
   var rel = NODES.filter(function(m){ return m !== n; })
@@ -1311,6 +1315,11 @@ function show(n, move){
     + n.srcs.map(function(s){ return '<a href="#s' + s + '">' + s + '</a>'; }).join(', ') + '</p>';
   h += '<p class="p-close"><a href="#n-' + n.id + '">Read this resource in full below</a></p>';
   side.innerHTML = h;
+  /* A short announcement instead of a live region on the panel itself: the panel
+     holds a full card plus up to ten buttons, and announcing all of it on every
+     selection is unusable. The reader is told what was selected and can then
+     navigate into the panel at their own pace. */
+  if (sideStatus) sideStatus.textContent = 'Selected: ' + n.name + '. Details follow in the panel.';
   draw();
 }
 
@@ -1448,19 +1457,22 @@ document.addEventListener('click', function(ev){
 /* Selecting a heading in the list drives the map, which is how keyboard users
    reach every node without a focus ring travelling around a canvas. */
 [].forEach.call(document.querySelectorAll('.rec-t'), function(t){
-  t.style.cursor = 'pointer';
-  t.setAttribute('tabindex', '0');
-  t.setAttribute('role', 'button');
-  t.setAttribute('aria-label', t.textContent.trim() + ' — show on the map');
-  function go(){
+  /* The heading keeps its heading role. Putting a real button inside it, rather
+     than putting role="button" on the h3, is the whole point: role would replace
+     the heading role and drop all forty-five titles out of heading navigation,
+     which is the main way this page gets read. A real button also brings its own
+     keyboard handling, so there is no keydown shim here. */
+  var b = document.createElement('button');
+  b.type = 'button';
+  b.className = 'rec-go';
+  b.textContent = t.textContent.trim();
+  t.textContent = '';
+  t.appendChild(b);
+  b.addEventListener('click', function(){
     var el = t.closest('.rec'), n = MAP[el.dataset.id];
     if (!n) return;
     if (hidden(n)) setFilter('all');
     show(n);
-  }
-  t.addEventListener('click', go);
-  t.addEventListener('keydown', function(ev){
-    if (ev.key === 'Enter' || ev.key === ' '){ ev.preventDefault(); go(); }
   });
 });
 

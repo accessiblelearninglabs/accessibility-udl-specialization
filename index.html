@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<!--
+  ═══════════════════════════════════════════════════════════════════════════
+  KNOWLEDGE RESOURCE TEMPLATE — INTERACTIVE
+  Template version 1.0.0 — themed for: Accessible Learning Labs
+
+  Pair file: linear.html (same content, no tabs, no JS)
+  Set the branch by changing data-branch on <html> below.
+  Every block you edit is marked EDIT. Everything else is chrome.
+  ═══════════════════════════════════════════════════════════════════════════
+-->
+<html lang="en" data-branch="access">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+
+<!-- EDIT — title is "<Resource title> — <Branch> — Knowledge Resource" -->
+<title>Knowledge Resource Template — Course and Curriculum Design — Accessible Learning Labs</title>
+<!-- EDIT — 1–2 plain sentences. Shows in search results and link previews. -->
+<meta name="description" content="A reusable interactive template for the Accessible Learning Labs Course and Curriculum Design resource, built to WCAG 2.2 Level AA. The placeholder content is the instruction manual for the template.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap">
+
+<script>document.documentElement.classList.add('js');</script>
+
+<style>
+/* ══════════════════════════════════════════════════════════════════════════
+   1. TOKENS — shared block, identical in both templates. Do not edit per page.
+   Contrast ratios below are measured against the surface each token is used
+   on. Every text token clears WCAG 1.4.3 (4.5:1); every control boundary
+   clears 1.4.11 (3:1).
+   ══════════════════════════════════════════════════════════════════════════ */
+:root{
+  /* surfaces */
+  --paper:#ffffff;
+  --surface:#f5f6f7;
+  --sunk:#eaecee;
+
+  /* ink — ratios on --paper / --sunk */
+  --ink:#303e44;        /* 11.06 / 9.34 — headings, emphasis */
+  --ink-mid:#4f6068;    /*  6.55 / 5.53 — body copy */
+  --ink-muted:#576a73;  /*  5.65 / 4.77 — labels, captions, metadata */
+  --on-branch:#ffffff;
+
+  /* rules */
+  --rule:#d5dde1;       /* 1.38 — decorative hairlines ONLY, never a control edge */
+  --rule-strong:#7b8990;/* 3.61 — edges of buttons, inputs, focusable cards */
+
+  /* branch identity — see §2. --branch is non-text (bars, dots, edges);
+     --branch-text is the text-safe variant. Never swap them. */
+  --branch:#8a6a60;
+  --branch-text:#88685f;
+  --wash:color-mix(in srgb, var(--branch) 8%, var(--paper));
+
+  /* focus */
+  --focus:#303e44;
+  --focus-halo:#ffffff;
+
+  /* scale */
+  --measure:66ch;
+  --shell:min(100% - 2.5rem, 54rem);
+  --r:8px;
+  --r-sm:5px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+
+  --sans:"Asap",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+
+/* ── 2. BRANCH THEMES ──────────────────────────────────────────────────────
+   Colours are the landscape map's own. Where the map colour fell below 4.5:1
+   as text, a darkened text variant is supplied; the map colour is kept for
+   non-text use so the two surfaces still read as the same branch. */
+[data-branch="trunk"] {--branch:#55666e;--branch-text:#55666e;}
+[data-branch="access"]{--branch:#8a6a60;--branch-text:#88685f;}
+[data-branch="epist"] {--branch:#7a5c6b;--branch-text:#7a5c6b;}
+[data-branch="eval"]  {--branch:#41697a;--branch-text:#41697a;}
+[data-branch="hr"]    {--branch:#3f5570;--branch-text:#3f5570;}
+[data-branch="hwe"]   {--branch:#2e5f8a;--branch-text:#2e5f8a;}
+[data-branch="kmb"]   {--branch:#47607a;--branch-text:#47607a;}
+[data-branch="lxd"]   {--branch:#4c6b66;--branch-text:#4c6b66;}
+[data-branch="lsd"]   {--branch:#6d6550;--branch-text:#6d6550;}
+[data-branch="public"]{--branch:#5b7d8c;--branch-text:#557482;}
+[data-branch="udl"]   {--branch:#635f7a;--branch-text:#635f7a;}
+
+/* ── 3. RESET & BASE ─────────────────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  margin:0;
+  font-family:var(--sans);
+  font-size:1.0625rem;      /* 17px — no text below 0.8125rem anywhere */
+  line-height:1.65;
+  color:var(--ink-mid);
+  background:var(--paper);
+  -webkit-font-smoothing:antialiased;
+}
+/* 1.4.12 Text Spacing: nothing that holds text gets a fixed height. */
+h1,h2,h3,h4,p,ul,ol,dl,figure,blockquote{margin:0;}
+/* Form controls take a UA font unless told otherwise, so route them through
+   the same stack as everything else. Without this, radios, buttons, legends
+   and any field added later render in Arial. */
+button,input,select,textarea,optgroup,legend{font:inherit;}
+img,svg{max-width:100%;height:auto;}
+:target{scroll-margin-top:6rem;}
+
+/* 2.4.7 / 2.4.11 — one focus treatment, everywhere, thick enough to survive
+   any background it lands on. */
+:focus{outline:none;}
+:focus-visible{
+  outline:3px solid var(--focus);
+  outline-offset:2px;
+  border-radius:2px;
+  box-shadow:0 0 0 6px var(--focus-halo);
+}
+
+h1,h2,h3,h4{color:var(--ink);line-height:1.22;text-wrap:balance;font-weight:600;}
+h1{font-size:clamp(1.75rem,1.3rem + 1.9vw,2.4rem);letter-spacing:-.015em;font-weight:700;}
+h2{font-size:clamp(1.375rem,1.2rem + .7vw,1.6rem);letter-spacing:-.01em;}
+h3{font-size:1.125rem;}
+h4{font-size:1rem;}
+p{max-width:var(--measure);}
+p + p{margin-top:.85em;}
+
+a{color:var(--branch-text);text-underline-offset:.18em;text-decoration-thickness:1px;}
+a:hover{text-decoration-thickness:2px;}
+
+strong,b{color:var(--ink);font-weight:600;}
+code{font-family:var(--sans);font-size:.94em;font-weight:600;letter-spacing:.04em;
+  background:var(--sunk);padding:.1em .38em;border-radius:3px;color:var(--ink);}
+
+.shell{width:var(--shell);margin-inline:auto;}
+.eyebrow{font-size:.8125rem;font-weight:600;letter-spacing:.13em;word-spacing:.14em;text-transform:uppercase;
+  color:var(--branch-text);margin:0 0 .7rem;}
+.label{font-size:.8125rem;font-weight:700;letter-spacing:.1em;word-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-muted);display:block;margin-bottom:.5rem;}
+.lede{font-size:1.1875rem;line-height:1.55;color:var(--ink-mid);max-width:38em;}
+.muted{color:var(--ink-muted);font-size:.9375rem;}
+.stack > * + *{margin-top:1.15rem;}
+.rule{border:0;border-top:1px solid var(--rule);margin:2.5rem 0;}
+
+/* ── 4. SKIP LINKS ───────────────────────────────────────────────────────── */
+.skips{position:absolute;top:0;left:0;z-index:200;}
+.skips ul{list-style:none;margin:0;padding:0;display:flex;gap:.5rem;}
+.skips a{
+  position:absolute;left:-9999px;
+  display:inline-block;white-space:nowrap;
+  background:var(--ink);color:var(--paper);text-decoration:none;
+  font-size:.9375rem;font-weight:600;padding:.7rem 1.1rem;border-radius:0 0 var(--r-sm) 0;
+}
+.skips a:focus{position:static;}
+
+/* ── 5. MASTHEAD ─────────────────────────────────────────────────────────── */
+.masthead{background:var(--paper);border-bottom:1px solid var(--rule);}
+.masthead .shell{padding:2.5rem 0 2rem;}
+.masthead h1{margin-bottom:.75rem;max-width:24ch;}
+.brandbar{height:3px;width:3.5rem;background:var(--branch);border-radius:2px;margin-bottom:1.5rem;}
+
+/* the orientation note: who this is for, and how to move through it */
+.orient{
+  margin-top:1.75rem;background:var(--wash);
+  border:1px solid var(--rule);border-left:3px solid var(--branch);
+  border-radius:0 var(--r-sm) var(--r-sm) 0;
+  padding:1rem 1.15rem;font-size:.9375rem;max-width:var(--measure);
+}
+.orient p{max-width:none;}
+.orient p + p{margin-top:.6rem;}
+
+/* ── 6. TAB NAVIGATION ───────────────────────────────────────────────────
+   Without JS these are ordinary in-page links and every section is visible.
+   With JS they are upgraded to an ARIA tablist. */
+.sectionnav{
+  background:var(--paper);border-bottom:1px solid var(--rule);
+  position:sticky;top:0;z-index:50;
+}
+.tablist{display:flex;gap:.15rem;overflow-x:auto;scrollbar-width:thin;}
+.tablist a{
+  flex:0 0 auto;
+  display:flex;align-items:center;min-height:2.75rem;   /* 2.5.8 target size */
+  padding:.75rem .9rem;
+  font-size:.9375rem;font-weight:500;color:var(--ink-mid);
+  text-decoration:none;border-bottom:3px solid transparent;
+  transition:color .15s var(--ease),border-color .15s var(--ease);
+}
+.tablist a:hover{color:var(--ink);border-bottom-color:var(--rule-strong);}
+.tablist a[aria-selected="true"]{
+  color:var(--branch-text);font-weight:600;border-bottom-color:var(--branch);
+}
+.js .sectionnav .shell{position:relative;}
+
+/* ── 7. PANELS ───────────────────────────────────────────────────────────── */
+main .shell{padding:2.75rem 0 5rem;}
+.panel{max-width:none;}
+.panel[hidden]{display:none;}
+.panel > h2{margin-bottom:.5rem;max-width:var(--measure);}
+.panel h3{margin-top:2rem;margin-bottom:.5rem;}
+.panel h3:first-of-type{margin-top:1.75rem;}
+.panel > .panel-lede{margin-bottom:2rem;}
+.js .panel + .panel{margin-top:0;}
+html:not(.js) .panel + .panel{margin-top:3.5rem;padding-top:3rem;border-top:1px solid var(--rule);}
+.panel:focus{outline:none;}
+
+.panel-count{font-size:.8125rem;font-weight:700;letter-spacing:.1em;word-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-muted);display:block;margin-bottom:.55rem;}
+
+/* ── 8. CARDS ────────────────────────────────────────────────────────────── */
+.cards{display:grid;gap:1rem;grid-template-columns:repeat(auto-fill,minmax(17rem,1fr));
+  margin:1.75rem 0;}
+.card{
+  background:var(--paper);border:1px solid var(--rule);border-top:3px solid var(--branch);
+  border-radius:var(--r);padding:1.2rem 1.3rem;
+}
+.card h3{font-size:1rem;margin:0 0 .35rem;}
+.card p{font-size:.9375rem;max-width:none;}
+.card-tag{display:block;font-size:.8125rem;font-weight:600;letter-spacing:.08em;
+  word-spacing:.14em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:.4rem;}
+
+/* ── 9. CALLOUT ──────────────────────────────────────────────────────────── */
+.callout{
+  background:var(--surface);border:1px solid var(--rule);border-radius:var(--r);
+  padding:1.15rem 1.3rem;margin:1.75rem 0;font-size:.9375rem;max-width:var(--measure);
+}
+.callout.accent{background:var(--wash);border-left:3px solid var(--branch);
+  border-radius:0 var(--r) var(--r) 0;}
+.callout p{max-width:none;}
+.callout .label{color:var(--branch-text);}
+
+/* ── 10. STAGES (native <details>, so search and print reach inside) ─────── */
+.stages{margin:1.75rem 0;max-width:var(--measure);display:flex;flex-direction:column;gap:.4rem;}
+.stage{border:1px solid var(--rule);border-radius:var(--r);background:var(--paper);
+  overflow:hidden;}
+.stage[open]{border-color:var(--rule-strong);}
+.stage > summary{
+  display:flex;align-items:center;gap:.9rem;
+  padding:.9rem 1.1rem;min-height:2.75rem;
+  cursor:pointer;list-style:none;
+  font-weight:600;color:var(--ink);
+}
+.stage > summary::-webkit-details-marker{display:none;}
+.stage > summary:hover{background:var(--surface);}
+.stage-num{
+  flex:0 0 auto;width:1.75rem;height:1.75rem;border-radius:50%;
+  background:var(--branch-text);color:var(--on-branch);
+  display:grid;place-items:center;font-size:.8125rem;font-weight:700;
+}
+.stage-title{flex:1 1 auto;font-size:1rem;}
+.stage-title small{display:block;font-size:.875rem;font-weight:400;color:var(--ink-muted);
+  margin-top:.1rem;letter-spacing:0;text-transform:none;}
+.stage-mark{flex:0 0 auto;color:var(--ink-muted);font-size:1.25rem;line-height:1;
+  transition:transform .2s var(--ease);}
+.stage[open] > summary .stage-mark{transform:rotate(45deg);}
+.stage-body{padding:.25rem 1.1rem 1.2rem 3.75rem;}
+.stage-body p{font-size:.9375rem;}
+.stage-body > * + *{margin-top:.75rem;}
+.produces{background:var(--surface);border-radius:var(--r-sm);padding:.85rem 1rem;}
+.produces ul{margin:.4rem 0 0;padding-left:1.15rem;font-size:.9375rem;}
+.produces li + li{margin-top:.25rem;}
+
+.expander{margin:1.75rem 0 1rem;}
+
+/* ── 11. Q&A LIST (decisions) ────────────────────────────────────────────── */
+.qa{margin:1.75rem 0;max-width:var(--measure);border-top:1px solid var(--rule);}
+.qa > div{padding:1.15rem 0;border-bottom:1px solid var(--rule);}
+.qa h3{font-size:1.0625rem;margin:0 0 .3rem;}
+.qa .q{display:block;font-size:.9375rem;font-style:italic;color:var(--branch-text);
+  margin-bottom:.5rem;}
+.qa p{font-size:.9375rem;}
+
+/* ── 12. TWO-COLUMN OUTCOMES ─────────────────────────────────────────────── */
+.split{display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));
+  margin:1.75rem 0;}
+.split h3{margin-top:0;padding-bottom:.6rem;border-bottom:2px solid var(--branch);margin-bottom:1rem;}
+.split ul{list-style:none;margin:0;padding:0;}
+.split li{display:flex;gap:.7rem;margin-bottom:.9rem;font-size:.9375rem;}
+.split li::before{content:"";flex:0 0 3px;background:var(--branch);border-radius:2px;
+  align-self:stretch;}
+.split li b{display:block;color:var(--ink);}
+
+/* ── 13. REFLECTION FORM ─────────────────────────────────────────────────── */
+.reflect{margin:1.75rem 0;max-width:var(--measure);}
+.qgroup{border:1px solid var(--rule);border-radius:var(--r);padding:1.15rem 1.3rem;
+  margin:0 0 .75rem;}
+.qgroup legend{font-weight:600;color:var(--ink);padding:0;font-size:1rem;}
+.qgroup .hint{font-size:.9375rem;color:var(--ink-muted);margin:.35rem 0 .9rem;}
+.opts{display:grid;gap:.4rem;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));}
+.opt{display:flex;align-items:flex-start;gap:.6rem;
+  border:1px solid var(--rule-strong);border-radius:var(--r-sm);
+  padding:.7rem .85rem;min-height:2.75rem;font-size:.9375rem;cursor:pointer;
+  transition:background .15s var(--ease),border-color .15s var(--ease);}
+.opt:hover{background:var(--surface);}
+.opt input{
+  flex:0 0 auto;margin:.2rem 0 0;width:1.1rem;height:1.1rem;
+  accent-color:var(--branch-text);cursor:pointer;
+}
+.opt:has(input:checked){border-color:var(--branch);background:var(--wash);}
+.opt:has(input:checked) span{color:var(--ink);font-weight:600;}
+.opt:has(input:focus-visible){outline:3px solid var(--focus);outline-offset:2px;
+  box-shadow:0 0 0 6px var(--focus-halo);}
+.opt input:focus-visible{outline:none;box-shadow:none;}
+
+.btnrow{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.1rem;}
+.btn{
+  font:inherit;font-size:.9375rem;font-weight:600;
+  min-height:2.75rem;padding:.6rem 1.25rem;border-radius:var(--r-sm);cursor:pointer;
+  border:1px solid transparent;
+}
+.btn-primary{background:var(--branch-text);color:var(--on-branch);}
+.btn-primary:hover{background:var(--ink);}
+.btn-quiet{background:var(--paper);color:var(--ink);border-color:var(--rule-strong);}
+.btn-quiet:hover{background:var(--surface);}
+.btn-small{min-height:2.25rem;padding:.4rem .85rem;font-size:.875rem;}
+
+.result{margin-top:1.15rem;background:var(--wash);border:1px solid var(--rule-strong);
+  border-radius:var(--r);padding:1.3rem 1.4rem;}
+.result[hidden]{display:none;}
+.result h3{margin:0 0 .5rem;}
+.result p{font-size:.9375rem;}
+.formnote{font-size:.9375rem;color:var(--ink-muted);margin-top:.75rem;}
+
+/* ── 14. SOURCES ─────────────────────────────────────────────────────────── */
+.srcgroup{margin:1.75rem 0;max-width:var(--measure);}
+.srcgroup > h3{margin-top:0;padding-bottom:.5rem;border-bottom:1px solid var(--rule);margin-bottom:1rem;}
+.src{padding:.85rem 0;border-bottom:1px solid var(--rule);font-size:.9375rem;}
+.src:last-child{border-bottom:0;}
+.src .kind{display:block;font-size:.8125rem;font-weight:600;letter-spacing:.08em;
+  word-spacing:.14em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:.25rem;}
+.src p{max-width:none;}
+.src cite{font-style:italic;}
+.ext::after{content:"";display:inline-block;width:.68em;height:.68em;margin-left:.3em;
+  background:currentColor;vertical-align:-.02em;
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M5 11.6 11.6 5M6 4.6h5.4V10' fill='none' stroke='%23000' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center/contain;
+          mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M5 11.6 11.6 5M6 4.6h5.4V10' fill='none' stroke='%23000' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center/contain;}
+
+/* ── 15. FOOTER ──────────────────────────────────────────────────────────── */
+.pagefoot{border-top:1px solid var(--rule);background:var(--surface);}
+.pagefoot .shell{padding:2rem 0 3rem;}
+.pagefoot p{font-size:.9375rem;color:var(--ink-muted);}
+.pagefoot p + p{margin-top:.7rem;}
+.meta{display:flex;flex-wrap:wrap;gap:.4rem 1.25rem;font-size:.875rem;
+  color:var(--ink-muted);margin-top:1.25rem;padding-top:1rem;border-top:1px solid var(--rule);}
+.meta > span{white-space:nowrap;}
+
+/* ── 16. JS-ONLY / NO-JS ─────────────────────────────────────────────────── */
+html:not(.js) .js-only{display:none !important;}
+html:not(.js) .sectionnav{position:static;}
+html:not(.js) .tablist{flex-wrap:wrap;}
+.js .nojs-note{display:none;}
+.nojs-note{margin-top:1rem;font-size:.9375rem;color:var(--ink-muted);}
+
+/* ── 17. USER PREFERENCES ────────────────────────────────────────────────── */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;
+    transition-duration:.001ms !important;scroll-behavior:auto !important;}
+}
+@media (prefers-contrast:more){
+  :root{--rule:#5a6a72;--rule-strong:#3d4a51;--ink-mid:#2b383e;--ink-muted:#33424a;}
+}
+@media (forced-colors:active){
+  .card,.stage,.qgroup,.opt,.callout,.result{border:1px solid CanvasText;}
+  .brandbar,.stage-num,.split li::before{forced-color-adjust:none;background:CanvasText;}
+  .tablist a[aria-selected="true"]{border-bottom-color:Highlight;}
+  :focus-visible{outline-color:Highlight;}
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --paper:#161d21;--surface:#1e262a;--sunk:#263035;
+    --ink:#e8edef;      /* 14.44 on --paper */
+    --ink-mid:#c3ced3;  /* 10.63 */
+    --ink-muted:#a3b2b9;/*  7.81 / 6.18 on --sunk */
+    --rule:#33414a;--rule-strong:#7e8f98;
+    --focus:#e8edef;--focus-halo:#161d21;
+    --on-branch:#161d21;
+    --branch-text:color-mix(in srgb, #e8edef 58%, var(--branch)); /* ≥7.4:1 */
+    --wash:color-mix(in srgb, var(--branch) 22%, var(--paper));
+  }
+  .btn-primary{color:#161d21;}
+}
+
+/* ── 18. PRINT ───────────────────────────────────────────────────────────── */
+@media print{
+  .skips,.sectionnav,.js-only,.btnrow{display:none !important;}
+  .panel[hidden]{display:block !important;}
+  .panel + .panel{margin-top:2rem;padding-top:1.5rem;border-top:1px solid #999;
+    break-before:page;}
+  .stage-body{display:block !important;}
+  body{font-size:11pt;color:#000;background:#fff;}
+  h2,h3{break-after:avoid;}
+  .card,.stage,.callout,.qgroup{break-inside:avoid;}
+  a[href^="http"]::after{content:" (" attr(href) ")";font-size:9pt;word-break:break-all;}
+}
+</style>
+</head>
+
+<body>
+
+<nav class="skips" aria-label="Skip links">
+  <ul>
+    <li><a href="#main">Skip to main content</a></li>
+    <li><a href="#sections">Skip to section navigation</a></li>
+  </ul>
+</nav>
+
+<!-- ═══════════════ MASTHEAD ═══════════════ -->
+<header class="masthead">
+  <div class="shell">
+    <div class="brandbar" aria-hidden="true"></div>
+
+    <!-- EDIT — branch name, exactly as it appears on the landscape map -->
+    <p class="eyebrow">Accessible Learning Labs · Knowledge resource</p>
+
+    <!-- EDIT — the node name from the landscape map -->
+    <h1>Knowledge Resource Template</h1>
+
+    <!-- EDIT — one sentence. What this resource lets a reader do that they
+         could not do before reading it. Not a topic label; a claim. -->
+    <p class="lede">A reusable structure for publishing the Course and Curriculum Design resource as a pair of web
+      pages — one interactive, one linear — that meet WCAG 2.2 Level AA before a
+      single word of content is written.</p>
+
+    <div class="orient">
+      <!-- EDIT — who this is for. Name the reader. -->
+      <p><strong>Who this is for.</strong> Anyone building the Course and Curriculum Design resource
+        for Accessible Learning Labs. This copy is already themed and wired, so start by
+        replacing the title above, then work through every block marked
+        <code>EDIT</code>. The service page is at
+        <a href="https://www.accessiblelearninglabs.com/course-and-curriculum-design">accessiblelearninglabs.com/course-and-curriculum-design</a>.</p>
+      <!-- Keep this paragraph as-is; only the filename changes. -->
+      <p><strong>Another way to read this.</strong> A
+        <a href="linear.html">linear version</a> presents the same
+        content in one continuous column, with no tabs and no scripting. Both versions
+        carry identical content — neither is a summary of the other.</p>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════ SECTION NAVIGATION ═══════════════
+     Without JS: ordinary in-page links, all sections visible below.
+     With JS: upgraded to an ARIA tablist by the script at the end of the body.
+     To add or remove a section, edit here AND the matching <section> below.
+-->
+<nav class="sectionnav" id="sections" aria-label="Sections of this resource">
+  <div class="shell">
+    <div class="tablist" data-tablist>
+      <a href="#foundations">Foundations</a>
+      <a href="#process">Process</a>
+      <a href="#decisions">Decisions</a>
+      <a href="#competencies">Competencies</a>
+      <a href="#outcomes">Outcomes</a>
+      <a href="#reflection">Reflection</a>
+      <a href="#sources">Sources</a>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+<div class="shell">
+
+  <p class="nojs-note">Scripting is off, so all seven sections are shown one after
+    another. Nothing is missing.</p>
+
+  <!-- ═══════════ 1 · FOUNDATIONS ═══════════ -->
+  <section class="panel" id="foundations" aria-labelledby="h-foundations">
+    <span class="panel-count">Section one of seven</span>
+    <h2 id="h-foundations">Foundations</h2>
+    <p class="panel-lede">What this section is for: naming the bodies of knowledge the
+      resource stands on, so a reader can judge the work before they take it up.</p>
+
+    <h3>Write this section last</h3>
+    <p>Foundations are what you find you relied on, not what you meant to. Draft the
+      process, decisions and outcomes first, then come back and name the disciplines
+      those sections actually drew from. Anything you name here must appear again in
+      <a href="#sources">Sources</a> with a citation. If it has no citation, it is not
+      a foundation — cut it.</p>
+
+    <h3>Use between four and ten cards</h3>
+    <p>Order them by how load-bearing each one is, heaviest first. Fewer than four
+      usually means the node is a sub-topic of something else on the map. More than ten
+      usually means two nodes have been folded into one.</p>
+
+    <div class="cards">
+      <!-- EDIT — repeat this card per foundation. Delete the spares. -->
+      <div class="card">
+        <span class="card-tag">Discipline</span>
+        <h3>Name of the field</h3>
+        <p>One or two sentences on what this field contributes that the others cannot.
+          Not a definition of the field — a statement of its job in this resource.</p>
+      </div>
+      <div class="card">
+        <span class="card-tag">Discipline</span>
+        <h3>Name of the field</h3>
+        <p>Keep every card to roughly the same length. Uneven cards make the grid look
+          like a ranking when it is not one.</p>
+      </div>
+      <div class="card">
+        <span class="card-tag">Discipline</span>
+        <h3>Name of the field</h3>
+        <p>The card tag is a category, not a label for the card. Use it for the kind of
+          thing this is: Discipline, Framework, Standard, Method.</p>
+      </div>
+    </div>
+
+    <div class="callout accent">
+      <span class="label">Optional block</span>
+      <p><strong>The cross-cutting thread.</strong> If one idea runs through every
+        foundation above, say so here in three or four sentences. If no single thread
+        holds, delete this block rather than inventing one.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════ 2 · PROCESS ═══════════ -->
+  <section class="panel" id="process" aria-labelledby="h-process">
+    <span class="panel-count">Section two of seven</span>
+    <h2 id="h-process">Process</h2>
+    <p class="panel-lede">What this section is for: showing how the work is actually
+      done, in the order it is done, so the reader can locate themselves in it.</p>
+
+    <p>Use numbered stages only when order carries information the reader needs. If the
+      steps can be taken in any sequence, they are not stages — move them into
+      <a href="#decisions">Decisions</a> and delete this section's numbering. Five to
+      eight stages is the workable range.</p>
+
+    <div class="expander js-only">
+      <button type="button" class="btn btn-quiet btn-small" data-expand-all>Expand all stages</button>
+    </div>
+
+    <div class="stages">
+      <!-- EDIT — repeat one <details> per stage. Keep the numbers sequential. -->
+      <details class="stage" id="stage-1">
+        <summary>
+          <span class="stage-num" aria-hidden="true">1</span>
+          <span class="stage-title">Stage title, as an action
+            <small>The condition that makes this stage necessary</small></span>
+          <span class="stage-mark" aria-hidden="true">+</span>
+        </summary>
+        <div class="stage-body">
+          <p>Two or three short paragraphs. Write what the practitioner does, in the
+            active voice, in the order they do it. Name the judgement call inside the
+            stage — the thing that separates doing this well from doing it at all.</p>
+          <div class="produces">
+            <span class="label">This stage produces</span>
+            <ul>
+              <li>A named artefact, not an abstraction</li>
+              <li>Another named artefact</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+
+      <details class="stage" id="stage-2">
+        <summary>
+          <span class="stage-num" aria-hidden="true">2</span>
+          <span class="stage-title">Every stage keeps the same shape
+            <small>Prose, then a "this stage produces" list</small></span>
+          <span class="stage-mark" aria-hidden="true">+</span>
+        </summary>
+        <div class="stage-body">
+          <p>Consistency across stages is what lets a reader skim. If one stage has no
+            tangible output, that is a signal it belongs inside an adjacent stage rather
+            than standing alone.</p>
+          <div class="produces">
+            <span class="label">This stage produces</span>
+            <ul>
+              <li>A decision that later stages depend on</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+
+      <details class="stage" id="stage-3">
+        <summary>
+          <span class="stage-num" aria-hidden="true">3</span>
+          <span class="stage-title">Stages are open by default in the linear file
+            <small>The same content, laid out differently</small></span>
+          <span class="stage-mark" aria-hidden="true">+</span>
+        </summary>
+        <div class="stage-body">
+          <p>In the linear template these are ordinary headings and paragraphs. Write the
+            text once, paste it into both files. Never shorten it for one format.</p>
+          <div class="produces">
+            <span class="label">This stage produces</span>
+            <ul>
+              <li>Two files whose content is verifiably identical</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ═══════════ 3 · DECISIONS ═══════════ -->
+  <section class="panel" id="decisions" aria-labelledby="h-decisions">
+    <span class="panel-count">Section three of seven</span>
+    <h2 id="h-decisions">Decisions</h2>
+    <p class="panel-lede">What this section is for: surfacing the choices that shape the
+      work, phrased as questions a practitioner has to answer for themselves.</p>
+
+    <p>Each entry is a heading, a question, and an answer. The question is the point —
+      it is what the reader carries back to their own project. Write questions that a
+      thoughtful practitioner could answer either way; if there is only one defensible
+      answer, it is a rule, not a decision, and belongs in
+      <a href="#process">Process</a>. Four to eight entries.</p>
+
+    <div class="qa">
+      <!-- EDIT — repeat this block per decision. -->
+      <div>
+        <h3>Short name for the decision</h3>
+        <span class="q">The question, written the way a practitioner would ask it?</span>
+        <p>What hangs on the answer, and what each way of answering costs. Two to four
+          sentences. Do not resolve it for the reader unless the evidence genuinely
+          resolves it — then say so and cite the source in
+          <a href="#sources">Sources</a>.</p>
+      </div>
+      <div>
+        <h3>Short name for the decision</h3>
+        <span class="q">The question, written the way a practitioner would ask it?</span>
+        <p>Keep the answers roughly even in length. A decision with three times the prose
+          of its neighbours reads as the only one that matters.</p>
+      </div>
+      <div>
+        <h3>Short name for the decision</h3>
+        <span class="q">The question, written the way a practitioner would ask it?</span>
+        <p>If two decisions always get answered together, they are one decision. Merge
+          them.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ 4 · COMPETENCIES ═══════════ -->
+  <section class="panel" id="competencies" aria-labelledby="h-competencies">
+    <span class="panel-count">Section four of seven</span>
+    <h2 id="h-competencies">Competencies</h2>
+    <p class="panel-lede">What this section is for: stating what a person must be able to
+      do to practise this, so the resource can be used for hiring, scoping, or
+      self-assessment.</p>
+
+    <p>Write each as a capability, not a topic: "can separate the competency from the
+      method of demonstrating it," not "understands assessment." Six to ten entries.
+      Each one should map onto something in <a href="#process">Process</a> — if it does
+      not, either the competency is unused or the process is incomplete.</p>
+
+    <div class="cards">
+      <!-- EDIT — repeat per competency. -->
+      <div class="card">
+        <h3>Capability, phrased as a verb</h3>
+        <p>One or two sentences describing what someone with this capability produces
+          that someone without it does not.</p>
+      </div>
+      <div class="card">
+        <h3>Capability, phrased as a verb</h3>
+        <p>Avoid dispositions — "is empathetic," "is detail-oriented." They cannot be
+          observed, taught, or assessed, so they cannot be competencies.</p>
+      </div>
+      <div class="card">
+        <h3>Capability, phrased as a verb</h3>
+        <p>Name the tools or standards the capability requires, if any. That is what
+          makes it checkable.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ 5 · OUTCOMES ═══════════ -->
+  <section class="panel" id="outcomes" aria-labelledby="h-outcomes">
+    <span class="panel-count">Section five of seven</span>
+    <h2 id="h-outcomes">Outcomes</h2>
+    <p class="panel-lede">What this section is for: separating what the work produces
+      soon from what it changes over time, so neither is oversold.</p>
+
+    <p>Two columns, because the two kinds of claim carry different evidential weight.
+      Short-term outcomes are things you can point at within a project. Longer-term
+      change is what the evidence suggests follows, and it should be phrased with the
+      hedging the evidence actually supports.</p>
+
+    <div class="split">
+      <div>
+        <!-- EDIT -->
+        <h3>Within the project</h3>
+        <ul>
+          <li><span><b>A concrete outcome</b>What it looks like when it has happened, in
+            one sentence.</span></li>
+          <li><span><b>A concrete outcome</b>Prefer outcomes someone else could verify
+            without taking your word for it.</span></li>
+          <li><span><b>A concrete outcome</b>Three to six entries.</span></li>
+        </ul>
+      </div>
+      <div>
+        <!-- EDIT -->
+        <h3>Over time</h3>
+        <ul>
+          <li><span><b>A longer-arc change</b>Match the hedge to the evidence: "tends
+            to," "in the studies available," "reported in."</span></li>
+          <li><span><b>A longer-arc change</b>Anything here that is a claim about
+            effect needs a citation in <a href="#sources">Sources</a>.</span></li>
+          <li><span><b>A longer-arc change</b>Three to six entries.</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout">
+      <span class="label">Optional block</span>
+      <p><strong>What this does not do.</strong> A short paragraph naming the limits of
+        the work. This is the most-read paragraph in most resources of this kind, and
+        leaving it out is the fastest way to lose a sceptical reader.</p>
+    </div>
+  </section>
+
+  <!-- ═══════════ 6 · REFLECTION ═══════════ -->
+  <section class="panel" id="reflection" aria-labelledby="h-reflection">
+    <span class="panel-count">Section six of seven</span>
+    <h2 id="h-reflection">Reflection</h2>
+    <p class="panel-lede">What this section is for: letting a reader locate their own
+      situation against the resource, and leave with a next step rather than a score.</p>
+
+    <p>Three to five questions, each a radio group. Options run from least to most
+      established practice, left to right. Every option carries a
+      <code>data-score</code> from 1 to 4; the average selects one of the four bands
+      written below. The band text lives in the HTML, not the script, so you write it
+      and nothing is generated.</p>
+
+    <form class="reflect" novalidate>
+      <!-- EDIT — repeat one fieldset per question. name= must be unique. -->
+      <fieldset class="qgroup">
+        <legend>The question, addressed to the reader's own situation</legend>
+        <p class="hint">A clarifying sentence, if the question needs one.</p>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="q1" data-score="1"><span>Least established option</span></label>
+          <label class="opt"><input type="radio" name="q1" data-score="2"><span>Emerging option</span></label>
+          <label class="opt"><input type="radio" name="q1" data-score="3"><span>Established option</span></label>
+          <label class="opt"><input type="radio" name="q1" data-score="4"><span>Most established option</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="qgroup">
+        <legend>The question, addressed to the reader's own situation</legend>
+        <p class="hint">Keep every question to the same number of options, so the
+          averaging stays honest.</p>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="q2" data-score="1"><span>Least established option</span></label>
+          <label class="opt"><input type="radio" name="q2" data-score="2"><span>Emerging option</span></label>
+          <label class="opt"><input type="radio" name="q2" data-score="3"><span>Established option</span></label>
+          <label class="opt"><input type="radio" name="q2" data-score="4"><span>Most established option</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="qgroup">
+        <legend>The question, addressed to the reader's own situation</legend>
+        <p class="hint">Write options a reader can pick without embarrassment. Anything
+          that reads as a failing will be over-reported upward.</p>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="q3" data-score="1"><span>Least established option</span></label>
+          <label class="opt"><input type="radio" name="q3" data-score="2"><span>Emerging option</span></label>
+          <label class="opt"><input type="radio" name="q3" data-score="3"><span>Established option</span></label>
+          <label class="opt"><input type="radio" name="q3" data-score="4"><span>Most established option</span></label>
+        </div>
+      </fieldset>
+
+      <div class="btnrow js-only">
+        <button type="button" class="btn btn-primary" data-reflect-show>Show where this puts you</button>
+        <button type="button" class="btn btn-quiet" data-reflect-reset>Clear answers</button>
+      </div>
+
+      <p class="formnote js-only" data-reflect-note hidden>Answer every question to see a
+        result.</p>
+
+      <p class="formnote nojs-note">Scripting is off, so the bands below are all shown.
+        Read the one that matches your answers.</p>
+
+      <!-- Result region. With JS one band is revealed; without JS all four show.
+           No role="status" here: the script moves focus to this block once it is
+           filled, and a live region on top of that reads the result twice. -->
+      <div class="result js-only" data-reflect-result hidden>
+        <h3 data-band-title></h3>
+        <div data-band-body></div>
+      </div>
+
+      <!-- EDIT — the four bands. data-band gives the range of the average score. -->
+      <div class="bands" hidden data-bands>
+        <div data-band="1">
+          <h3>Name of the first band</h3>
+          <p>What this pattern of answers usually means, and the single most useful next
+            step from here. Three or four sentences. Describe the situation, never the
+            person.</p>
+        </div>
+        <div data-band="2">
+          <h3>Name of the second band</h3>
+          <p>Same shape. Each band ends with one concrete next action, not a list of
+            them.</p>
+        </div>
+        <div data-band="3">
+          <h3>Name of the third band</h3>
+          <p>Same shape.</p>
+        </div>
+        <div data-band="4">
+          <h3>Name of the fourth band</h3>
+          <p>Same shape. The top band still names a next step — there is no finished
+            state.</p>
+        </div>
+      </div>
+    </form>
+  </section>
+
+  <!-- ═══════════ 7 · SOURCES ═══════════ -->
+  <section class="panel" id="sources" aria-labelledby="h-sources">
+    <span class="panel-count">Section seven of seven</span>
+    <h2 id="h-sources">Sources</h2>
+    <p class="panel-lede">What this section is for: making every claim in the resource
+      checkable by someone who does not trust you yet.</p>
+
+    <p>Group sources by the foundation they support, in the same order as
+      <a href="#foundations">Foundations</a>. Give each one a kind label so a reader can
+      tell a standard from a study from a practitioner text. Link only to a stable
+      public address — a publisher page, a DOI, a standards body. Do not link to a
+      paywalled PDF as the sole address for a claim.</p>
+
+    <div class="srcgroup">
+      <!-- EDIT — one group per foundation. -->
+      <h3>Foundation name, matching Section one</h3>
+
+      <div class="src">
+        <span class="kind">Standard</span>
+        <p><strong>Issuing body.</strong> <cite>Title of the standard</cite>, version and
+          year. One sentence on what it is used for here.</p>
+        <p><a class="ext" href="#" rel="noopener">stable-address.example</a></p>
+      </div>
+
+      <div class="src">
+        <span class="kind">Peer-reviewed</span>
+        <p><strong>Author, A., &amp; Author, B.</strong> "Title of the article."
+          <cite>Journal Name</cite>, volume(issue), pages, year.</p>
+      </div>
+
+      <div class="src">
+        <span class="kind">Practitioner text</span>
+        <p><strong>Author, A.</strong> <cite>Title of the book</cite>. Edition.
+          Publisher, year.</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <span class="label">Before publishing</span>
+      <p>Open every link in this section. A resource whose citations rot is worse than
+        one with fewer citations, because it invites a trust it can no longer carry.</p>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<footer class="pagefoot">
+  <div class="shell">
+    <!-- EDIT — scope note. What the resource is, and what it is not. -->
+    <p>This resource is published by Accessible Learning Labs. It draws on published
+      scholarship and professional standards in the fields named in Sources, and does not
+      constitute legal advice for any particular situation.</p>
+    <p>A <a href="linear.html">linear version</a> of this page is
+      available, with the same content in one continuous column and no scripting.</p>
+
+    <!-- EDIT — keep all four. Update the date whenever content changes. -->
+    <p class="meta">
+      <span>Accessible Learning Labs</span>
+      <span>Accessibility</span>
+      <span>Version 1.0</span>
+      <span>Last reviewed <time datetime="2026-08-25">25 August 2026</time></span>
+    </p>
+  </div>
+</footer>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════════════════
+   Behaviour. Everything here is an enhancement: with the script removed the
+   page is a valid, complete, linear document. Nothing below creates content.
+   ═════════════════════════════════════════════════════════════════════════ */
+(function () {
+  'use strict';
+
+  /* ── Tabs ───────────────────────────────────────────────────────────────
+     The links in .tablist are upgraded in place to an ARIA tablist. Because
+     they start life as real anchors, deep links and no-JS both work. */
+  var list = document.querySelector('[data-tablist]');
+  var tabs = list ? Array.prototype.slice.call(list.querySelectorAll('a')) : [];
+  var panels = tabs.map(function (t) {
+    return document.querySelector(t.getAttribute('href'));
+  }).filter(Boolean);
+
+  if (tabs.length && tabs.length === panels.length) {
+    list.setAttribute('role', 'tablist');
+
+    tabs.forEach(function (tab, i) {
+      var panel = panels[i];
+      tab.setAttribute('role', 'tab');
+      tab.id = 'tab-' + panel.id;
+      tab.setAttribute('aria-controls', panel.id);
+      panel.setAttribute('role', 'tabpanel');
+      panel.setAttribute('aria-labelledby', tab.id);
+      panel.setAttribute('tabindex', '-1');
+    });
+
+    /* writeHash is false for the selection made on load. Writing the fragment
+       before the document finishes loading makes the browser scroll to it, which
+       lands the reader below the title and the orientation note. */
+    var select = function (i, moveFocus, writeHash) {
+      tabs.forEach(function (tab, n) {
+        var on = n === i;
+        tab.setAttribute('aria-selected', String(on));
+        tab.setAttribute('tabindex', on ? '0' : '-1');
+        panels[n].hidden = !on;
+      });
+      if (moveFocus) { tabs[i].focus(); }
+      if (writeHash !== false) {
+        try { history.replaceState(null, '', '#' + panels[i].id); } catch (e) {}
+      }
+    };
+
+    var indexOfPanelContaining = function (id) {
+      var el = document.getElementById(id);
+      while (el && el !== document.body) {
+        var n = panels.indexOf(el);
+        if (n > -1) { return n; }
+        el = el.parentElement;
+      }
+      return -1;
+    };
+
+    list.addEventListener('click', function (e) {
+      var tab = e.target.closest('a[role="tab"]');
+      if (!tab) { return; }
+      e.preventDefault();
+      select(tabs.indexOf(tab), true);
+    });
+
+    list.addEventListener('keydown', function (e) {
+      var i = tabs.indexOf(document.activeElement);
+      if (i < 0) { return; }
+      var next = null;
+      if (e.key === 'ArrowRight') { next = (i + 1) % tabs.length; }
+      else if (e.key === 'ArrowLeft') { next = (i - 1 + tabs.length) % tabs.length; }
+      else if (e.key === 'Home') { next = 0; }
+      else if (e.key === 'End') { next = tabs.length - 1; }
+      if (next === null) { return; }
+      e.preventDefault();
+      select(next, true);
+    });
+
+    /* Any in-page link that points into a hidden panel opens that panel first,
+       then moves focus to the target so keyboard and screen reader users land
+       in the same place sighted users do. */
+    document.addEventListener('click', function (e) {
+      var link = e.target.closest('a[href^="#"]');
+      if (!link || link.closest('[data-tablist]')) { return; }
+      var id = link.getAttribute('href').slice(1);
+      if (!id) { return; }
+      var n = indexOfPanelContaining(id);
+      if (n < 0) { return; }
+      var target = document.getElementById(id);
+      e.preventDefault();
+      select(n, false, false);
+      history.replaceState(null, '', '#' + id);
+      if (target) {
+        if (!target.hasAttribute('tabindex')) { target.setAttribute('tabindex', '-1'); }
+        target.focus({ preventScroll: true });
+        target.scrollIntoView({ block: 'start' });
+      }
+    });
+
+    /* An incoming fragment opens its panel and is left in the URL, so a shared
+       link still lands where it promised. A bare URL opens the first panel and
+       stays at the top of the page. */
+    var opening = location.hash ? indexOfPanelContaining(location.hash.slice(1)) : -1;
+    select(opening > -1 ? opening : 0, false, opening > -1);
+  }
+
+  /* ── Expand all / collapse all ─────────────────────────────────────────── */
+  document.querySelectorAll('[data-expand-all]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var scope = btn.closest('.panel') || document;
+      var all = Array.prototype.slice.call(scope.querySelectorAll('details.stage'));
+      var open = all.every(function (d) { return d.open; });
+      all.forEach(function (d) { d.open = !open; });
+      btn.textContent = open ? 'Expand all stages' : 'Collapse all stages';
+    });
+  });
+
+  /* ── Reflection ────────────────────────────────────────────────────────── */
+  document.querySelectorAll('form.reflect').forEach(function (form) {
+    var result = form.querySelector('[data-reflect-result]');
+    var note   = form.querySelector('[data-reflect-note]');
+    var bands  = form.querySelector('[data-bands]');
+    var show   = form.querySelector('[data-reflect-show]');
+    var reset  = form.querySelector('[data-reflect-reset]');
+    if (!result || !bands || !show) { return; }
+
+    var groups = Array.prototype.slice.call(form.querySelectorAll('fieldset.qgroup'));
+
+    show.addEventListener('click', function () {
+      var scores = groups.map(function (g) {
+        var picked = g.querySelector('input:checked');
+        return picked ? Number(picked.dataset.score) : null;
+      });
+      if (scores.indexOf(null) > -1) {
+        if (note) { note.hidden = false; }
+        var first = groups[scores.indexOf(null)].querySelector('input');
+        if (first) { first.focus(); }
+        return;
+      }
+      if (note) { note.hidden = true; }
+
+      var avg = scores.reduce(function (a, b) { return a + b; }, 0) / scores.length;
+      var band = bands.querySelector('[data-band="' + Math.round(avg) + '"]');
+      if (!band) { return; }
+
+      var body = band.cloneNode(true);
+      var heading = body.querySelector('h3');
+      var title = heading ? heading.textContent : '';
+      if (heading) { body.removeChild(heading); }
+
+      result.querySelector('[data-band-title]').textContent = title;
+      var slot = result.querySelector('[data-band-body]');
+      slot.innerHTML = '';
+      while (body.firstChild) { slot.appendChild(body.firstChild); }
+      result.hidden = false;
+      result.setAttribute('tabindex', '-1');
+      result.focus({ preventScroll: true });
+    });
+
+    if (reset) {
+      reset.addEventListener('click', function () {
+        form.querySelectorAll('input[type="radio"]').forEach(function (r) { r.checked = false; });
+        result.hidden = true;
+        if (note) { note.hidden = true; }
+        var first = form.querySelector('input[type="radio"]');
+        if (first) { first.focus(); }
+      });
+    }
+  });
+}());
+</script>
+
+</body>
+</html>
