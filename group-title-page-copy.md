@@ -11,26 +11,35 @@ rule and the standing test apply in full; the counts are scaled to the artefact.
 **Few decisions reach this far.**
 ***Made well, they open the way for everyone after.***
 
-Three engagements, each focused on a decision that shapes who takes part for years to come:
+Three engagements, each focused on a decision that shapes who takes part for years to come.
+Each is built on the three conditions Fieldwork names: accessibility sets the legal and
+technical floor, disability justice decides whose knowledge shapes the result, and emergent
+learning keeps the result able to change.
 
 - An **essential requirements review** examines what is asked of people at two thresholds:
   entering a profession, and taking part in a learning program. For health, clinical and
   professional programs, it works through each requirement the program and the profession set,
   one at a time, distinguishing what the profession genuinely needs from what convention has
   carried forward. For learning programs of every kind, it does the same from admission
-  through coursework, assessment and placement to completion. Each requirement is tested
-  against the justification Canadian human rights law requires, and the program receives a
-  defensibility file it keeps and maintains. Done well, this work widens who can enter a
+  through coursework, assessment and placement to completion. The justification Canadian human
+  rights law requires is the floor. Disabled students and practitioners sit on the review, so
+  their knowledge shapes what counts as essential. The program receives a defensibility file it
+  keeps, maintains and revises as evidence arrives. Done well, this work widens who can enter a
   program and a profession while protecting the standards that matter, for every cohort that
   follows.
 - An **assessment access and validity review** identifies the time limits, formats and
-  conditions that measure something other than the intended outcome. Redesigning them reduces
-  the need for individual accommodation, without diminishing its importance, and makes the
-  assessment a more accurate account of what every learner knows and can do.
+  conditions that measure something other than the intended outcome. Conformance and the duty
+  to accommodate are the floor. The people who take the assessment take part in judging what it
+  measures. Evaluation is built into the redesign, so the assessment keeps improving after the
+  review ends. Redesigning it reduces the need for individual accommodation, without
+  diminishing its importance, and makes the assessment a more accurate account of what every
+  learner knows and can do.
 - A **plan-to-practice review** works with the people an accessibility plan is meant to serve
-  to find where the published plan and lived practice have drifted apart. It identifies what to
-  change before the next three-year update, so that a public commitment becomes a change people
-  can feel.
+  to find where the published plan and lived practice have drifted apart. The plan and the Act
+  behind it are the floor. The people the plan serves judge whether it reached them. The
+  feedback mechanism is tested for whether it changes anything, so the next three-year cycle
+  can learn from this one. The result is what to change before the next update, so that a
+  public commitment becomes a change people can feel.
 
 Each engagement states at scoping whether it is quality assurance or research. Determinations
 in individual accommodation cases rest with accessibility advisors, accommodation offices and
