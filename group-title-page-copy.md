@@ -1,30 +1,39 @@
-# Title page copy — 7 groups
+# Title page copy — 7 groups and the engagements
 
 Accessible Learning Labs. Craft standards from the Fieldwork set, adapted: the functional
 rule and the standing test apply in full; the counts are scaled to the artefact.
 
 ---
 
-## 1. Services
+## 1. Engagements
 `/services`
 
-**Built once,**
-***carried by every cohort after.***
+**The decisions an institution**
+***has to be able to defend.***
 
 Three engagements.
 
-A review establishes what is blocking whom, measured against WCAG 2.2 Level AA and against
-how people work with the material, and returns a prioritised order of work.
+An essential requirements review works through a health, clinical or professional
+programme's requirements one at a time. It separates what the profession genuinely
+requires from what convention has carried forward, tests each against the bona fide
+requirement analysis Canadian human rights law applies, and returns a defensibility file
+the programme keeps.
 
-A design engagement builds access into the structure of a programme: outcomes, assessment,
-materials, platform.
+An assessment access and validity review finds the time limits, formats and conditions
+that measure something other than the outcome. Redesigning them means fewer individual
+accommodations are needed, and the assessment is more valid for everyone who takes it.
 
-A capacity engagement moves the practice inside the organization, so the next course does
-not need an external hand.
+A plan-to-practice review gathers evidence, with the people an accessibility plan serves,
+of where the published plan and lived practice have drifted apart, and what to change
+before the next three-year update.
 
-Each is grounded in a published knowledge resource setting out its method in full: the
-stages, the decisions it turns on, the competencies it calls for, and the sources behind
-them.
+Each draws on published knowledge resources that set out the method in full. Accessibility
+review, inclusive course and curriculum design, and inclusive facilitation and capacity
+building are among them, open to use.
+
+Each engagement states at scoping whether it is quality assurance or research. Determinations
+in individual accommodation cases rest with accommodation offices and legal counsel; these
+engagements support that work and never replace it.
 
 ---
 
@@ -96,8 +105,9 @@ people. The distinction is load-bearing: designing well for the spread does not 
 what is owed to an individual, which is why this group sits beside Rights, duty and
 accommodation rather than inside it.
 
-Learner variability at scale, onboarding across wide ranges of prior experience, engaging
-adults who are there by choice, and making flexibility affordable to produce.
+Learner variability at scale, inclusive course and curriculum design, onboarding across
+wide ranges of prior experience, engaging adults who are there by choice, and making
+flexibility affordable to produce.
 
 ---
 
@@ -119,8 +129,9 @@ explicit that no tool determines conformance on its own. Testing with the assist
 technology in actual use, and stating in advance what would count as evidence that a barrier
 came down, carries a standard the rest of the way.
 
-Triage for existing course inventories, assistive technology in practice, physical and
-hybrid learning environments, and evaluating whether a design reduced barriers.
+Accessibility review across four bodies of knowledge, triage for existing course
+inventories, assistive technology in practice, physical and hybrid learning environments,
+and evaluating whether a design reduced barriers.
 
 ---
 
@@ -144,8 +155,8 @@ Work at this level is slower than fixing a document. It also survives the depart
 person who argued for it.
 
 Procurement and vendor accountability, institutional accessibility planning as a change
-programme, faculty development that changes practice, and closing the gap between knowing
-and doing.
+programme, faculty development that changes practice, inclusive facilitation and capacity
+building, and closing the gap between knowing and doing.
 
 ---
 
@@ -184,6 +195,8 @@ educators, placement coordinators, and disabled practitioners who hold it.
   https://www.statcan.gc.ca/o1/en/plus/6361-breaking-down-barriers-new-way-measure-progress-canadians-disabilities
 - Accessibility plan and feedback requirements — Accessible Canada Act (S.C. 2019, c. 10);
   Accessible British Columbia Act (S.B.C. 2021, c. 19).
+- Plans reviewed and updated at least once every three years — Accessible British Columbia
+  Act, s. 11(2). Checked 2 October 2026.
 - WCAG 2.2 Level AA as a superset of the levels named in Canadian law, and no tool
   determining conformance on its own — both already stated in the Knowledge Resource
   Template README and the Accessibility Review resource. Verify against the Verified Source
