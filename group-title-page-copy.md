@@ -13,14 +13,16 @@ rule and the standing test apply in full; the counts are scaled to the artefact.
 
 Three engagements, each focused on a decision that shapes who takes part for years to come:
 
-- An **essential requirements review** examines what a learning program asks of the people
-  who take it: at admission, in coursework and assessment, in placements, and at completion.
-  Each requirement is considered on its own terms, distinguishing what the program, and where
-  relevant the profession, genuinely needs from what has been carried forward by convention.
-  Each is tested against the justification Canadian human rights law requires, and the program
-  receives a defensibility file it keeps and maintains. Done well, this work widens who can
-  enter a program and a profession while protecting the standards that matter, for every
-  cohort that follows.
+- An **essential requirements review** examines what is asked of people at two thresholds:
+  entering a profession, and taking part in a learning program. For health, clinical and
+  professional programs, it works through each requirement the program and the profession set,
+  one at a time, distinguishing what the profession genuinely needs from what convention has
+  carried forward. For learning programs of every kind, it does the same from admission
+  through coursework, assessment and placement to completion. Each requirement is tested
+  against the justification Canadian human rights law requires, and the program receives a
+  defensibility file it keeps and maintains. Done well, this work widens who can enter a
+  program and a profession while protecting the standards that matter, for every cohort that
+  follows.
 - An **assessment access and validity review** identifies the time limits, formats and
   conditions that measure something other than the intended outcome. Redesigning them reduces
   the need for individual accommodation, without diminishing its importance, and makes the
