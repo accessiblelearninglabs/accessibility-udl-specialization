@@ -34,12 +34,15 @@ learning keeps the result able to change.
   review ends. Redesigning it reduces the need for individual accommodation, without
   diminishing its importance, and makes the assessment a more accurate account of what every
   learner knows and can do.
-- A **plan-to-practice review** works with the people an accessibility plan is meant to serve
-  to find where the published plan and lived practice have drifted apart. The plan and the Act
-  behind it are the floor. The people the plan serves judge whether it reached them. The
-  feedback mechanism is tested for whether it changes anything, so the next three-year cycle
-  can learn from this one. The result is what to change before the next update, so that a
-  public commitment becomes a change people can feel.
+- A **learning and training commitments review** takes the part of an accessibility plan
+  that promises learning: staff training, faculty development, accessible onboarding, mandatory
+  courses. Those commitments are where a plan changes practice or does not. Working with the
+  people the training is meant to reach, it finds where the commitment and what people actually
+  receive have drifted apart. The plan and the Act behind it are the floor. The people the
+  training serves judge whether it reached them. Evaluation is built into the training itself,
+  so the next three-year cycle can learn from this one. The result is what to redesign before
+  the next update, so that a public commitment becomes a change people can feel in their own
+  work.
 
 Each engagement states at scoping whether it is quality assurance or research. Determinations
 in individual accommodation cases rest with accessibility advisors, accommodation offices and
