@@ -6,34 +6,33 @@ rule and the standing test apply in full; the counts are scaled to the artefact.
 ---
 
 ## 1. Engagements
-`/services`
+`/engagements`
 
-**The decisions an institution**
-***has to be able to defend.***
+**Few decisions reach this far.**
+***Made well, they open the way for everyone after.***
 
-Three engagements.
+Three engagements, each focused on a decision that shapes who takes part for years to come:
 
-An essential requirements review works through a health, clinical or professional
-programme's requirements one at a time. It separates what the profession genuinely
-requires from what convention has carried forward, tests each against the bona fide
-requirement analysis Canadian human rights law applies, and returns a defensibility file
-the programme keeps.
-
-An assessment access and validity review finds the time limits, formats and conditions
-that measure something other than the outcome. Redesigning them means fewer individual
-accommodations are needed, and the assessment is more valid for everyone who takes it.
-
-A plan-to-practice review gathers evidence, with the people an accessibility plan serves,
-of where the published plan and lived practice have drifted apart, and what to change
-before the next three-year update.
-
-Each draws on published knowledge resources that set out the method in full. Accessibility
-review, inclusive course and curriculum design, and inclusive facilitation and capacity
-building are among them, open to use.
+- An **essential requirements review** examines what a learning program asks of the people
+  who take it: at admission, in coursework and assessment, in placements, and at completion.
+  Each requirement is considered on its own terms, distinguishing what the program, and where
+  relevant the profession, genuinely needs from what has been carried forward by convention.
+  Each is tested against the justification Canadian human rights law requires, and the program
+  receives a defensibility file it keeps and maintains. Done well, this work widens who can
+  enter a program and a profession while protecting the standards that matter, for every
+  cohort that follows.
+- An **assessment access and validity review** identifies the time limits, formats and
+  conditions that measure something other than the intended outcome. Redesigning them reduces
+  the need for individual accommodation, without diminishing its importance, and makes the
+  assessment a more accurate account of what every learner knows and can do.
+- A **plan-to-practice review** works with the people an accessibility plan is meant to serve
+  to find where the published plan and lived practice have drifted apart. It identifies what to
+  change before the next three-year update, so that a public commitment becomes a change people
+  can feel.
 
 Each engagement states at scoping whether it is quality assurance or research. Determinations
-in individual accommodation cases rest with accommodation offices and legal counsel; these
-engagements support that work and never replace it.
+in individual accommodation cases rest with accessibility advisors, accommodation offices and
+legal counsel. These engagements support that skilled work and never replace it.
 
 ---
 
